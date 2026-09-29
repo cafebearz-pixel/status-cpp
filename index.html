@@ -2685,7 +2685,7 @@ footer a{
 
         บริการออนไลน์จากองค์การบริหารส่วนตำบลชำผักแพว
 
-        ให้ประชาชนสามารถยื่นคำร้องและตรวจสอบความคืบหน้า
+        ให้ประชาชนสามารถตรวจสอบความคืบหน้าของคำร้อง
 
         ได้อย่างสะดวก รวดเร็ว และโปร่งใส
 
@@ -2937,7 +2937,7 @@ footer a{
 
           class="refresh-btn"
 
-          onclick="loadDashboard();loadPublicList();"
+          onclick="loadBootstrap();"
 
         >
 
@@ -3045,7 +3045,7 @@ footer a{
 
           กรอกเลขทะเบียนคำร้อง
 
-          และหมายเลขโทรศัพท์ 4 ตัวท้าย
+          และชื่อผู้ร้อง
 
         </p>
 
@@ -3087,21 +3087,17 @@ footer a{
 
 
 
-          <label>เบอร์โทรศัพท์ 4 ตัวท้าย</label>
+          <label>ชื่อผู้ร้อง</label>
 
 
 
           <input
 
-            type="tel"
+            type="text"
 
-            id="trackPhone"
+            id="trackName"
 
-            maxlength="4"
-
-            inputmode="numeric"
-
-            placeholder="เช่น 5678"
+            placeholder="เช่น นายสมชาย ใจดี"
 
           >
 
@@ -3289,7 +3285,7 @@ footer a{
 
 <!-- SUBMIT -->
 
-<section class="section" id="submit">
+<section class="section" id="submit" style="display:none">
 
 
 
@@ -3430,7 +3426,7 @@ footer a{
 
               maxlength="10"
 
-              inputmode="numeric"
+              
 
               placeholder="เช่น 0812345678"
 
@@ -4915,225 +4911,37 @@ async function loadPublicList(){
 
 
 async function searchTracking(){
-
-
-
   clearMessage("trackMessage");
+  document.getElementById("trackingResult").classList.remove("show");
 
+  const ticket=document.getElementById("trackTicket").value.trim();
+  const name=document.getElementById("trackName").value.trim();
 
+  if(!ticket){ setMessage("trackMessage","กรุณากรอกเลขทะเบียนคำร้อง"); return; }
+  if(!name){ setMessage("trackMessage","กรุณากรอกชื่อผู้ร้อง"); return; }
 
-  document
-
-    .getElementById("trackingResult")
-
-    .classList.remove("show");
-
-
-
-
-
-  const ticket =
-
-    document
-
-      .getElementById("trackTicket")
-
-      .value
-
-      .trim();
-
-
-
-
-
-  const phone =
-
-    document
-
-      .getElementById("trackPhone")
-
-      .value
-
-      .replace(/\D/g,"")
-
-      .slice(-4);
-
-
-
-
-
-  if(!ticket){
-
-
-
-    setMessage(
-
-      "trackMessage",
-
-      "กรุณากรอกเลขทะเบียนคำร้อง"
-
-    );
-
-
-
-    return;
-
-  }
-
-
-
-
-
-  if(phone.length !== 4){
-
-
-
-    setMessage(
-
-      "trackMessage",
-
-      "กรุณากรอกเบอร์โทรศัพท์ 4 ตัวท้ายให้ครบ"
-
-    );
-
-
-
-    return;
-
-  }
-
-
-
-
-
-  const button =
-
-    document.getElementById("trackButton");
-
-
-
-  const oldText =
-
-    button.innerHTML;
-
-
-
-  button.disabled = true;
-
-  button.innerHTML = "กำลังค้นหา...";
-
-
-
-
+  const button=document.getElementById("trackButton");
+  const oldText=button.innerHTML;
+  button.disabled=true; button.innerHTML="กำลังค้นหา...";
 
   try{
-
-
-
-    const url =
-
-      API_URL +
-
-      "?action=search" +
-
-      "&ticket=" +
-
-      encodeURIComponent(ticket) +
-
-      "&phone=" +
-
-      encodeURIComponent(phone);
-
-
-
-
-
-    const response =
-
-      await fetch(url);
-
-
-
-
-
-    const result =
-
-      await response.json();
-
-
-
-
-
+    const result=await apiGet("search",{ticket,name});
     if(!result.success){
-
-
-
-      setMessage(
-
-        "trackMessage",
-
-        result.message || "ไม่พบข้อมูลคำร้อง"
-
-      );
-
-
-
+      setMessage("trackMessage",result.message||"ไม่พบข้อมูลคำร้อง");
       return;
-
     }
-
-
-
-
-
     renderTrackingResult(result.data);
-
-
-
-  }
-
-  catch(error){
-
-
-
+  }catch(error){
     console.error(error);
-
-
-
-    setMessage(
-
-      "trackMessage",
-
-      "ไม่สามารถเชื่อมต่อระบบได้ กรุณาลองใหม่อีกครั้ง"
-
-    );
-
-
-
+    setMessage("trackMessage","ไม่สามารถเชื่อมต่อระบบได้ กรุณาลองใหม่อีกครั้ง");
+  }finally{
+    button.disabled=false; button.innerHTML=oldText;
   }
-
-  finally{
-
-
-
-    button.disabled = false;
-
-    button.innerHTML = oldText;
-
-
-
-  }
-
 }
 
 
-
-
-
 /* =========================================================
-
    RESULT
-
 ========================================================= */
 
 
@@ -5920,9 +5728,7 @@ async function submitComplaint(){
 
 
 
-    loadDashboard();
-
-    loadPublicList();
+    loadBootstrap();
 
 
 
@@ -6140,7 +5946,7 @@ function goTrackNewTicket(){
 
 
 
-  document.getElementById("trackPhone").value =
+  document.getElementById("trackName").value =
 
     phone;
 
@@ -6384,7 +6190,7 @@ function closeMobileMenu(){
 
 document
 
-  .getElementById("trackPhone")
+  .getElementById("trackName")
 
   .addEventListener(
 
@@ -6444,7 +6250,7 @@ document
 
 document
 
-  .getElementById("trackPhone")
+  .getElementById("trackName")
 
   .addEventListener(
 
@@ -6511,12 +6317,17 @@ async function apiGet(action, params={}){
   return await res.json();
 }
 async function apiPost(payload){
-  const res = await fetch(API_URL,{
-    method:"POST",
-    headers:{"Content-Type":"text/plain;charset=utf-8"},
-    body:JSON.stringify(payload)
-  });
-  return await res.json();
+  const controller=new AbortController();
+  const timer=setTimeout(()=>controller.abort(),15000);
+  try{
+    const res=await fetch(API_URL,{
+      method:"POST",
+      headers:{"Content-Type":"text/plain;charset=utf-8"},
+      body:JSON.stringify(payload),
+      signal:controller.signal
+    });
+    return await res.json();
+  }finally{ clearTimeout(timer); }
 }
 function openGenericModal(id){
   document.getElementById(id).classList.add("show");
@@ -6546,6 +6357,8 @@ function setAdminUI(loggedIn){
   const mbtn=document.getElementById("mobileAdminButton");
   const note=document.getElementById("adminOnlyNote");
   section.classList.toggle("show",loggedIn);
+  const submitSection=document.getElementById("submit");
+  if(submitSection) submitSection.style.display=loggedIn?"":"none";
   nav.style.display=loggedIn?"":"none";
   mnav.style.display=loggedIn?"":"none";
   btn.textContent=loggedIn?"⚙️ จัดการคำร้อง":"🔐 เข้าสู่ระบบ";
@@ -6753,6 +6566,12 @@ document.querySelectorAll(".submit-nav-link").forEach(a=>{
   });
 });
 
+document.querySelectorAll('a[href="#submit"]').forEach(a=>{
+  a.addEventListener("click",function(e){
+    if(!adminToken){ e.preventDefault(); openGenericModal("adminLoginModal"); }
+  });
+});
+
 const _originalReviewComplaint = reviewComplaint;
 reviewComplaint = function(){
   if(!adminToken){openGenericModal("adminLoginModal");return;}
@@ -6784,6 +6603,38 @@ submitComplaint = async function(){
   finally{button.disabled=false;button.innerHTML=oldText;}
 };
 
+function renderPublicRows(list){
+  const tbody=document.getElementById("publicListBody");
+  if(!Array.isArray(list)||!list.length){
+    tbody.innerHTML='<tr><td colspan="5" class="loading-text">ยังไม่มีข้อมูลคำร้อง</td></tr>';
+    return;
+  }
+  tbody.innerHTML=list.map(item=>{
+    const status=escapeHTML(item.status||"รับเรื่องแล้ว");
+    return `<tr><td><strong>${escapeHTML(item.ticketNo||"")}</strong></td>
+      <td>${escapeHTML(item.date||"")}</td><td>${escapeHTML(item.category||"")}</td>
+      <td>${escapeHTML(item.department||"")}</td>
+      <td><span class="status-badge ${getStatusClass(status)}">${status}</span></td></tr>`;
+  }).join("");
+}
+async function loadBootstrap(){
+  try{
+    const r=await apiGet("bootstrap");
+    if(!r.success) throw new Error(r.message||"โหลดข้อมูลไม่สำเร็จ");
+    const d=(r.data&&r.data.dashboard)||{};
+    document.getElementById("statTotal").textContent=d.total||0;
+    document.getElementById("statReceived").textContent=d.received||0;
+    document.getElementById("statProcessing").textContent=d.processing||0;
+    document.getElementById("statPostponed").textContent=d.postponed||0;
+    document.getElementById("statCompleted").textContent=d.completed||0;
+    document.getElementById("statForwarded").textContent=d.forwarded||0;
+    renderPublicRows((r.data&&r.data.publicList)||[]);
+  }catch(e){
+    console.error(e);
+    document.getElementById("publicListBody").innerHTML='<tr><td colspan="5" class="loading-text">ไม่สามารถโหลดข้อมูลได้</td></tr>';
+  }
+}
+
 document.addEventListener("DOMContentLoaded",function(){
   restoreAdmin();
   const now=new Date();
@@ -6791,6 +6642,11 @@ document.addEventListener("DOMContentLoaded",function(){
   document.getElementById("reportYear").value=String(now.getFullYear()+543);
 });
 
+
+document.addEventListener("DOMContentLoaded",function(){
+  const submitSection=document.getElementById("submit");
+  if(submitSection && !adminToken) submitSection.style.display="none";
+});
 </script>
 
 
