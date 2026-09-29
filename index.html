@@ -2519,6 +2519,36 @@ footer a{
 .login-icon{width:66px;height:66px;margin:0 auto 16px;border-radius:20px;display:flex;align-items:center;justify-content:center;background:var(--green-soft);font-size:30px}
 @media(max-width:900px){.admin-report{grid-template-columns:1fr}.edit-grid{grid-template-columns:1fr}.edit-grid .full{grid-column:auto}}
 
+
+
+/* ===== UX refresh: tracking + recent requests ===== */
+.tracking-search-box{max-width:760px;margin:0 auto 18px}
+.tracking-search-box label{display:block;font-weight:800;margin-bottom:9px;color:var(--green-dark,#1f5138)}
+.tracking-search-row{display:flex;gap:10px}
+.tracking-search-row input{width:100%;min-height:54px;border:1px solid rgba(31,81,56,.16);border-radius:16px;padding:0 18px;background:#fff;font-size:16px;box-shadow:0 8px 28px rgba(35,67,51,.06);transition:.2s}
+.tracking-search-row input:focus{outline:none;border-color:#3aa76d;box-shadow:0 0 0 4px rgba(58,167,109,.12)}
+.tracking-hint{font-size:13px;color:#738078;margin:8px 4px 0}
+.btn-logout{align-items:center;justify-content:center;border:1px solid rgba(172,55,55,.16);background:#fff7f7;color:#a33838;margin-left:8px}
+.btn-logout:hover{background:#fff0f0}
+#overview .table-wrap{border:0;background:transparent;box-shadow:none;overflow:visible}
+#overview table{border-collapse:separate;border-spacing:0 10px}
+#overview thead th{border:0;background:transparent;color:#718078;font-size:12px;text-transform:none;padding:0 16px 4px}
+#overview tbody tr{background:#fff;box-shadow:0 8px 26px rgba(28,63,45,.07)}
+#overview tbody td{border:0;padding:16px}
+#overview tbody td:first-child{border-radius:16px 0 0 16px}
+#overview tbody td:last-child{border-radius:0 16px 16px 0}
+#overview tbody tr:hover{transform:translateY(-1px);box-shadow:0 12px 32px rgba(28,63,45,.10)}
+#overview .loading-text{border-radius:16px!important;text-align:center;color:#728078}
+@media(max-width:760px){
+  #overview thead{display:none}
+  #overview table,#overview tbody,#overview tr,#overview td{display:block;width:100%}
+  #overview tbody tr{margin-bottom:12px;border-radius:18px;padding:8px 14px}
+  #overview tbody td{padding:7px 4px;box-shadow:none!important;border-radius:0!important}
+  #overview tbody td:nth-child(1){font-size:16px;padding-top:11px}
+  #overview tbody td:nth-child(2),#overview tbody td:nth-child(3),#overview tbody td:nth-child(4){font-size:13px;color:#69776f}
+  #overview tbody td:last-child{padding-bottom:11px}
+}
+
 </style>
 
 </head>
@@ -2580,6 +2610,7 @@ footer a{
 
 
     <button class="admin-login-button" id="adminLoginButton" onclick="handleAdminButton()">🔐 เข้าสู่ระบบ</button>
+<button class="btn btn-logout" id="adminLogoutButton" style="display:none" onclick="logoutAdmin()">↪ ออกจากระบบ</button>
 
     <button class="contact-button" onclick="openContact()">
 
@@ -2632,6 +2663,14 @@ footer a{
     </a>
 
 
+
+    <button id="mobileAdminButton" onclick="handleAdminButton();closeMobileMenu();">
+      🔐 เข้าสู่ระบบ
+    </button>
+
+    <button class="btn-logout" id="mobileLogoutButton" style="display:none" onclick="logoutAdmin();closeMobileMenu();">
+      ↪ ออกจากระบบ
+    </button>
 
     <button onclick="openContact();closeMobileMenu();">
 
@@ -2809,6 +2848,223 @@ footer a{
 
 <!-- DASHBOARD -->
 
+
+
+
+
+<!-- TRACKING -->
+
+<section class="section tracking-section" id="tracking">
+
+
+
+  <div class="container">
+
+
+
+    <div class="tracking-card">
+
+
+
+      <div class="tracking-title">
+
+
+
+        <h2>🔍 ตรวจสอบสถานะคำร้อง</h2>
+
+
+
+        <p>ค้นหาได้อย่างใดอย่างหนึ่ง ด้วยเลขทะเบียนคำร้อง หรือชื่อผู้ร้อง</p>
+
+
+
+      </div>
+
+
+
+      <div class="tracking-search-box">
+        <label for="trackQuery">เลขทะเบียนคำร้อง หรือ ชื่อผู้ร้อง</label>
+        <div class="tracking-search-row">
+          <input type="text" id="trackQuery" placeholder="เช่น 2569-0001 หรือ นายสมชาย ใจดี" autocomplete="off">
+        </div>
+        <div class="tracking-hint">กรอกเพียงอย่างใดอย่างหนึ่งก็ตรวจสอบได้</div>
+      </div>
+
+      <button
+
+        class="btn btn-primary full-btn"
+
+        id="trackButton"
+
+        onclick="searchTracking()"
+
+      >
+
+        🔍 ตรวจสอบสถานะ
+
+      </button>
+
+
+
+      <div class="message-box" id="trackMessage"></div>
+
+
+
+      <div class="tracking-result" id="trackingResult">
+
+
+
+        <div class="result-header">
+
+
+
+          <div>
+
+
+
+            <div class="ticket-label">
+
+              เลขทะเบียนคำร้อง
+
+            </div>
+
+
+
+            <div class="ticket-no" id="resultTicket">
+
+              -
+
+            </div>
+
+
+
+          </div>
+
+
+
+          <span class="status-badge" id="resultStatus">
+
+            -
+
+          </span>
+
+
+
+        </div>
+
+
+
+        <div class="result-grid">
+
+
+
+          <div>
+
+
+
+            <div class="info-panel">
+
+
+
+              <div class="info-row">
+
+                <span>วันที่รับเรื่อง</span>
+
+                <strong id="resultDate">-</strong>
+
+              </div>
+
+
+
+              <div class="info-row">
+
+                <span>ประเภทคำร้อง</span>
+
+                <strong id="resultCategory">-</strong>
+
+              </div>
+
+
+
+              <div class="info-row">
+
+                <span>เรื่องร้องเรียน</span>
+
+                <strong id="resultTopic">-</strong>
+
+              </div>
+
+
+
+              <div class="info-row">
+
+                <span>หน่วยงานรับผิดชอบ</span>
+
+                <strong id="resultDepartment">-</strong>
+
+              </div>
+
+
+
+              <div class="info-row">
+
+                <span>อัปเดตล่าสุด</span>
+
+                <strong id="resultUpdate">-</strong>
+
+              </div>
+
+
+
+            </div>
+
+
+
+            <div class="remark-box">
+
+              <small>ความคืบหน้าล่าสุด</small>
+
+              <strong id="resultRemark">-</strong>
+
+            </div>
+
+
+
+          </div>
+
+
+
+          <div>
+
+            <div class="timeline" id="statusTimeline"></div>
+
+          </div>
+
+
+
+        </div>
+
+
+
+      </div>
+
+
+
+    </div>
+
+
+
+  </div>
+
+
+
+</section>
+
+
+
+
+
+<!-- PUBLIC LIST -->
 <section class="section" id="overview">
 
 
@@ -3016,272 +3272,6 @@ footer a{
 
 
 </section>
-
-
-
-<!-- TRACKING -->
-
-<section class="section tracking-section" id="tracking">
-
-
-
-  <div class="container">
-
-
-
-    <div class="tracking-card">
-
-
-
-      <div class="tracking-title">
-
-
-
-        <h2>🔍 ตรวจสอบสถานะคำร้อง</h2>
-
-
-
-        <p>
-
-          กรอกเลขทะเบียนคำร้อง
-
-          และชื่อผู้ร้อง
-
-        </p>
-
-
-
-      </div>
-
-
-
-      <div class="form-grid">
-
-
-
-        <div class="field">
-
-
-
-          <label>เลขทะเบียนคำร้อง</label>
-
-
-
-          <input
-
-            type="text"
-
-            id="trackTicket"
-
-            placeholder="เช่น 2569-0001"
-
-          >
-
-
-
-        </div>
-
-
-
-        <div class="field">
-
-
-
-          <label>ชื่อผู้ร้อง</label>
-
-
-
-          <input
-
-            type="text"
-
-            id="trackName"
-
-            placeholder="เช่น นายสมชาย ใจดี"
-
-          >
-
-
-
-        </div>
-
-
-
-      </div>
-
-
-
-      <button
-
-        class="btn btn-primary full-btn"
-
-        id="trackButton"
-
-        onclick="searchTracking()"
-
-      >
-
-        🔍 ตรวจสอบสถานะ
-
-      </button>
-
-
-
-      <div class="message-box" id="trackMessage"></div>
-
-
-
-      <div class="tracking-result" id="trackingResult">
-
-
-
-        <div class="result-header">
-
-
-
-          <div>
-
-
-
-            <div class="ticket-label">
-
-              เลขทะเบียนคำร้อง
-
-            </div>
-
-
-
-            <div class="ticket-no" id="resultTicket">
-
-              -
-
-            </div>
-
-
-
-          </div>
-
-
-
-          <span class="status-badge" id="resultStatus">
-
-            -
-
-          </span>
-
-
-
-        </div>
-
-
-
-        <div class="result-grid">
-
-
-
-          <div>
-
-
-
-            <div class="info-panel">
-
-
-
-              <div class="info-row">
-
-                <span>วันที่รับเรื่อง</span>
-
-                <strong id="resultDate">-</strong>
-
-              </div>
-
-
-
-              <div class="info-row">
-
-                <span>ประเภทคำร้อง</span>
-
-                <strong id="resultCategory">-</strong>
-
-              </div>
-
-
-
-              <div class="info-row">
-
-                <span>เรื่องร้องเรียน</span>
-
-                <strong id="resultTopic">-</strong>
-
-              </div>
-
-
-
-              <div class="info-row">
-
-                <span>หน่วยงานรับผิดชอบ</span>
-
-                <strong id="resultDepartment">-</strong>
-
-              </div>
-
-
-
-              <div class="info-row">
-
-                <span>อัปเดตล่าสุด</span>
-
-                <strong id="resultUpdate">-</strong>
-
-              </div>
-
-
-
-            </div>
-
-
-
-            <div class="remark-box">
-
-              <small>ความคืบหน้าล่าสุด</small>
-
-              <strong id="resultRemark">-</strong>
-
-            </div>
-
-
-
-          </div>
-
-
-
-          <div>
-
-            <div class="timeline" id="statusTimeline"></div>
-
-          </div>
-
-
-
-        </div>
-
-
-
-      </div>
-
-
-
-    </div>
-
-
-
-  </div>
-
-
-
-</section>
-
-
 
 <!-- SUBMIT -->
 
@@ -4920,18 +4910,19 @@ async function searchTracking(){
   clearMessage("trackMessage");
   document.getElementById("trackingResult").classList.remove("show");
 
-  const ticket=document.getElementById("trackTicket").value.trim();
-  const name=document.getElementById("trackName").value.trim();
-
-  if(!ticket){ setMessage("trackMessage","กรุณากรอกเลขทะเบียนคำร้อง"); return; }
-  if(!name){ setMessage("trackMessage","กรุณากรอกชื่อผู้ร้อง"); return; }
+  const query=document.getElementById("trackQuery").value.trim();
+  if(!query){
+    setMessage("trackMessage","กรุณากรอกเลขทะเบียนคำร้อง หรือชื่อผู้ร้อง");
+    return;
+  }
 
   const button=document.getElementById("trackButton");
   const oldText=button.innerHTML;
-  button.disabled=true; button.innerHTML="กำลังค้นหา...";
+  button.disabled=true;
+  button.innerHTML="⏳ กำลังค้นหา...";
 
   try{
-    const result=await apiGet("search",{ticket,name});
+    const result=await apiGet("search",{query});
     if(!result.success){
       setMessage("trackMessage",result.message||"ไม่พบข้อมูลคำร้อง");
       return;
@@ -4941,15 +4932,10 @@ async function searchTracking(){
     console.error(error);
     setMessage("trackMessage","ไม่สามารถเชื่อมต่อระบบได้ กรุณาลองใหม่อีกครั้ง");
   }finally{
-    button.disabled=false; button.innerHTML=oldText;
+    button.disabled=false;
+    button.innerHTML=oldText;
   }
 }
-
-
-/* =========================================================
-   RESULT
-========================================================= */
-
 
 
 function renderTrackingResult(data){
@@ -6359,16 +6345,20 @@ function setAdminUI(loggedIn){
   const mnav=document.getElementById("mobileAdminLink");
   const btn=document.getElementById("adminLoginButton");
   const mbtn=document.getElementById("mobileAdminButton");
+  const logoutBtn=document.getElementById("adminLogoutButton");
+  const mobileLogoutBtn=document.getElementById("mobileLogoutButton");
   const note=document.getElementById("adminOnlyNote");
   section.classList.toggle("show",loggedIn);
   const submitSection=document.getElementById("submit");
   if(submitSection) submitSection.style.display=loggedIn?"":"none";
-  nav.style.display=loggedIn?"":"none";
-  mnav.style.display=loggedIn?"":"none";
-  btn.textContent=loggedIn?"⚙️ จัดการคำร้อง":"🔐 เข้าสู่ระบบ";
-  btn.classList.toggle("active",loggedIn);
-  mbtn.textContent=loggedIn?"⚙️ จัดการคำร้อง":"🔐 เข้าสู่ระบบ";
-  note.classList.toggle("show",loggedIn);
+  if(nav) nav.style.display=loggedIn?"":"none";
+  if(nav) nav.style.display=loggedIn?"":"none";
+  if(btn) btn.textContent=loggedIn?"⚙️ จัดการคำร้อง":"🔐 เข้าสู่ระบบ";
+  if(btn) btn.classList.toggle("active",loggedIn);
+  if(btn) btn.textContent=loggedIn?"⚙️ จัดการคำร้อง":"🔐 เข้าสู่ระบบ";
+  if(note) note.classList.toggle("show",loggedIn);
+  if(logoutBtn) logoutBtn.style.display=loggedIn?"inline-flex":"none";
+  if(mobileLogoutBtn) mobileLogoutBtn.style.display=loggedIn?"inline-flex":"none";
 }
 async function loginAdmin(){
   const password=document.getElementById("adminPassword").value;
@@ -6627,22 +6617,44 @@ function renderPublicRows(list){
   }).join("");
 }
 async function loadBootstrap(){
+  const tbody=document.getElementById("publicListBody");
+  if(tbody) tbody.innerHTML='<tr><td colspan="5" class="loading-text">⏳ กำลังโหลดรายการคำร้อง...</td></tr>';
+
   try{
-    const r=await apiGet("bootstrap");
-    if(!r.success) throw new Error(r.message||"โหลดข้อมูลไม่สำเร็จ");
-    const d=(r.data&&r.data.dashboard)||{};
+    let dashboardData=null, listData=null;
+
+    // ใช้ endpoint รวมก่อนเพื่อให้เร็วที่สุด
+    try{
+      const r=await apiGet("bootstrap");
+      if(r && r.success && r.data){
+        dashboardData=r.data.dashboard||{};
+        listData=r.data.publicList||[];
+      }
+    }catch(_){}
+
+    // รองรับ deployment เก่าด้วย: ถ้า bootstrap ยังไม่มี ให้โหลด 2 endpoint พร้อมกัน
+    if(dashboardData===null || listData===null){
+      const results=await Promise.allSettled([apiGet("dashboard"),apiGet("publicList")]);
+      if(results[0].status==="fulfilled" && results[0].value.success) dashboardData=results[0].value.data||{};
+      if(results[1].status==="fulfilled" && results[1].value.success) listData=results[1].value.data||[];
+    }
+
+    if(dashboardData===null && listData===null) throw new Error("โหลดข้อมูลไม่สำเร็จ");
+
+    const d=dashboardData||{};
     document.getElementById("statTotal").textContent=d.total||0;
     document.getElementById("statReceived").textContent=d.received||0;
     document.getElementById("statProcessing").textContent=d.processing||0;
     document.getElementById("statPostponed").textContent=d.postponed||0;
     document.getElementById("statCompleted").textContent=d.completed||0;
     document.getElementById("statForwarded").textContent=d.forwarded||0;
-    renderPublicRows((r.data&&r.data.publicList)||[]);
+    renderPublicRows(listData||[]);
   }catch(e){
     console.error(e);
-    document.getElementById("publicListBody").innerHTML='<tr><td colspan="5" class="loading-text">ไม่สามารถโหลดข้อมูลได้</td></tr>';
+    if(tbody) tbody.innerHTML='<tr><td colspan="5" class="loading-text">โหลดรายการไม่สำเร็จ <button class="btn btn-secondary" onclick="loadBootstrap()" style="margin-left:8px">ลองใหม่</button></td></tr>';
   }
 }
+
 
 document.addEventListener("DOMContentLoaded",function(){
   restoreAdmin();
@@ -6656,6 +6668,11 @@ document.addEventListener("DOMContentLoaded",function(){
   const submitSection=document.getElementById("submit");
   if(submitSection && !adminToken) submitSection.style.display="none";
 });
+document.addEventListener("DOMContentLoaded",function(){
+  const q=document.getElementById("trackQuery");
+  if(q) q.addEventListener("keydown",e=>{ if(e.key==="Enter") searchTracking(); });
+});
+
 </script>
 
 
