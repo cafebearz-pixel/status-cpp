@@ -20,37 +20,37 @@
 
 :root{
 
-  --green:#06C755;
+  --green:#06C755;
 
-  --green2:#00b94f;
+  --green2:#00b94f;
 
-  --green-dark:#08773f;
+  --green-dark:#08773f;
 
-  --green-deep:#064c31;
+  --green-deep:#064c31;
 
-  --green-soft:#eaf9ef;
+  --green-soft:#eaf9ef;
 
-  --yellow:#ffd75e;
+  --yellow:#ffd75e;
 
-  --yellow-soft:#fff7d8;
+  --yellow-soft:#fff7d8;
 
-  --brown:#76592f;
+  --brown:#76592f;
 
-  --cream:#faf8f1;
+  --cream:#faf8f1;
 
-  --white:#fff;
+  --white:#fff;
 
-  --text:#14251b;
+  --text:#14251b;
 
-  --muted:#6e7972;
+  --muted:#6e7972;
 
-  --border:#e5ebe7;
+  --border:#e5ebe7;
 
-  --blue:#3498db;
+  --blue:#3498db;
 
-  --shadow:0 18px 55px rgba(18,69,44,.10);
+  --shadow:0 18px 55px rgba(18,69,44,.10);
 
-  --max:1200px;
+  --max:1200px;
 
 }
 
@@ -58,11 +58,11 @@
 
 *{
 
-  margin:0;
+  margin:0;
 
-  padding:0;
+  padding:0;
 
-  box-sizing:border-box;
+  box-sizing:border-box;
 
 }
 
@@ -70,7 +70,7 @@
 
 html{
 
-  scroll-behavior:smooth;
+  scroll-behavior:smooth;
 
 }
 
@@ -78,13 +78,13 @@ html{
 
 body{
 
-  font-family:"Noto Sans Thai","Leelawadee UI",Tahoma,system-ui,-apple-system,sans-serif;
+  font-family:"Noto Sans Thai","Leelawadee UI",Tahoma,system-ui,-apple-system,sans-serif;
 
-  color:var(--text);
+  color:var(--text);
 
-  background:#fff;
+  background:#fff;
 
-  line-height:1.65;
+  line-height:1.65;
 
 }
 
@@ -92,7 +92,7 @@ body{
 
 body.modal-open{
 
-  overflow:hidden;
+  overflow:hidden;
 
 }
 
@@ -100,7 +100,7 @@ body.modal-open{
 
 button,input,select,textarea{
 
-  font:inherit;
+  font:inherit;
 
 }
 
@@ -108,7 +108,7 @@ button,input,select,textarea{
 
 button{
 
-  cursor:pointer;
+  cursor:pointer;
 
 }
 
@@ -116,9 +116,9 @@ button{
 
 a{
 
-  color:inherit;
+  color:inherit;
 
-  text-decoration:none;
+  text-decoration:none;
 
 }
 
@@ -126,9 +126,9 @@ a{
 
 .container{
 
-  width:min(var(--max),calc(100% - 40px));
+  width:min(var(--max),calc(100% - 40px));
 
-  margin:auto;
+  margin:auto;
 
 }
 
@@ -136,7 +136,7 @@ a{
 
 .section{
 
-  padding:85px 0;
+  padding:85px 0;
 
 }
 
@@ -144,7 +144,7 @@ a{
 
 /* =========================
 
-   NAV
+   NAV
 
 ========================= */
 
@@ -152,17 +152,17 @@ a{
 
 .navbar{
 
-  position:sticky;
+  position:sticky;
 
-  top:0;
+  top:0;
 
-  z-index:900;
+  z-index:900;
 
-  background:rgba(255,255,255,.92);
+  background:rgba(255,255,255,.92);
 
-  backdrop-filter:blur(18px);
+  backdrop-filter:blur(18px);
 
-  border-bottom:1px solid rgba(0,0,0,.05);
+  border-bottom:1px solid rgba(0,0,0,.05);
 
 }
 
@@ -170,15 +170,15 @@ a{
 
 .nav-inner{
 
-  min-height:76px;
+  min-height:76px;
 
-  display:flex;
+  display:flex;
 
-  align-items:center;
+  align-items:center;
 
-  justify-content:space-between;
+  justify-content:space-between;
 
-  gap:30px;
+  gap:30px;
 
 }
 
@@ -186,11 +186,11 @@ a{
 
 .brand{
 
-  display:flex;
+  display:flex;
 
-  align-items:center;
+  align-items:center;
 
-  gap:12px;
+  gap:12px;
 
 }
 
@@ -198,25 +198,25 @@ a{
 
 .brand-logo{
 
-  width:48px;
+  width:48px;
 
-  height:48px;
+  height:48px;
 
-  border-radius:50%;
+  border-radius:50%;
 
-  background:linear-gradient(135deg,var(--green),var(--green-dark));
+  background:linear-gradient(135deg,var(--green),var(--green-dark));
 
-  color:white;
+  color:white;
 
-  display:flex;
+  display:flex;
 
-  align-items:center;
+  align-items:center;
 
-  justify-content:center;
+  justify-content:center;
 
-  font-size:12px;
+  font-size:12px;
 
-  font-weight:900;
+  font-weight:900;
 
 }
 
@@ -224,9 +224,9 @@ a{
 
 .brand-name strong{
 
-  display:block;
+  display:block;
 
-  font-size:15px;
+  font-size:15px;
 
 }
 
@@ -234,11 +234,11 @@ a{
 
 .brand-name span{
 
-  display:block;
+  display:block;
 
-  font-size:12px;
+  font-size:12px;
 
-  color:var(--muted);
+  color:var(--muted);
 
 }
 
@@ -246,11 +246,11 @@ a{
 
 .nav-links{
 
-  display:flex;
+  display:flex;
 
-  align-items:center;
+  align-items:center;
 
-  gap:28px;
+  gap:28px;
 
 }
 
@@ -258,9 +258,9 @@ a{
 
 .nav-links a{
 
-  font-size:14px;
+  font-size:14px;
 
-  font-weight:700;
+  font-weight:700;
 
 }
 
@@ -268,7 +268,7 @@ a{
 
 .nav-links a:hover{
 
-  color:var(--green);
+  color:var(--green);
 
 }
 
@@ -276,17 +276,17 @@ a{
 
 .contact-button{
 
-  border:0;
+  border:0;
 
-  background:var(--yellow);
+  background:var(--yellow);
 
-  color:#463817;
+  color:#463817;
 
-  padding:11px 20px;
+  padding:11px 20px;
 
-  border-radius:999px;
+  border-radius:999px;
 
-  font-weight:800;
+  font-weight:800;
 
 }
 
@@ -294,19 +294,19 @@ a{
 
 .mobile-menu{
 
-  display:none;
+  display:none;
 
-  width:44px;
+  width:44px;
 
-  height:44px;
+  height:44px;
 
-  border:1px solid var(--border);
+  border:1px solid var(--border);
 
-  background:white;
+  background:white;
 
-  border-radius:13px;
+  border-radius:13px;
 
-  font-size:20px;
+  font-size:20px;
 
 }
 
@@ -314,13 +314,13 @@ a{
 
 .mobile-panel{
 
-  display:none;
+  display:none;
 
-  padding:15px 20px 20px;
+  padding:15px 20px 20px;
 
-  border-top:1px solid var(--border);
+  border-top:1px solid var(--border);
 
-  background:white;
+  background:white;
 
 }
 
@@ -328,9 +328,9 @@ a{
 
 .mobile-panel.show{
 
-  display:grid;
+  display:grid;
 
-  gap:5px;
+  gap:5px;
 
 }
 
@@ -340,17 +340,17 @@ a{
 
 .mobile-panel button{
 
-  padding:12px;
+  padding:12px;
 
-  border:0;
+  border:0;
 
-  background:white;
+  background:white;
 
-  border-radius:10px;
+  border-radius:10px;
 
-  text-align:left;
+  text-align:left;
 
-  font-weight:700;
+  font-weight:700;
 
 }
 
@@ -358,7 +358,7 @@ a{
 
 /* =========================
 
-   HERO
+   HERO
 
 ========================= */
 
@@ -366,23 +366,23 @@ a{
 
 .hero{
 
-  position:relative;
+  position:relative;
 
-  overflow:hidden;
+  overflow:hidden;
 
-  min-height:620px;
+  min-height:620px;
 
-  display:flex;
+  display:flex;
 
-  align-items:center;
+  align-items:center;
 
-  background:
+  background:
 
-    radial-gradient(circle at 9% 80%,rgba(6,199,85,.18),transparent 27%),
+    radial-gradient(circle at 9% 80%,rgba(6,199,85,.18),transparent 27%),
 
-    radial-gradient(circle at 88% 20%,rgba(255,215,94,.30),transparent 28%),
+    radial-gradient(circle at 88% 20%,rgba(255,215,94,.30),transparent 28%),
 
-    linear-gradient(130deg,#f8fff9,#fff 52%,#fff9e5);
+    linear-gradient(130deg,#f8fff9,#fff 52%,#fff9e5);
 
 }
 
@@ -390,15 +390,15 @@ a{
 
 .hero-grid{
 
-  display:grid;
+  display:grid;
 
-  grid-template-columns:1.05fr .95fr;
+  grid-template-columns:1.05fr .95fr;
 
-  align-items:center;
+  align-items:center;
 
-  gap:70px;
+  gap:70px;
 
-  padding:80px 0;
+  padding:80px 0;
 
 }
 
@@ -406,25 +406,25 @@ a{
 
 .eyebrow{
 
-  display:inline-flex;
+  display:inline-flex;
 
-  align-items:center;
+  align-items:center;
 
-  gap:7px;
+  gap:7px;
 
-  padding:7px 13px;
+  padding:7px 13px;
 
-  border-radius:999px;
+  border-radius:999px;
 
-  background:var(--yellow-soft);
+  background:var(--yellow-soft);
 
-  color:var(--brown);
+  color:var(--brown);
 
-  font-size:13px;
+  font-size:13px;
 
-  font-weight:800;
+  font-weight:800;
 
-  margin-bottom:20px;
+  margin-bottom:20px;
 
 }
 
@@ -432,17 +432,17 @@ a{
 
 .hero h1{
 
-  max-width:650px;
+  max-width:650px;
 
-  font-size:clamp(45px,5vw,70px);
+  font-size:clamp(45px,5vw,70px);
 
-  line-height:1.08;
+  line-height:1.08;
 
-  letter-spacing:-2px;
+  letter-spacing:-2px;
 
-  color:var(--green-deep);
+  color:var(--green-deep);
 
-  margin-bottom:20px;
+  margin-bottom:20px;
 
 }
 
@@ -450,7 +450,7 @@ a{
 
 .hero h1 span{
 
-  color:var(--green);
+  color:var(--green);
 
 }
 
@@ -458,13 +458,13 @@ a{
 
 .hero-desc{
 
-  max-width:600px;
+  max-width:600px;
 
-  color:var(--muted);
+  color:var(--muted);
 
-  font-size:17px;
+  font-size:17px;
 
-  margin-bottom:30px;
+  margin-bottom:30px;
 
 }
 
@@ -472,11 +472,11 @@ a{
 
 .hero-actions{
 
-  display:flex;
+  display:flex;
 
-  flex-wrap:wrap;
+  flex-wrap:wrap;
 
-  gap:13px;
+  gap:13px;
 
 }
 
@@ -484,25 +484,25 @@ a{
 
 .btn{
 
-  min-height:56px;
+  min-height:56px;
 
-  display:inline-flex;
+  display:inline-flex;
 
-  align-items:center;
+  align-items:center;
 
-  justify-content:center;
+  justify-content:center;
 
-  gap:9px;
+  gap:9px;
 
-  padding:0 24px;
+  padding:0 24px;
 
-  border-radius:16px;
+  border-radius:16px;
 
-  border:0;
+  border:0;
 
-  font-weight:800;
+  font-weight:800;
 
-  transition:.22s;
+  transition:.22s;
 
 }
 
@@ -510,7 +510,7 @@ a{
 
 .btn:hover{
 
-  transform:translateY(-2px);
+  transform:translateY(-2px);
 
 }
 
@@ -518,11 +518,11 @@ a{
 
 .btn:disabled{
 
-  opacity:.6;
+  opacity:.6;
 
-  cursor:not-allowed;
+  cursor:not-allowed;
 
-  transform:none;
+  transform:none;
 
 }
 
@@ -530,11 +530,11 @@ a{
 
 .btn-primary{
 
-  color:white;
+  color:white;
 
-  background:linear-gradient(135deg,var(--green),var(--green-dark));
+  background:linear-gradient(135deg,var(--green),var(--green-dark));
 
-  box-shadow:0 14px 30px rgba(6,199,85,.22);
+  box-shadow:0 14px 30px rgba(6,199,85,.22);
 
 }
 
@@ -542,9 +542,9 @@ a{
 
 .btn-secondary{
 
-  background:white;
+  background:white;
 
-  border:1px solid var(--border);
+  border:1px solid var(--border);
 
 }
 
@@ -552,9 +552,9 @@ a{
 
 .btn-yellow{
 
-  background:var(--yellow);
+  background:var(--yellow);
 
-  color:#453716;
+  color:#453716;
 
 }
 
@@ -562,15 +562,15 @@ a{
 
 .hero-status-card{
 
-  padding:36px;
+  padding:36px;
 
-  border-radius:32px;
+  border-radius:32px;
 
-  background:rgba(255,255,255,.92);
+  background:rgba(255,255,255,.92);
 
-  border:1px solid rgba(255,255,255,.9);
+  border:1px solid rgba(255,255,255,.9);
 
-  box-shadow:0 30px 80px rgba(18,69,44,.14);
+  box-shadow:0 30px 80px rgba(18,69,44,.14);
 
 }
 
@@ -578,23 +578,23 @@ a{
 
 .hero-icon{
 
-  width:65px;
+  width:65px;
 
-  height:65px;
+  height:65px;
 
-  border-radius:20px;
+  border-radius:20px;
 
-  display:flex;
+  display:flex;
 
-  align-items:center;
+  align-items:center;
 
-  justify-content:center;
+  justify-content:center;
 
-  background:var(--green-soft);
+  background:var(--green-soft);
 
-  font-size:29px;
+  font-size:29px;
 
-  margin-bottom:22px;
+  margin-bottom:22px;
 
 }
 
@@ -602,9 +602,9 @@ a{
 
 .hero-status-card h2{
 
-  font-size:27px;
+  font-size:27px;
 
-  color:var(--green-deep);
+  color:var(--green-deep);
 
 }
 
@@ -612,9 +612,9 @@ a{
 
 .hero-status-card > p{
 
-  color:var(--muted);
+  color:var(--muted);
 
-  margin:7px 0 22px;
+  margin:7px 0 22px;
 
 }
 
@@ -622,21 +622,21 @@ a{
 
 .mini-status{
 
-  display:flex;
+  display:flex;
 
-  align-items:center;
+  align-items:center;
 
-  gap:13px;
+  gap:13px;
 
-  padding:15px 16px;
+  padding:15px 16px;
 
-  background:white;
+  background:white;
 
-  border:1px solid var(--border);
+  border:1px solid var(--border);
 
-  border-radius:16px;
+  border-radius:16px;
 
-  margin-top:10px;
+  margin-top:10px;
 
 }
 
@@ -644,15 +644,15 @@ a{
 
 .dot{
 
-  width:11px;
+  width:11px;
 
-  height:11px;
+  height:11px;
 
-  border-radius:50%;
+  border-radius:50%;
 
-  flex-shrink:0;
+  flex-shrink:0;
 
-  background:var(--green);
+  background:var(--green);
 
 }
 
@@ -660,7 +660,7 @@ a{
 
 .dot.yellow{
 
-  background:#f2b82e;
+  background:#f2b82e;
 
 }
 
@@ -668,7 +668,7 @@ a{
 
 .dot.gray{
 
-  background:#c9d0cc;
+  background:#c9d0cc;
 
 }
 
@@ -676,9 +676,9 @@ a{
 
 .mini-status strong{
 
-  display:block;
+  display:block;
 
-  font-size:14px;
+  font-size:14px;
 
 }
 
@@ -686,7 +686,7 @@ a{
 
 .mini-status small{
 
-  color:var(--muted);
+  color:var(--muted);
 
 }
 
@@ -694,7 +694,7 @@ a{
 
 /* =========================
 
-   HEADINGS
+   HEADINGS
 
 ========================= */
 
@@ -702,7 +702,7 @@ a{
 
 .section-heading{
 
-  margin-bottom:36px;
+  margin-bottom:36px;
 
 }
 
@@ -710,9 +710,9 @@ a{
 
 .section-heading small{
 
-  color:var(--green);
+  color:var(--green);
 
-  font-weight:900;
+  font-weight:900;
 
 }
 
@@ -720,11 +720,11 @@ a{
 
 .section-heading h2{
 
-  margin-top:5px;
+  margin-top:5px;
 
-  color:var(--green-deep);
+  color:var(--green-deep);
 
-  font-size:clamp(29px,3vw,40px);
+  font-size:clamp(29px,3vw,40px);
 
 }
 
@@ -732,9 +732,9 @@ a{
 
 .section-heading p{
 
-  margin-top:6px;
+  margin-top:6px;
 
-  color:var(--muted);
+  color:var(--muted);
 
 }
 
@@ -742,7 +742,7 @@ a{
 
 /* =========================
 
-   DASHBOARD
+   DASHBOARD
 
 ========================= */
 
@@ -750,13 +750,13 @@ a{
 
 .stats-grid{
 
-  display:grid;
+  display:grid;
 
-  grid-template-columns:repeat(6,1fr);
+  grid-template-columns:repeat(6,1fr);
 
-  gap:14px;
+  gap:14px;
 
-  margin-bottom:25px;
+  margin-bottom:25px;
 
 }
 
@@ -764,15 +764,15 @@ a{
 
 .stat-card{
 
-  padding:22px;
+  padding:22px;
 
-  border-radius:20px;
+  border-radius:20px;
 
-  background:#fff;
+  background:#fff;
 
-  border:1px solid var(--border);
+  border:1px solid var(--border);
 
-  box-shadow:0 8px 30px rgba(18,69,44,.05);
+  box-shadow:0 8px 30px rgba(18,69,44,.05);
 
 }
 
@@ -780,21 +780,21 @@ a{
 
 .stat-icon{
 
-  width:43px;
+  width:43px;
 
-  height:43px;
+  height:43px;
 
-  border-radius:14px;
+  border-radius:14px;
 
-  display:flex;
+  display:flex;
 
-  align-items:center;
+  align-items:center;
 
-  justify-content:center;
+  justify-content:center;
 
-  margin-bottom:14px;
+  margin-bottom:14px;
 
-  background:var(--green-soft);
+  background:var(--green-soft);
 
 }
 
@@ -802,7 +802,7 @@ a{
 
 .stat-card.yellow .stat-icon{
 
-  background:var(--yellow-soft);
+  background:var(--yellow-soft);
 
 }
 
@@ -810,7 +810,7 @@ a{
 
 .stat-card.blue .stat-icon{
 
-  background:#eaf5ff;
+  background:#eaf5ff;
 
 }
 
@@ -818,7 +818,7 @@ a{
 
 .stat-card.gray .stat-icon{
 
-  background:#f0f2f1;
+  background:#f0f2f1;
 
 }
 
@@ -826,11 +826,11 @@ a{
 
 .stat-number{
 
-  font-size:30px;
+  font-size:30px;
 
-  font-weight:900;
+  font-weight:900;
 
-  line-height:1;
+  line-height:1;
 
 }
 
@@ -838,11 +838,11 @@ a{
 
 .stat-label{
 
-  color:var(--muted);
+  color:var(--muted);
 
-  font-size:13px;
+  font-size:13px;
 
-  margin-top:7px;
+  margin-top:7px;
 
 }
 
@@ -850,15 +850,15 @@ a{
 
 .public-list{
 
-  padding:28px;
+  padding:28px;
 
-  background:#fff;
+  background:#fff;
 
-  border:1px solid var(--border);
+  border:1px solid var(--border);
 
-  border-radius:25px;
+  border-radius:25px;
 
-  box-shadow:var(--shadow);
+  box-shadow:var(--shadow);
 
 }
 
@@ -866,15 +866,15 @@ a{
 
 .list-header{
 
-  display:flex;
+  display:flex;
 
-  justify-content:space-between;
+  justify-content:space-between;
 
-  align-items:center;
+  align-items:center;
 
-  gap:20px;
+  gap:20px;
 
-  margin-bottom:20px;
+  margin-bottom:20px;
 
 }
 
@@ -882,9 +882,9 @@ a{
 
 .list-header h3{
 
-  font-size:22px;
+  font-size:22px;
 
-  color:var(--green-deep);
+  color:var(--green-deep);
 
 }
 
@@ -892,15 +892,15 @@ a{
 
 .refresh-btn{
 
-  border:1px solid var(--border);
+  border:1px solid var(--border);
 
-  background:white;
+  background:white;
 
-  border-radius:12px;
+  border-radius:12px;
 
-  padding:9px 14px;
+  padding:9px 14px;
 
-  font-weight:700;
+  font-weight:700;
 
 }
 
@@ -908,7 +908,7 @@ a{
 
 .table-wrap{
 
-  overflow-x:auto;
+  overflow-x:auto;
 
 }
 
@@ -916,11 +916,11 @@ a{
 
 table{
 
-  width:100%;
+  width:100%;
 
-  border-collapse:collapse;
+  border-collapse:collapse;
 
-  min-width:700px;
+  min-width:700px;
 
 }
 
@@ -928,15 +928,15 @@ table{
 
 th{
 
-  text-align:left;
+  text-align:left;
 
-  padding:12px;
+  padding:12px;
 
-  font-size:12px;
+  font-size:12px;
 
-  color:var(--muted);
+  color:var(--muted);
 
-  border-bottom:1px solid var(--border);
+  border-bottom:1px solid var(--border);
 
 }
 
@@ -944,11 +944,11 @@ th{
 
 td{
 
-  padding:14px 12px;
+  padding:14px 12px;
 
-  font-size:13px;
+  font-size:13px;
 
-  border-bottom:1px solid #f0f2f0;
+  border-bottom:1px solid #f0f2f0;
 
 }
 
@@ -956,21 +956,21 @@ td{
 
 .status-badge{
 
-  display:inline-flex;
+  display:inline-flex;
 
-  align-items:center;
+  align-items:center;
 
-  gap:6px;
+  gap:6px;
 
-  padding:6px 10px;
+  padding:6px 10px;
 
-  border-radius:999px;
+  border-radius:999px;
 
-  font-size:11px;
+  font-size:11px;
 
-  font-weight:800;
+  font-weight:800;
 
-  white-space:nowrap;
+  white-space:nowrap;
 
 }
 
@@ -978,9 +978,9 @@ td{
 
 .status-received{
 
-  background:#eef1ef;
+  background:#eef1ef;
 
-  color:#637169;
+  color:#637169;
 
 }
 
@@ -988,24 +988,19 @@ td{
 
 .status-processing{
 
-  background:var(--yellow-soft);
+  background:var(--yellow-soft);
 
-  color:#926d13;
+  color:#926d13;
 
 }
 
 
-
-.status-postponed{
-  background:#fff0df;
-  color:#a85b08;
-}
 
 .status-completed{
 
-  background:var(--green-soft);
+  background:var(--green-soft);
 
-  color:#08723d;
+  color:#08723d;
 
 }
 
@@ -1013,9 +1008,9 @@ td{
 
 .status-forwarded{
 
-  background:#edf4ff;
+  background:#edf4ff;
 
-  color:#316ea5;
+  color:#316ea5;
 
 }
 
@@ -1023,11 +1018,11 @@ td{
 
 .loading-text{
 
-  padding:25px;
+  padding:25px;
 
-  text-align:center;
+  text-align:center;
 
-  color:var(--muted);
+  color:var(--muted);
 
 }
 
@@ -1035,7 +1030,7 @@ td{
 
 /* =========================
 
-   TRACKING
+   TRACKING
 
 ========================= */
 
@@ -1043,7 +1038,7 @@ td{
 
 .tracking-section{
 
-  background:linear-gradient(180deg,#f8faf7,#f8f5ea);
+  background:linear-gradient(180deg,#f8faf7,#f8f5ea);
 
 }
 
@@ -1051,17 +1046,17 @@ td{
 
 .tracking-card{
 
-  max-width:940px;
+  max-width:940px;
 
-  margin:auto;
+  margin:auto;
 
-  padding:40px;
+  padding:40px;
 
-  background:white;
+  background:white;
 
-  border-radius:30px;
+  border-radius:30px;
 
-  box-shadow:var(--shadow);
+  box-shadow:var(--shadow);
 
 }
 
@@ -1069,9 +1064,9 @@ td{
 
 .tracking-title{
 
-  text-align:center;
+  text-align:center;
 
-  margin-bottom:27px;
+  margin-bottom:27px;
 
 }
 
@@ -1079,9 +1074,9 @@ td{
 
 .tracking-title h2{
 
-  color:var(--green-deep);
+  color:var(--green-deep);
 
-  font-size:32px;
+  font-size:32px;
 
 }
 
@@ -1089,7 +1084,7 @@ td{
 
 .tracking-title p{
 
-  color:var(--muted);
+  color:var(--muted);
 
 }
 
@@ -1097,11 +1092,11 @@ td{
 
 .form-grid{
 
-  display:grid;
+  display:grid;
 
-  grid-template-columns:1fr 1fr;
+  grid-template-columns:1fr 1fr;
 
-  gap:15px;
+  gap:15px;
 
 }
 
@@ -1109,7 +1104,7 @@ td{
 
 .field{
 
-  margin-bottom:17px;
+  margin-bottom:17px;
 
 }
 
@@ -1117,13 +1112,13 @@ td{
 
 .field label{
 
-  display:block;
+  display:block;
 
-  margin-bottom:7px;
+  margin-bottom:7px;
 
-  font-size:13px;
+  font-size:13px;
 
-  font-weight:800;
+  font-weight:800;
 
 }
 
@@ -1135,17 +1130,17 @@ td{
 
 .field textarea{
 
-  width:100%;
+  width:100%;
 
-  border:1px solid var(--border);
+  border:1px solid var(--border);
 
-  border-radius:14px;
+  border-radius:14px;
 
-  background:#fbfcfb;
+  background:#fbfcfb;
 
-  outline:none;
+  outline:none;
 
-  transition:.2s;
+  transition:.2s;
 
 }
 
@@ -1155,9 +1150,9 @@ td{
 
 .field select{
 
-  height:54px;
+  height:54px;
 
-  padding:0 15px;
+  padding:0 15px;
 
 }
 
@@ -1165,11 +1160,11 @@ td{
 
 .field textarea{
 
-  min-height:135px;
+  min-height:135px;
 
-  padding:14px 15px;
+  padding:14px 15px;
 
-  resize:vertical;
+  resize:vertical;
 
 }
 
@@ -1181,11 +1176,11 @@ td{
 
 .field textarea:focus{
 
-  background:white;
+  background:white;
 
-  border-color:var(--green);
+  border-color:var(--green);
 
-  box-shadow:0 0 0 4px rgba(6,199,85,.08);
+  box-shadow:0 0 0 4px rgba(6,199,85,.08);
 
 }
 
@@ -1193,7 +1188,7 @@ td{
 
 .full-btn{
 
-  width:100%;
+  width:100%;
 
 }
 
@@ -1201,15 +1196,15 @@ td{
 
 .message-box{
 
-  display:none;
+  display:none;
 
-  margin-top:15px;
+  margin-top:15px;
 
-  padding:13px 15px;
+  padding:13px 15px;
 
-  border-radius:13px;
+  border-radius:13px;
 
-  font-size:13px;
+  font-size:13px;
 
 }
 
@@ -1217,11 +1212,11 @@ td{
 
 .message-box.error{
 
-  display:block;
+  display:block;
 
-  color:#9b3027;
+  color:#9b3027;
 
-  background:#fff0ee;
+  background:#fff0ee;
 
 }
 
@@ -1229,11 +1224,11 @@ td{
 
 .message-box.success{
 
-  display:block;
+  display:block;
 
-  color:#08723d;
+  color:#08723d;
 
-  background:var(--green-soft);
+  background:var(--green-soft);
 
 }
 
@@ -1241,13 +1236,13 @@ td{
 
 .tracking-result{
 
-  display:none;
+  display:none;
 
-  margin-top:28px;
+  margin-top:28px;
 
-  padding-top:28px;
+  padding-top:28px;
 
-  border-top:1px solid var(--border);
+  border-top:1px solid var(--border);
 
 }
 
@@ -1255,7 +1250,7 @@ td{
 
 .tracking-result.show{
 
-  display:block;
+  display:block;
 
 }
 
@@ -1263,15 +1258,15 @@ td{
 
 .result-header{
 
-  display:flex;
+  display:flex;
 
-  justify-content:space-between;
+  justify-content:space-between;
 
-  align-items:center;
+  align-items:center;
 
-  gap:15px;
+  gap:15px;
 
-  margin-bottom:24px;
+  margin-bottom:24px;
 
 }
 
@@ -1279,9 +1274,9 @@ td{
 
 .ticket-label{
 
-  color:var(--muted);
+  color:var(--muted);
 
-  font-size:12px;
+  font-size:12px;
 
 }
 
@@ -1289,11 +1284,11 @@ td{
 
 .ticket-no{
 
-  color:var(--green-deep);
+  color:var(--green-deep);
 
-  font-size:29px;
+  font-size:29px;
 
-  font-weight:900;
+  font-weight:900;
 
 }
 
@@ -1301,11 +1296,11 @@ td{
 
 .result-grid{
 
-  display:grid;
+  display:grid;
 
-  grid-template-columns:.9fr 1.1fr;
+  grid-template-columns:.9fr 1.1fr;
 
-  gap:28px;
+  gap:28px;
 
 }
 
@@ -1313,11 +1308,11 @@ td{
 
 .info-panel{
 
-  padding:22px;
+  padding:22px;
 
-  border-radius:20px;
+  border-radius:20px;
 
-  background:var(--cream);
+  background:var(--cream);
 
 }
 
@@ -1325,7 +1320,7 @@ td{
 
 .info-row{
 
-  margin-bottom:16px;
+  margin-bottom:16px;
 
 }
 
@@ -1333,7 +1328,7 @@ td{
 
 .info-row:last-child{
 
-  margin:0;
+  margin:0;
 
 }
 
@@ -1341,11 +1336,11 @@ td{
 
 .info-row span{
 
-  display:block;
+  display:block;
 
-  color:var(--muted);
+  color:var(--muted);
 
-  font-size:12px;
+  font-size:12px;
 
 }
 
@@ -1353,9 +1348,9 @@ td{
 
 .info-row strong{
 
-  display:block;
+  display:block;
 
-  margin-top:2px;
+  margin-top:2px;
 
 }
 
@@ -1363,13 +1358,13 @@ td{
 
 .remark-box{
 
-  margin-top:18px;
+  margin-top:18px;
 
-  padding:18px;
+  padding:18px;
 
-  border-radius:16px;
+  border-radius:16px;
 
-  background:var(--yellow-soft);
+  background:var(--yellow-soft);
 
 }
 
@@ -1377,7 +1372,7 @@ td{
 
 .remark-box small{
 
-  color:var(--brown);
+  color:var(--brown);
 
 }
 
@@ -1385,9 +1380,9 @@ td{
 
 .remark-box strong{
 
-  display:block;
+  display:block;
 
-  margin-top:4px;
+  margin-top:4px;
 
 }
 
@@ -1395,7 +1390,7 @@ td{
 
 .timeline{
 
-  padding-top:5px;
+  padding-top:5px;
 
 }
 
@@ -1403,9 +1398,9 @@ td{
 
 .timeline-item{
 
-  position:relative;
+  position:relative;
 
-  padding:0 0 28px 38px;
+  padding:0 0 28px 38px;
 
 }
 
@@ -1413,7 +1408,7 @@ td{
 
 .timeline-item:last-child{
 
-  padding-bottom:0;
+  padding-bottom:0;
 
 }
 
@@ -1421,19 +1416,19 @@ td{
 
 .timeline-item::before{
 
-  content:"";
+  content:"";
 
-  position:absolute;
+  position:absolute;
 
-  left:9px;
+  left:9px;
 
-  top:18px;
+  top:18px;
 
-  width:2px;
+  width:2px;
 
-  height:100%;
+  height:100%;
 
-  background:#dce5df;
+  background:#dce5df;
 
 }
 
@@ -1441,7 +1436,7 @@ td{
 
 .timeline-item:last-child::before{
 
-  display:none;
+  display:none;
 
 }
 
@@ -1449,21 +1444,21 @@ td{
 
 .timeline-circle{
 
-  position:absolute;
+  position:absolute;
 
-  left:0;
+  left:0;
 
-  top:2px;
+  top:2px;
 
-  width:20px;
+  width:20px;
 
-  height:20px;
+  height:20px;
 
-  border-radius:50%;
+  border-radius:50%;
 
-  border:4px solid #dff7e7;
+  border:4px solid #dff7e7;
 
-  background:var(--green);
+  background:var(--green);
 
 }
 
@@ -1471,9 +1466,9 @@ td{
 
 .timeline-item.current .timeline-circle{
 
-  background:#f2b82e;
+  background:#f2b82e;
 
-  border-color:#fff0bd;
+  border-color:#fff0bd;
 
 }
 
@@ -1481,9 +1476,9 @@ td{
 
 .timeline-item.future .timeline-circle{
 
-  background:#c9cfcb;
+  background:#c9cfcb;
 
-  border-color:#eef0ef;
+  border-color:#eef0ef;
 
 }
 
@@ -1491,7 +1486,7 @@ td{
 
 .timeline-item strong{
 
-  display:block;
+  display:block;
 
 }
 
@@ -1499,7 +1494,7 @@ td{
 
 .timeline-item small{
 
-  color:var(--muted);
+  color:var(--muted);
 
 }
 
@@ -1507,7 +1502,7 @@ td{
 
 /* =========================
 
-   COMPLAINT
+   COMPLAINT
 
 ========================= */
 
@@ -1515,9 +1510,9 @@ td{
 
 .complaint-shell{
 
-  max-width:1000px;
+  max-width:1000px;
 
-  margin:auto;
+  margin:auto;
 
 }
 
@@ -1525,11 +1520,11 @@ td{
 
 .steps{
 
-  display:grid;
+  display:grid;
 
-  grid-template-columns:repeat(3,1fr);
+  grid-template-columns:repeat(3,1fr);
 
-  margin-bottom:30px;
+  margin-bottom:30px;
 
 }
 
@@ -1537,9 +1532,9 @@ td{
 
 .step{
 
-  position:relative;
+  position:relative;
 
-  text-align:center;
+  text-align:center;
 
 }
 
@@ -1547,19 +1542,19 @@ td{
 
 .step:not(:last-child)::after{
 
-  content:"";
+  content:"";
 
-  position:absolute;
+  position:absolute;
 
-  top:19px;
+  top:19px;
 
-  left:60%;
+  left:60%;
 
-  width:80%;
+  width:80%;
 
-  height:2px;
+  height:2px;
 
-  background:#dce3de;
+  background:#dce3de;
 
 }
 
@@ -1567,29 +1562,29 @@ td{
 
 .step-circle{
 
-  position:relative;
+  position:relative;
 
-  z-index:2;
+  z-index:2;
 
-  width:40px;
+  width:40px;
 
-  height:40px;
+  height:40px;
 
-  margin:0 auto 7px;
+  margin:0 auto 7px;
 
-  border-radius:50%;
+  border-radius:50%;
 
-  border:2px solid #cbd4ce;
+  border:2px solid #cbd4ce;
 
-  background:white;
+  background:white;
 
-  display:flex;
+  display:flex;
 
-  align-items:center;
+  align-items:center;
 
-  justify-content:center;
+  justify-content:center;
 
-  font-weight:900;
+  font-weight:900;
 
 }
 
@@ -1597,11 +1592,11 @@ td{
 
 .step.active .step-circle{
 
-  background:var(--green-dark);
+  background:var(--green-dark);
 
-  color:white;
+  color:white;
 
-  border-color:var(--green-dark);
+  border-color:var(--green-dark);
 
 }
 
@@ -1609,11 +1604,11 @@ td{
 
 .step.done .step-circle{
 
-  background:var(--green);
+  background:var(--green);
 
-  color:white;
+  color:white;
 
-  border-color:var(--green);
+  border-color:var(--green);
 
 }
 
@@ -1621,9 +1616,9 @@ td{
 
 .step span{
 
-  font-size:12px;
+  font-size:12px;
 
-  color:var(--muted);
+  color:var(--muted);
 
 }
 
@@ -1631,9 +1626,9 @@ td{
 
 .step.active span{
 
-  color:var(--green-dark);
+  color:var(--green-dark);
 
-  font-weight:800;
+  font-weight:800;
 
 }
 
@@ -1641,13 +1636,13 @@ td{
 
 .complaint-card{
 
-  padding:35px;
+  padding:35px;
 
-  border:1px solid var(--border);
+  border:1px solid var(--border);
 
-  border-radius:28px;
+  border-radius:28px;
 
-  box-shadow:var(--shadow);
+  box-shadow:var(--shadow);
 
 }
 
@@ -1655,11 +1650,11 @@ td{
 
 .complaint-card h3{
 
-  margin-bottom:23px;
+  margin-bottom:23px;
 
-  color:var(--green-deep);
+  color:var(--green-deep);
 
-  font-size:24px;
+  font-size:24px;
 
 }
 
@@ -1667,7 +1662,7 @@ td{
 
 .required{
 
-  color:#d64535;
+  color:#d64535;
 
 }
 
@@ -1675,21 +1670,21 @@ td{
 
 .consent{
 
-  display:flex;
+  display:flex;
 
-  align-items:flex-start;
+  align-items:flex-start;
 
-  gap:10px;
+  gap:10px;
 
-  margin:20px 0;
+  margin:20px 0;
 
-  padding:15px;
+  padding:15px;
 
-  border-radius:14px;
+  border-radius:14px;
 
-  background:var(--yellow-soft);
+  background:var(--yellow-soft);
 
-  font-size:12px;
+  font-size:12px;
 
 }
 
@@ -1697,7 +1692,7 @@ td{
 
 .consent input{
 
-  margin-top:4px;
+  margin-top:4px;
 
 }
 
@@ -1705,7 +1700,7 @@ td{
 
 .review-box{
 
-  display:none;
+  display:none;
 
 }
 
@@ -1713,7 +1708,7 @@ td{
 
 .review-box.show{
 
-  display:block;
+  display:block;
 
 }
 
@@ -1721,7 +1716,7 @@ td{
 
 .form-box.hide{
 
-  display:none;
+  display:none;
 
 }
 
@@ -1729,11 +1724,11 @@ td{
 
 .review-grid{
 
-  display:grid;
+  display:grid;
 
-  grid-template-columns:1fr 1fr;
+  grid-template-columns:1fr 1fr;
 
-  gap:12px;
+  gap:12px;
 
 }
 
@@ -1741,11 +1736,11 @@ td{
 
 .review-item{
 
-  padding:15px;
+  padding:15px;
 
-  background:var(--cream);
+  background:var(--cream);
 
-  border-radius:14px;
+  border-radius:14px;
 
 }
 
@@ -1753,7 +1748,7 @@ td{
 
 .review-item.full{
 
-  grid-column:1/-1;
+  grid-column:1/-1;
 
 }
 
@@ -1761,11 +1756,11 @@ td{
 
 .review-item span{
 
-  display:block;
+  display:block;
 
-  color:var(--muted);
+  color:var(--muted);
 
-  font-size:11px;
+  font-size:11px;
 
 }
 
@@ -1773,9 +1768,9 @@ td{
 
 .review-item strong{
 
-  display:block;
+  display:block;
 
-  margin-top:3px;
+  margin-top:3px;
 
 }
 
@@ -1783,11 +1778,11 @@ td{
 
 .review-actions{
 
-  display:flex;
+  display:flex;
 
-  gap:12px;
+  gap:12px;
 
-  margin-top:22px;
+  margin-top:22px;
 
 }
 
@@ -1795,11 +1790,11 @@ td{
 
 .success-box{
 
-  display:none;
+  display:none;
 
-  text-align:center;
+  text-align:center;
 
-  padding:25px 0;
+  padding:25px 0;
 
 }
 
@@ -1807,7 +1802,7 @@ td{
 
 .success-box.show{
 
-  display:block;
+  display:block;
 
 }
 
@@ -1815,23 +1810,23 @@ td{
 
 .success-icon{
 
-  width:78px;
+  width:78px;
 
-  height:78px;
+  height:78px;
 
-  margin:0 auto 20px;
+  margin:0 auto 20px;
 
-  border-radius:50%;
+  border-radius:50%;
 
-  display:flex;
+  display:flex;
 
-  align-items:center;
+  align-items:center;
 
-  justify-content:center;
+  justify-content:center;
 
-  background:var(--green-soft);
+  background:var(--green-soft);
 
-  font-size:37px;
+  font-size:37px;
 
 }
 
@@ -1839,21 +1834,21 @@ td{
 
 .success-ticket{
 
-  display:inline-block;
+  display:inline-block;
 
-  margin:15px 0;
+  margin:15px 0;
 
-  padding:12px 22px;
+  padding:12px 22px;
 
-  border-radius:15px;
+  border-radius:15px;
 
-  background:var(--yellow-soft);
+  background:var(--yellow-soft);
 
-  color:var(--green-deep);
+  color:var(--green-deep);
 
-  font-size:27px;
+  font-size:27px;
 
-  font-weight:900;
+  font-weight:900;
 
 }
 
@@ -1861,7 +1856,7 @@ td{
 
 /* =========================
 
-   CTA
+   CTA
 
 ========================= */
 
@@ -1869,7 +1864,7 @@ td{
 
 .cta{
 
-  padding:70px 0;
+  padding:70px 0;
 
 }
 
@@ -1877,21 +1872,21 @@ td{
 
 .cta-card{
 
-  display:flex;
+  display:flex;
 
-  align-items:center;
+  align-items:center;
 
-  justify-content:space-between;
+  justify-content:space-between;
 
-  gap:30px;
+  gap:30px;
 
-  padding:45px;
+  padding:45px;
 
-  border-radius:30px;
+  border-radius:30px;
 
-  color:white;
+  color:white;
 
-  background:linear-gradient(135deg,var(--green-deep),var(--green-dark));
+  background:linear-gradient(135deg,var(--green-deep),var(--green-dark));
 
 }
 
@@ -1899,7 +1894,7 @@ td{
 
 .cta-card h2{
 
-  font-size:30px;
+  font-size:30px;
 
 }
 
@@ -1907,7 +1902,7 @@ td{
 
 .cta-card p{
 
-  opacity:.78;
+  opacity:.78;
 
 }
 
@@ -1915,7 +1910,7 @@ td{
 
 /* =========================
 
-   MODAL
+   MODAL
 
 ========================= */
 
@@ -1923,23 +1918,23 @@ td{
 
 .modal{
 
-  position:fixed;
+  position:fixed;
 
-  inset:0;
+  inset:0;
 
-  z-index:2000;
+  z-index:2000;
 
-  display:none;
+  display:none;
 
-  padding:20px;
+  padding:20px;
 
-  background:rgba(4,28,18,.52);
+  background:rgba(4,28,18,.52);
 
-  backdrop-filter:blur(10px);
+  backdrop-filter:blur(10px);
 
-  align-items:center;
+  align-items:center;
 
-  justify-content:center;
+  justify-content:center;
 
 }
 
@@ -1947,7 +1942,7 @@ td{
 
 .modal.show{
 
-  display:flex;
+  display:flex;
 
 }
 
@@ -1955,21 +1950,21 @@ td{
 
 .modal-card{
 
-  width:min(700px,100%);
+  width:min(700px,100%);
 
-  max-height:90vh;
+  max-height:90vh;
 
-  overflow-y:auto;
+  overflow-y:auto;
 
-  position:relative;
+  position:relative;
 
-  padding:35px;
+  padding:35px;
 
-  border-radius:30px;
+  border-radius:30px;
 
-  background:white;
+  background:white;
 
-  box-shadow:0 30px 100px rgba(0,0,0,.25);
+  box-shadow:0 30px 100px rgba(0,0,0,.25);
 
 }
 
@@ -1977,23 +1972,23 @@ td{
 
 .modal-close{
 
-  position:absolute;
+  position:absolute;
 
-  right:20px;
+  right:20px;
 
-  top:20px;
+  top:20px;
 
-  width:42px;
+  width:42px;
 
-  height:42px;
+  height:42px;
 
-  border:0;
+  border:0;
 
-  border-radius:50%;
+  border-radius:50%;
 
-  background:#f2f4f2;
+  background:#f2f4f2;
 
-  font-size:20px;
+  font-size:20px;
 
 }
 
@@ -2001,9 +1996,9 @@ td{
 
 .modal-head{
 
-  text-align:center;
+  text-align:center;
 
-  margin-bottom:28px;
+  margin-bottom:28px;
 
 }
 
@@ -2011,9 +2006,9 @@ td{
 
 .modal-head h2{
 
-  color:var(--green-deep);
+  color:var(--green-deep);
 
-  font-size:29px;
+  font-size:29px;
 
 }
 
@@ -2021,7 +2016,7 @@ td{
 
 .modal-head p{
 
-  color:var(--muted);
+  color:var(--muted);
 
 }
 
@@ -2029,11 +2024,11 @@ td{
 
 .contact-grid{
 
-  display:grid;
+  display:grid;
 
-  grid-template-columns:repeat(2,1fr);
+  grid-template-columns:repeat(2,1fr);
 
-  gap:13px;
+  gap:13px;
 
 }
 
@@ -2041,21 +2036,21 @@ td{
 
 .contact-item{
 
-  min-height:120px;
+  min-height:120px;
 
-  padding:20px;
+  padding:20px;
 
-  border:1px solid var(--border);
+  border:1px solid var(--border);
 
-  border-radius:19px;
+  border-radius:19px;
 
-  display:flex;
+  display:flex;
 
-  align-items:center;
+  align-items:center;
 
-  gap:15px;
+  gap:15px;
 
-  transition:.2s;
+  transition:.2s;
 
 }
 
@@ -2063,11 +2058,11 @@ td{
 
 .contact-item:hover{
 
-  transform:translateY(-3px);
+  transform:translateY(-3px);
 
-  border-color:#b9d8c5;
+  border-color:#b9d8c5;
 
-  box-shadow:0 13px 30px rgba(18,69,44,.08);
+  box-shadow:0 13px 30px rgba(18,69,44,.08);
 
 }
 
@@ -2075,25 +2070,25 @@ td{
 
 .contact-icon{
 
-  width:53px;
+  width:53px;
 
-  height:53px;
+  height:53px;
 
-  flex-shrink:0;
+  flex-shrink:0;
 
-  border-radius:16px;
+  border-radius:16px;
 
-  display:flex;
+  display:flex;
 
-  align-items:center;
+  align-items:center;
 
-  justify-content:center;
+  justify-content:center;
 
-  background:var(--green-soft);
+  background:var(--green-soft);
 
-  font-size:25px;
+  font-size:25px;
 
-  font-weight:900;
+  font-weight:900;
 
 }
 
@@ -2101,7 +2096,7 @@ td{
 
 .contact-item strong{
 
-  display:block;
+  display:block;
 
 }
 
@@ -2109,13 +2104,13 @@ td{
 
 .contact-item span{
 
-  display:block;
+  display:block;
 
-  color:var(--muted);
+  color:var(--muted);
 
-  font-size:12px;
+  font-size:12px;
 
-  overflow-wrap:anywhere;
+  overflow-wrap:anywhere;
 
 }
 
@@ -2123,7 +2118,7 @@ td{
 
 /* =========================
 
-   FOOTER
+   FOOTER
 
 ========================= */
 
@@ -2131,11 +2126,11 @@ td{
 
 footer{
 
-  padding:48px 0 25px;
+  padding:48px 0 25px;
 
-  color:white;
+  color:white;
 
-  background:#063d29;
+  background:#063d29;
 
 }
 
@@ -2143,11 +2138,11 @@ footer{
 
 .footer-grid{
 
-  display:grid;
+  display:grid;
 
-  grid-template-columns:2fr 1fr 1.3fr;
+  grid-template-columns:2fr 1fr 1.3fr;
 
-  gap:50px;
+  gap:50px;
 
 }
 
@@ -2157,7 +2152,7 @@ footer h3,
 
 footer h4{
 
-  margin-bottom:10px;
+  margin-bottom:10px;
 
 }
 
@@ -2167,9 +2162,9 @@ footer p,
 
 footer a{
 
-  color:rgba(255,255,255,.72);
+  color:rgba(255,255,255,.72);
 
-  font-size:13px;
+  font-size:13px;
 
 }
 
@@ -2177,9 +2172,9 @@ footer a{
 
 .footer-links{
 
-  display:grid;
+  display:grid;
 
-  gap:5px;
+  gap:5px;
 
 }
 
@@ -2187,15 +2182,15 @@ footer a{
 
 .copyright{
 
-  margin-top:35px;
+  margin-top:35px;
 
-  padding-top:20px;
+  padding-top:20px;
 
-  border-top:1px solid rgba(255,255,255,.12);
+  border-top:1px solid rgba(255,255,255,.12);
 
-  color:rgba(255,255,255,.55);
+  color:rgba(255,255,255,.55);
 
-  font-size:11px;
+  font-size:11px;
 
 }
 
@@ -2203,7 +2198,7 @@ footer a{
 
 /* =========================
 
-   RESPONSIVE
+   RESPONSIVE
 
 ========================= */
 
@@ -2213,63 +2208,63 @@ footer a{
 
 
 
-  .nav-links,
+  .nav-links,
 
-  .contact-button{
+  .contact-button{
 
-    display:none;
+    display:none;
 
-  }
-
-
-
-  .mobile-menu{
-
-    display:block;
-
-  }
+  }
 
 
 
-  .hero-grid{
+  .mobile-menu{
 
-    grid-template-columns:1fr;
+    display:block;
 
-    gap:40px;
-
-  }
+  }
 
 
 
-  .stats-grid{
+  .hero-grid{
 
-    grid-template-columns:repeat(2,1fr);
+    grid-template-columns:1fr;
 
-  }
+    gap:40px;
 
-
-
-  .stat-card:first-child{
-
-    grid-column:1/-1;
-
-  }
+  }
 
 
 
-  .result-grid{
+  .stats-grid{
 
-    grid-template-columns:1fr;
+    grid-template-columns:repeat(2,1fr);
 
-  }
+  }
 
 
 
-  .footer-grid{
+  .stat-card:first-child{
 
-    grid-template-columns:1fr 1fr;
+    grid-column:1/-1;
 
-  }
+  }
+
+
+
+  .result-grid{
+
+    grid-template-columns:1fr;
+
+  }
+
+
+
+  .footer-grid{
+
+    grid-template-columns:1fr 1fr;
+
+  }
 
 }
 
@@ -2279,217 +2274,250 @@ footer a{
 
 
 
-  .container{
+  .container{
 
-    width:min(100% - 28px,var(--max));
+    width:min(100% - 28px,var(--max));
 
-  }
+  }
 
 
 
-  .section{
+  .section{
 
-    padding:60px 0;
+    padding:60px 0;
 
-  }
+  }
 
 
 
-  .brand-logo{
+  .brand-logo{
 
-    width:42px;
+    width:42px;
 
-    height:42px;
+    height:42px;
 
-  }
+  }
 
 
 
-  .brand-name strong{
+  .brand-name strong{
 
-    font-size:13px;
+    font-size:13px;
 
-  }
+  }
 
 
 
-  .brand-name span{
+  .brand-name span{
 
-    font-size:10px;
+    font-size:10px;
 
-  }
+  }
 
 
 
-  .hero{
+  .hero{
 
-    min-height:auto;
+    min-height:auto;
 
-  }
+  }
 
 
 
-  .hero-grid{
+  .hero-grid{
 
-    padding:55px 0;
+    padding:55px 0;
 
-  }
+  }
 
 
 
-  .hero h1{
+  .hero h1{
 
-    font-size:41px;
+    font-size:41px;
 
-    letter-spacing:-1px;
+    letter-spacing:-1px;
 
-  }
+  }
 
 
 
-  .hero-desc{
+  .hero-desc{
 
-    font-size:15px;
+    font-size:15px;
 
-  }
+  }
 
 
 
-  .hero-actions{
+  .hero-actions{
 
-    display:grid;
+    display:grid;
 
-  }
+  }
 
 
 
-  .hero-actions .btn{
+  .hero-actions .btn{
 
-    width:100%;
+    width:100%;
 
-  }
+  }
 
 
 
-  .hero-status-card{
+  .hero-status-card{
 
-    padding:25px;
+    padding:25px;
 
-  }
+  }
 
 
 
-  .stats-grid{
+  .stats-grid{
 
-    grid-template-columns:1fr 1fr;
+    grid-template-columns:1fr 1fr;
 
-  }
+  }
 
 
 
-  .form-grid{
+  .form-grid{
 
-    grid-template-columns:1fr;
+    grid-template-columns:1fr;
 
-  }
+  }
 
 
 
-  .tracking-card,
+  .tracking-card,
 
-  .complaint-card{
+  .complaint-card{
 
-    padding:23px;
+    padding:23px;
 
-  }
+  }
 
 
 
-  .result-header{
+  .result-header{
 
-    align-items:flex-start;
+    align-items:flex-start;
 
-    flex-direction:column;
+    flex-direction:column;
 
-  }
+  }
 
 
 
-  .review-grid{
+  .review-grid{
 
-    grid-template-columns:1fr;
+    grid-template-columns:1fr;
 
-  }
+  }
 
 
 
-  .review-item.full{
+  .review-item.full{
 
-    grid-column:auto;
+    grid-column:auto;
 
-  }
+  }
 
 
 
-  .review-actions{
+  .review-actions{
 
-    flex-direction:column;
+    flex-direction:column;
 
-  }
+  }
 
 
 
-  .cta-card{
+  .cta-card{
 
-    padding:30px 24px;
+    padding:30px 24px;
 
-    flex-direction:column;
+    flex-direction:column;
 
-    align-items:flex-start;
+    align-items:flex-start;
 
-  }
+  }
 
 
 
-  .cta-card .btn{
+  .cta-card .btn{
 
-    width:100%;
+    width:100%;
 
-  }
+  }
 
 
 
-  .contact-grid{
+  .contact-grid{
 
-    grid-template-columns:1fr;
+    grid-template-columns:1fr;
 
-  }
+  }
 
 
 
-  .phone-contact{
+  .phone-contact{
 
-    grid-column:auto !important;
+    grid-column:auto !important;
 
-  }
+  }
 
 
 
-  .modal-card{
+  .modal-card{
 
-    padding:28px 20px;
+    padding:28px 20px;
 
-  }
+  }
 
 
 
-  .footer-grid{
+  .footer-grid{
 
-    grid-template-columns:1fr;
+    grid-template-columns:1fr;
 
-  }
+  }
 
 }
+
+
+/* =========================
+   ADMIN SYSTEM
+========================= */
+.admin-login-button{
+  border:1px solid var(--border); background:#fff; color:var(--green-deep);
+  padding:10px 16px; border-radius:999px; font-weight:900;
+}
+.admin-login-button.active{background:var(--green-deep);color:#fff;border-color:var(--green-deep)}
+.status-postponed{background:#fff0df;color:#a85b08}
+.admin-section{display:none;background:#f7faf8}
+.admin-section.show{display:block}
+.admin-toolbar{display:flex;justify-content:space-between;align-items:center;gap:15px;flex-wrap:wrap;margin-bottom:18px}
+.admin-toolbar-actions{display:flex;gap:10px;flex-wrap:wrap}
+.admin-panel{padding:28px;background:#fff;border:1px solid var(--border);border-radius:25px;box-shadow:var(--shadow)}
+.admin-badge{display:inline-flex;padding:7px 12px;border-radius:999px;background:var(--green-soft);color:var(--green-dark);font-size:12px;font-weight:900}
+.admin-table{min-width:1050px}
+.admin-table td,.admin-table th{vertical-align:top}
+.action-group{display:flex;gap:6px;flex-wrap:wrap}
+.mini-btn{border:0;border-radius:10px;padding:7px 10px;font-size:12px;font-weight:800}
+.mini-btn.edit{background:var(--green-soft);color:var(--green-dark)}
+.mini-btn.delete{background:#fff0ee;color:#a53229}
+.admin-report{display:grid;grid-template-columns:1fr 1fr auto;gap:10px;align-items:end;margin-bottom:22px;padding:18px;background:var(--cream);border-radius:18px}
+.image-help{font-size:12px;color:var(--muted);margin-top:6px}
+.admin-only-note{display:none;margin-bottom:18px;padding:13px 15px;border-radius:14px;background:var(--green-soft);color:var(--green-dark);font-size:13px;font-weight:700}
+.admin-only-note.show{display:block}
+.postpone-fields{display:none;padding:15px;background:#fff8e7;border-radius:16px;margin-bottom:15px}
+.postpone-fields.show{display:block}
+.edit-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.edit-grid .full{grid-column:1/-1}
+.login-icon{width:66px;height:66px;margin:0 auto 16px;border-radius:20px;display:flex;align-items:center;justify-content:center;background:var(--green-soft);font-size:30px}
+@media(max-width:900px){.admin-report{grid-template-columns:1fr}.edit-grid{grid-template-columns:1fr}.edit-grid .full{grid-column:auto}}
 
 </style>
 
@@ -2507,111 +2535,113 @@ footer a{
 
 
 
-  <div class="container nav-inner">
+  <div class="container nav-inner">
 
 
 
-    <a href="#home" class="brand">
+    <a href="#home" class="brand">
 
 
 
-      <div class="brand-logo">
+      <div class="brand-logo">
 
-        อบต.
+        อบต.
 
-      </div>
-
-
-
-      <div class="brand-name">
-
-        <strong>องค์การบริหารส่วนตำบลชำผักแพว</strong>
-
-        <span>อำเภอแก่งคอย จังหวัดสระบุรี</span>
-
-      </div>
+      </div>
 
 
 
-    </a>
+      <div class="brand-name">
+
+        <strong>องค์การบริหารส่วนตำบลชำผักแพว</strong>
+
+        <span>อำเภอแก่งคอย จังหวัดสระบุรี</span>
+
+      </div>
 
 
 
-    <nav class="nav-links">
-
-      <a href="#home">หน้าแรก</a>
-
-      <a href="#overview">ภาพรวมคำร้อง</a>
-
-      <a href="#tracking">ตรวจสอบสถานะ</a>
-
-      <a href="#submit">ยื่นคำร้อง</a>
-
-    </nav>
+    </a>
 
 
+
+    <nav class="nav-links">
+
+      <a href="#home">หน้าแรก</a>
+
+      <a href="#overview">ภาพรวมคำร้อง</a>
+
+      <a href="#tracking">ตรวจสอบสถานะ</a>
+
+      <a href="#submit">ยื่นคำร้อง</a>
+
+    </nav>
+
+
+
+    <button class="admin-login-button" id="adminLoginButton" onclick="handleAdminButton()">🔐 เข้าสู่ระบบ</button>
 
     <button class="contact-button" onclick="openContact()">
 
-      ☎ ติดต่อเรา
+      ☎ ติดต่อเรา
 
-    </button>
-
-
-
-    <button class="mobile-menu" onclick="toggleMobileMenu()">
-
-      ☰
-
-    </button>
+    </button>
 
 
 
-  </div>
+    <button class="mobile-menu" onclick="toggleMobileMenu()">
+
+      ☰
+
+    </button>
 
 
 
-  <div class="mobile-panel" id="mobilePanel">
+  </div>
 
 
 
-    <a href="#home" onclick="closeMobileMenu()">หน้าแรก</a>
+  <div class="mobile-panel" id="mobilePanel">
 
 
 
-    <a href="#overview" onclick="closeMobileMenu()">
-
-      ภาพรวมคำร้อง
-
-    </a>
+    <a href="#home" onclick="closeMobileMenu()">หน้าแรก</a>
 
 
 
-    <a href="#tracking" onclick="closeMobileMenu()">
+    <a href="#overview" onclick="closeMobileMenu()">
 
-      ตรวจสอบสถานะ
+      ภาพรวมคำร้อง
 
-    </a>
-
-
-
-    <a href="#submit" onclick="closeMobileMenu()">
-
-      ยื่นคำร้อง
-
-    </a>
+    </a>
 
 
 
-    <button onclick="openContact();closeMobileMenu();">
+    <a href="#tracking" onclick="closeMobileMenu()">
 
-      ☎ ติดต่อเรา
+      ตรวจสอบสถานะ
 
-    </button>
+    </a>
 
 
 
-  </div>
+    <a href="#submit" onclick="closeMobileMenu()">
+
+      ยื่นคำร้อง
+
+    </a>
+
+
+
+    <button onclick="openContact();closeMobileMenu();">
+
+      ☎ ติดต่อเรา
+
+    </button>
+
+
+
+  </div>
 
 
 
@@ -2625,151 +2655,151 @@ footer a{
 
 
 
-  <div class="container hero-grid">
+  <div class="container hero-grid">
 
 
 
-    <div>
+    <div>
 
 
 
-      <div class="eyebrow">
+      <div class="eyebrow">
 
-        ✦ บริการออนไลน์
+        ✦ บริการออนไลน์
 
-      </div>
+      </div>
 
 
 
-      <h1>
+      <h1>
 
-        ระบบติดตาม<br>
+        ระบบติดตาม<br>
 
-        <span>สถานะคำร้องออนไลน์</span>
+        <span>สถานะคำร้องออนไลน์</span>
 
-      </h1>
+      </h1>
 
 
 
-      <p class="hero-desc">
+      <p class="hero-desc">
 
-        บริการออนไลน์จากองค์การบริหารส่วนตำบลชำผักแพว
+        บริการออนไลน์จากองค์การบริหารส่วนตำบลชำผักแพว
 
-        ให้ประชาชนสามารถยื่นคำร้องและตรวจสอบความคืบหน้า
+        ให้ประชาชนสามารถยื่นคำร้องและตรวจสอบความคืบหน้า
 
-        ได้อย่างสะดวก รวดเร็ว และโปร่งใส
+        ได้อย่างสะดวก รวดเร็ว และโปร่งใส
 
-      </p>
+      </p>
 
 
 
-      <div class="hero-actions">
+      <div class="hero-actions">
 
 
 
-        <a href="#tracking" class="btn btn-primary">
+        <a href="#tracking" class="btn btn-primary">
 
-          🔍 ตรวจสอบสถานะคำร้อง
+          🔍 ตรวจสอบสถานะคำร้อง
 
-        </a>
+        </a>
 
 
 
-        <a href="#submit" class="btn btn-secondary">
+        <a href="#submit" class="btn btn-secondary submit-nav-link">
 
-          📝 ยื่นคำร้องออนไลน์
+          📝 ยื่นคำร้องออนไลน์
 
-        </a>
+        </a>
 
 
 
-      </div>
+      </div>
 
 
 
-    </div>
+    </div>
 
 
 
-    <div class="hero-status-card">
+    <div class="hero-status-card">
 
 
 
-      <div class="hero-icon">
+      <div class="hero-icon">
 
-        📋
+        📋
 
-      </div>
+      </div>
 
 
 
-      <h2>ติดตามได้ทุกขั้นตอน</h2>
+      <h2>ติดตามได้ทุกขั้นตอน</h2>
 
 
 
-      <p>
+      <p>
 
-        ตรวจสอบความคืบหน้าของคำร้อง
+        ตรวจสอบความคืบหน้าของคำร้อง
 
-        ตั้งแต่รับเรื่องจนดำเนินการแล้วเสร็จ
+        ตั้งแต่รับเรื่องจนดำเนินการแล้วเสร็จ
 
-      </p>
+      </p>
 
 
 
-      <div class="mini-status">
+      <div class="mini-status">
 
-        <span class="dot"></span>
+        <span class="dot"></span>
 
-        <div>
+        <div>
 
-          <strong>รับเรื่องแล้ว</strong>
+          <strong>รับเรื่องแล้ว</strong>
 
-          <small>ระบบบันทึกคำร้องเรียบร้อย</small>
+          <small>ระบบบันทึกคำร้องเรียบร้อย</small>
 
-        </div>
+        </div>
 
-      </div>
+      </div>
 
 
 
-      <div class="mini-status">
+      <div class="mini-status">
 
-        <span class="dot yellow"></span>
+        <span class="dot yellow"></span>
 
-        <div>
+        <div>
 
-          <strong>อยู่ระหว่างดำเนินการ</strong>
+          <strong>อยู่ระหว่างดำเนินการ</strong>
 
-          <small>เจ้าหน้าที่กำลังดำเนินการ</small>
+          <small>เจ้าหน้าที่กำลังดำเนินการ</small>
 
-        </div>
+        </div>
 
-      </div>
+      </div>
 
 
 
-      <div class="mini-status">
+      <div class="mini-status">
 
-        <span class="dot gray"></span>
+        <span class="dot gray"></span>
 
-        <div>
+        <div>
 
-          <strong>ดำเนินการแล้วเสร็จ</strong>
+          <strong>ดำเนินการแล้วเสร็จ</strong>
 
-          <small>แจ้งผลการดำเนินงาน</small>
+          <small>แจ้งผลการดำเนินงาน</small>
 
-        </div>
+        </div>
 
-      </div>
+      </div>
 
 
 
-    </div>
+    </div>
 
 
 
-  </div>
+  </div>
 
 
 
@@ -2783,205 +2813,205 @@ footer a{
 
 
 
-  <div class="container">
+  <div class="container">
 
 
 
-    <div class="section-heading">
+    <div class="section-heading">
 
 
 
-      <small>ข้อมูลภาพรวม</small>
+      <small>ข้อมูลภาพรวม</small>
 
 
 
-      <h2>ภาพรวมคำร้อง</h2>
+      <h2>ภาพรวมคำร้อง</h2>
 
 
 
-      <p>
+      <p>
 
-        ข้อมูลสถิติคำร้องจากระบบ
+        ข้อมูลสถิติคำร้องจากระบบ
 
-        โดยไม่แสดงข้อมูลส่วนบุคคลของผู้ยื่นคำร้อง
+        โดยไม่แสดงข้อมูลส่วนบุคคลของผู้ยื่นคำร้อง
 
-      </p>
+      </p>
 
 
 
-    </div>
+    </div>
 
 
 
-    <div class="stats-grid">
+    <div class="stats-grid">
 
 
 
-      <div class="stat-card">
+      <div class="stat-card">
 
-        <div class="stat-icon">📋</div>
+        <div class="stat-icon">📋</div>
 
-        <div class="stat-number" id="statTotal">0</div>
+        <div class="stat-number" id="statTotal">0</div>
 
-        <div class="stat-label">คำร้องทั้งหมด</div>
+        <div class="stat-label">คำร้องทั้งหมด</div>
 
-      </div>
+      </div>
 
 
 
-      <div class="stat-card gray">
+      <div class="stat-card gray">
 
-        <div class="stat-icon">📥</div>
+        <div class="stat-icon">📥</div>
 
-        <div class="stat-number" id="statReceived">0</div>
+        <div class="stat-number" id="statReceived">0</div>
 
-        <div class="stat-label">รับเรื่องแล้ว</div>
+        <div class="stat-label">รับเรื่องแล้ว</div>
 
-      </div>
+      </div>
 
 
 
-      <div class="stat-card yellow">
+      <div class="stat-card yellow">
 
-        <div class="stat-icon">⏳</div>
+        <div class="stat-icon">⏳</div>
 
-        <div class="stat-number" id="statProcessing">0</div>
+        <div class="stat-number" id="statProcessing">0</div>
 
-        <div class="stat-label">อยู่ระหว่างดำเนินการ</div>
+        <div class="stat-label">อยู่ระหว่างดำเนินการ</div>
 
-      </div>
+      </div>
 
 
 
-      <div class="stat-card">
+      <div class="stat-card">
 
-        <div class="stat-icon">✓</div>
+        <div class="stat-icon">✓</div>
 
-        <div class="stat-number" id="statCompleted">0</div>
+        <div class="stat-number" id="statCompleted">0</div>
 
-        <div class="stat-label">ดำเนินการแล้วเสร็จ</div>
+        <div class="stat-label">ดำเนินการแล้วเสร็จ</div>
 
-      </div>
+      </div>
 
 
 
-      <div class="stat-card blue">
+      <div class="stat-card blue">
 
-        <div class="stat-icon">↗</div>
+        <div class="stat-icon">↗</div>
 
-        <div class="stat-number" id="statForwarded">0</div>
+        <div class="stat-number" id="statForwarded">0</div>
 
-        <div class="stat-label">ส่งต่อหน่วยงานอื่น</div>
+        <div class="stat-label">ส่งต่อหน่วยงานอื่น</div>
 
-      </div>
+      </div>
 
 
 
-    </div>
+    </div>
 
 
 
-    <div class="public-list">
+    <div class="public-list">
 
 
 
-      <div class="list-header">
+      <div class="list-header">
 
 
 
-        <div>
+        <div>
 
-          <h3>รายการคำร้องล่าสุด</h3>
+          <h3>รายการคำร้องล่าสุด</h3>
 
-          <small style="color:var(--muted)">
+          <small style="color:var(--muted)">
 
-            แสดงเฉพาะข้อมูลที่ไม่ระบุตัวบุคคล
+            แสดงเฉพาะข้อมูลที่ไม่ระบุตัวบุคคล
 
-          </small>
+          </small>
 
-        </div>
+        </div>
 
 
 
-        <button
+        <button
 
-          class="refresh-btn"
+          class="refresh-btn"
 
-          onclick="loadDashboard();loadPublicList();"
+          onclick="loadDashboard();loadPublicList();"
 
-        >
+        >
 
-          ↻ อัปเดต
+          ↻ อัปเดต
 
-        </button>
+        </button>
 
 
 
-      </div>
+      </div>
 
 
 
-      <div class="table-wrap">
+      <div class="table-wrap">
 
 
 
-        <table>
+        <table>
 
 
 
-          <thead>
+          <thead>
 
-            <tr>
+            <tr>
 
-              <th>เลขทะเบียน</th>
+              <th>เลขทะเบียน</th>
 
-              <th>วันที่</th>
+              <th>วันที่</th>
 
-              <th>ประเภทคำร้อง</th>
+              <th>ประเภทคำร้อง</th>
 
-              <th>หน่วยงาน</th>
+              <th>หน่วยงาน</th>
 
-              <th>สถานะ</th>
+              <th>สถานะ</th>
 
-            </tr>
+            </tr>
 
-          </thead>
+          </thead>
 
 
 
-          <tbody id="publicListBody">
+          <tbody id="publicListBody">
 
 
 
-            <tr>
+            <tr>
 
-              <td colspan="5" class="loading-text">
+              <td colspan="5" class="loading-text">
 
-                กำลังโหลดข้อมูล...
+                กำลังโหลดข้อมูล...
 
-              </td>
+              </td>
 
-            </tr>
+            </tr>
 
 
 
-          </tbody>
+          </tbody>
 
 
 
-        </table>
+        </table>
 
 
 
-      </div>
+      </div>
 
 
 
-    </div>
+    </div>
 
 
 
-  </div>
+  </div>
 
 
 
@@ -2995,261 +3025,261 @@ footer a{
 
 
 
-  <div class="container">
+  <div class="container">
 
 
 
-    <div class="tracking-card">
+    <div class="tracking-card">
 
 
 
-      <div class="tracking-title">
+      <div class="tracking-title">
 
 
 
-        <h2>🔍 ตรวจสอบสถานะคำร้อง</h2>
+        <h2>🔍 ตรวจสอบสถานะคำร้อง</h2>
 
 
 
-        <p>
+        <p>
 
-          กรอกเลขทะเบียนคำร้อง
+          กรอกเลขทะเบียนคำร้อง
 
-          และหมายเลขโทรศัพท์ 4 ตัวท้าย
+          และหมายเลขโทรศัพท์ 4 ตัวท้าย
 
-        </p>
+        </p>
 
 
 
-      </div>
+      </div>
 
 
 
-      <div class="form-grid">
+      <div class="form-grid">
 
 
 
-        <div class="field">
+        <div class="field">
 
 
 
-          <label>เลขทะเบียนคำร้อง</label>
+          <label>เลขทะเบียนคำร้อง</label>
 
 
 
-          <input
+          <input
 
-            type="text"
+            type="text"
 
-            id="trackTicket"
+            id="trackTicket"
 
-            placeholder="เช่น 2569-0001"
+            placeholder="เช่น 2569-0001"
 
-          >
+          >
 
 
 
-        </div>
+        </div>
 
 
 
-        <div class="field">
+        <div class="field">
 
 
 
-          <label>เบอร์โทรศัพท์ 4 ตัวท้าย</label>
+          <label>เบอร์โทรศัพท์ 4 ตัวท้าย</label>
 
 
 
-          <input
+          <input
 
-            type="tel"
+            type="tel"
 
-            id="trackPhone"
+            id="trackPhone"
 
-            maxlength="4"
+            maxlength="4"
 
-            inputmode="numeric"
+            inputmode="numeric"
 
-            placeholder="เช่น 5678"
+            placeholder="เช่น 5678"
 
-          >
+          >
 
 
 
-        </div>
+        </div>
 
 
 
-      </div>
+      </div>
 
 
 
-      <button
+      <button
 
-        class="btn btn-primary full-btn"
+        class="btn btn-primary full-btn"
 
-        id="trackButton"
+        id="trackButton"
 
-        onclick="searchTracking()"
+        onclick="searchTracking()"
 
-      >
+      >
 
-        🔍 ตรวจสอบสถานะ
+        🔍 ตรวจสอบสถานะ
 
-      </button>
+      </button>
 
 
 
-      <div class="message-box" id="trackMessage"></div>
+      <div class="message-box" id="trackMessage"></div>
 
 
 
-      <div class="tracking-result" id="trackingResult">
+      <div class="tracking-result" id="trackingResult">
 
 
 
-        <div class="result-header">
+        <div class="result-header">
 
 
 
-          <div>
+          <div>
 
 
 
-            <div class="ticket-label">
+            <div class="ticket-label">
 
-              เลขทะเบียนคำร้อง
+              เลขทะเบียนคำร้อง
 
-            </div>
+            </div>
 
 
 
-            <div class="ticket-no" id="resultTicket">
+            <div class="ticket-no" id="resultTicket">
 
-              -
+              -
 
-            </div>
+            </div>
 
 
 
-          </div>
+          </div>
 
 
 
-          <span class="status-badge" id="resultStatus">
+          <span class="status-badge" id="resultStatus">
 
-            -
+            -
 
-          </span>
+          </span>
 
 
 
-        </div>
+        </div>
 
 
 
-        <div class="result-grid">
+        <div class="result-grid">
 
 
 
-          <div>
+          <div>
 
 
 
-            <div class="info-panel">
+            <div class="info-panel">
 
 
 
-              <div class="info-row">
+              <div class="info-row">
 
-                <span>วันที่รับเรื่อง</span>
+                <span>วันที่รับเรื่อง</span>
 
-                <strong id="resultDate">-</strong>
+                <strong id="resultDate">-</strong>
 
-              </div>
+              </div>
 
 
 
-              <div class="info-row">
+              <div class="info-row">
 
-                <span>ประเภทคำร้อง</span>
+                <span>ประเภทคำร้อง</span>
 
-                <strong id="resultCategory">-</strong>
+                <strong id="resultCategory">-</strong>
 
-              </div>
+              </div>
 
 
 
-              <div class="info-row">
+              <div class="info-row">
 
-                <span>เรื่องร้องเรียน</span>
+                <span>เรื่องร้องเรียน</span>
 
-                <strong id="resultTopic">-</strong>
+                <strong id="resultTopic">-</strong>
 
-              </div>
+              </div>
 
 
 
-              <div class="info-row">
+              <div class="info-row">
 
-                <span>หน่วยงานรับผิดชอบ</span>
+                <span>หน่วยงานรับผิดชอบ</span>
 
-                <strong id="resultDepartment">-</strong>
+                <strong id="resultDepartment">-</strong>
 
-              </div>
+              </div>
 
 
 
-              <div class="info-row">
+              <div class="info-row">
 
-                <span>อัปเดตล่าสุด</span>
+                <span>อัปเดตล่าสุด</span>
 
-                <strong id="resultUpdate">-</strong>
+                <strong id="resultUpdate">-</strong>
 
-              </div>
+              </div>
 
 
 
-            </div>
+            </div>
 
 
 
-            <div class="remark-box">
+            <div class="remark-box">
 
-              <small>ความคืบหน้าล่าสุด</small>
+              <small>ความคืบหน้าล่าสุด</small>
 
-              <strong id="resultRemark">-</strong>
+              <strong id="resultRemark">-</strong>
 
-            </div>
+            </div>
 
 
 
-          </div>
+          </div>
 
 
 
-          <div>
+          <div>
 
-            <div class="timeline" id="statusTimeline"></div>
+            <div class="timeline" id="statusTimeline"></div>
 
-          </div>
+          </div>
 
 
 
-        </div>
+        </div>
 
 
 
-      </div>
+      </div>
 
 
 
-    </div>
+    </div>
 
 
 
-  </div>
+  </div>
 
 
 
@@ -3263,601 +3293,608 @@ footer a{
 
 
 
-  <div class="container complaint-shell">
+  <div class="container complaint-shell">
 
 
 
-    <div class="section-heading">
+    <div class="section-heading">
 
 
 
-      <small>บริการประชาชน</small>
+      <small>บริการประชาชน</small>
 
 
 
-      <h2>ยื่นคำร้องออนไลน์</h2>
+      <h2>ยื่นคำร้องออนไลน์</h2>
+      <div class="admin-only-note" id="adminOnlyNote">🔐 ส่วนนี้สำหรับเจ้าหน้าที่ที่เข้าสู่ระบบแล้วเท่านั้น</div>
 
 
 
-      <p>
+      <p>
 
-        กรุณากรอกข้อมูลให้ครบถ้วน
+        กรุณากรอกข้อมูลให้ครบถ้วน
 
-        เพื่อให้เจ้าหน้าที่สามารถดำเนินการได้อย่างรวดเร็ว
+        เพื่อให้เจ้าหน้าที่สามารถดำเนินการได้อย่างรวดเร็ว
 
-      </p>
+      </p>
 
 
 
-    </div>
+    </div>
 
 
 
-    <div class="steps">
+    <div class="steps">
 
 
 
-      <div class="step active" id="step1">
+      <div class="step active" id="step1">
 
-        <div class="step-circle">1</div>
+        <div class="step-circle">1</div>
 
-        <span>กรอกข้อมูล</span>
+        <span>กรอกข้อมูล</span>
 
-      </div>
+      </div>
 
 
 
-      <div class="step" id="step2">
+      <div class="step" id="step2">
 
-        <div class="step-circle">2</div>
+        <div class="step-circle">2</div>
 
-        <span>ตรวจสอบข้อมูล</span>
+        <span>ตรวจสอบข้อมูล</span>
 
-      </div>
+      </div>
 
 
 
-      <div class="step" id="step3">
+      <div class="step" id="step3">
 
-        <div class="step-circle">3</div>
+        <div class="step-circle">3</div>
 
-        <span>รับเลขทะเบียน</span>
+        <span>รับเลขทะเบียน</span>
 
-      </div>
+      </div>
 
 
 
-    </div>
+    </div>
 
 
 
-    <div class="complaint-card">
+    <div class="complaint-card">
 
 
 
-      <div class="form-box" id="complaintFormBox">
+      <div class="form-box" id="complaintFormBox">
 
 
 
-        <h3>ข้อมูลผู้ร้องเรียน</h3>
+        <h3>ข้อมูลผู้ร้องเรียน</h3>
 
 
 
-        <div class="form-grid">
+        <div class="form-grid">
 
 
 
-          <div class="field">
+          <div class="field">
 
 
 
-            <label>
+            <label>
 
-              ชื่อ - นามสกุล
+              ชื่อ - นามสกุล
 
-              <span class="required">*</span>
+              <span class="required">*</span>
 
-            </label>
+            </label>
 
 
 
-            <input
+            <input
 
-              type="text"
+              type="text"
 
-              id="complaintName"
+              id="complaintName"
 
-              placeholder="เช่น นายสมชาย ใจดี"
+              placeholder="เช่น นายสมชาย ใจดี"
 
-            >
+            >
 
 
 
-          </div>
+          </div>
 
 
 
-          <div class="field">
+          <div class="field">
 
 
 
-            <label>
+            <label>
 
-              เบอร์โทรศัพท์
+              เบอร์โทรศัพท์
 
-              <span class="required">*</span>
+              <span class="required">*</span>
 
-            </label>
+            </label>
 
 
 
-            <input
+            <input
 
-              type="tel"
+              type="tel"
 
-              id="complaintPhone"
+              id="complaintPhone"
 
-              maxlength="10"
+              maxlength="10"
 
-              inputmode="numeric"
+              inputmode="numeric"
 
-              placeholder="เช่น 0812345678"
+              placeholder="เช่น 0812345678"
 
-            >
+            >
 
 
 
-          </div>
+          </div>
 
 
 
+        </div>
+
+
+
+        <div class="field">
+
+
+
+          <label>
+
+            ที่อยู่ / หมู่ที่
+
+            <span class="required">*</span>
+
+          </label>
+
+
+
+          <input
+
+            type="text"
+
+            id="complaintAddress"
+
+            placeholder="เช่น หมู่ที่ 3 ตำบลชำผักแพว"
+
+          >
+
+
+
+        </div>
+
+
+
+        <h3 style="margin-top:15px">
+
+          รายละเอียดคำร้อง
+
+        </h3>
+
+
+
+        <div class="field">
+
+
+
+          <label>
+
+            ประเภทคำร้อง
+
+            <span class="required">*</span>
+
+          </label>
+
+
+
+          <select id="complaintCategory">
+
+
+
+            <option value="">
+
+              -- เลือกประเภทคำร้อง --
+
+            </option>
+
+
+
+            <option value="ถนน / ทางสาธารณะ">
+
+              ถนน / ทางสาธารณะ
+
+            </option>
+
+
+
+            <option value="ไฟฟ้าสาธารณะ">
+
+              ไฟฟ้าสาธารณะ
+
+            </option>
+
+
+
+            <option value="น้ำประปา / น้ำอุปโภคบริโภค">
+
+              น้ำประปา / น้ำอุปโภคบริโภค
+
+            </option>
+
+
+
+            <option value="ท่อระบายน้ำ / น้ำท่วม">
+
+              ท่อระบายน้ำ / น้ำท่วม
+
+            </option>
+
+
+
+            <option value="ขยะ / สิ่งแวดล้อม">
+
+              ขยะ / สิ่งแวดล้อม
+
+            </option>
+
+
+
+            <option value="เหตุเดือดร้อน / สาธารณภัย">
+
+              เหตุเดือดร้อน / สาธารณภัย
+
+            </option>
+
+
+
+            <option value="สวัสดิการสังคม">
+
+              สวัสดิการสังคม
+
+            </option>
+
+
+
+            <option value="อื่น ๆ">
+
+              อื่น ๆ
+
+            </option>
+
+
+
+          </select>
+
+
+
+        </div>
+
+
+
+        <div class="field">
+
+
+
+          <label>
+
+            รายละเอียดปัญหา
+
+            <span class="required">*</span>
+
+          </label>
+
+
+
+          <textarea
+
+            id="complaintDetail"
+
+            placeholder="กรุณาระบุรายละเอียดปัญหา สถานที่เกิดเหตุ จุดสังเกต หรือข้อมูลที่เป็นประโยชน์ต่อเจ้าหน้าที่"
+
+          ></textarea>
+
+
+
+        </div>
+
+
+
+        <div class="field">
+          <label>รูปภาพประกอบคำร้อง</label>
+          <input type="file" id="complaintImages" accept="image/jpeg,image/png,image/webp" multiple>
+          <div class="image-help">รองรับ JPG, PNG, WEBP ขนาดไม่เกิน 8 MB ต่อรูป</div>
         </div>
-
-
-
-        <div class="field">
-
-
-
-          <label>
-
-            ที่อยู่ / หมู่ที่
-
-            <span class="required">*</span>
-
-          </label>
-
-
-
-          <input
-
-            type="text"
-
-            id="complaintAddress"
-
-            placeholder="เช่น หมู่ที่ 3 ตำบลชำผักแพว"
-
-          >
-
-
-
-        </div>
-
-
-
-        <h3 style="margin-top:15px">
-
-          รายละเอียดคำร้อง
-
-        </h3>
-
-
-
-        <div class="field">
-
-
-
-          <label>
-
-            ประเภทคำร้อง
-
-            <span class="required">*</span>
-
-          </label>
-
-
-
-          <select id="complaintCategory">
-
-
-
-            <option value="">
-
-              -- เลือกประเภทคำร้อง --
-
-            </option>
-
-
-
-            <option value="ถนน / ทางสาธารณะ">
-
-              ถนน / ทางสาธารณะ
-
-            </option>
-
-
-
-            <option value="ไฟฟ้าสาธารณะ">
-
-              ไฟฟ้าสาธารณะ
-
-            </option>
-
-
-
-            <option value="น้ำประปา / น้ำอุปโภคบริโภค">
-
-              น้ำประปา / น้ำอุปโภคบริโภค
-
-            </option>
-
-
-
-            <option value="ท่อระบายน้ำ / น้ำท่วม">
-
-              ท่อระบายน้ำ / น้ำท่วม
-
-            </option>
-
-
-
-            <option value="ขยะ / สิ่งแวดล้อม">
-
-              ขยะ / สิ่งแวดล้อม
-
-            </option>
-
-
-
-            <option value="เหตุเดือดร้อน / สาธารณภัย">
-
-              เหตุเดือดร้อน / สาธารณภัย
-
-            </option>
-
-
-
-            <option value="สวัสดิการสังคม">
-
-              สวัสดิการสังคม
-
-            </option>
-
-
-
-            <option value="อื่น ๆ">
-
-              อื่น ๆ
-
-            </option>
-
-
-
-          </select>
-
-
-
-        </div>
-
-
-
-        <div class="field">
-
-
-
-          <label>
-
-            รายละเอียดปัญหา
-
-            <span class="required">*</span>
-
-          </label>
-
-
-
-          <textarea
-
-            id="complaintDetail"
-
-            placeholder="กรุณาระบุรายละเอียดปัญหา สถานที่เกิดเหตุ จุดสังเกต หรือข้อมูลที่เป็นประโยชน์ต่อเจ้าหน้าที่"
-
-          ></textarea>
-
-
-
-        </div>
-
-
 
         <label class="consent">
 
 
 
-          <input type="checkbox" id="complaintConsent">
+          <input type="checkbox" id="complaintConsent">
 
 
 
-          <span>
+          <span>
 
-            ข้าพเจ้ายืนยันว่าข้อมูลข้างต้นเป็นความจริง
+            ข้าพเจ้ายืนยันว่าข้อมูลข้างต้นเป็นความจริง
 
-            และยินยอมให้องค์การบริหารส่วนตำบลชำผักแพว
+            และยินยอมให้องค์การบริหารส่วนตำบลชำผักแพว
 
-            ใช้ข้อมูลดังกล่าวเพื่อดำเนินการเกี่ยวกับคำร้องนี้
+            ใช้ข้อมูลดังกล่าวเพื่อดำเนินการเกี่ยวกับคำร้องนี้
 
-          </span>
+          </span>
 
 
 
-        </label>
+        </label>
 
 
 
-        <div class="message-box" id="submitMessage"></div>
+        <div class="message-box" id="submitMessage"></div>
 
 
 
-        <button
+        <button
 
-          class="btn btn-primary full-btn"
+          class="btn btn-primary full-btn"
 
-          onclick="reviewComplaint()"
+          onclick="reviewComplaint()"
 
-        >
+        >
 
-          ตรวจสอบข้อมูล →
+          ตรวจสอบข้อมูล →
 
-        </button>
+        </button>
 
 
 
-      </div>
+      </div>
 
 
 
-      <!-- REVIEW -->
+      <!-- REVIEW -->
 
 
 
-      <div class="review-box" id="reviewBox">
+      <div class="review-box" id="reviewBox">
 
 
 
-        <h3>ตรวจสอบข้อมูลก่อนส่งคำร้อง</h3>
+        <h3>ตรวจสอบข้อมูลก่อนส่งคำร้อง</h3>
 
 
 
-        <div class="review-grid">
+        <div class="review-grid">
 
 
 
-          <div class="review-item">
+          <div class="review-item">
 
-            <span>ชื่อ - นามสกุล</span>
+            <span>ชื่อ - นามสกุล</span>
 
-            <strong id="reviewName">-</strong>
+            <strong id="reviewName">-</strong>
 
-          </div>
+          </div>
 
 
 
-          <div class="review-item">
+          <div class="review-item">
 
-            <span>เบอร์โทรศัพท์</span>
+            <span>เบอร์โทรศัพท์</span>
 
-            <strong id="reviewPhone">-</strong>
+            <strong id="reviewPhone">-</strong>
 
-          </div>
+          </div>
 
 
 
-          <div class="review-item full">
+          <div class="review-item full">
 
-            <span>ที่อยู่ / หมู่ที่</span>
+            <span>ที่อยู่ / หมู่ที่</span>
 
-            <strong id="reviewAddress">-</strong>
+            <strong id="reviewAddress">-</strong>
 
-          </div>
+          </div>
 
 
 
-          <div class="review-item">
+          <div class="review-item">
 
-            <span>ประเภทคำร้อง</span>
+            <span>ประเภทคำร้อง</span>
 
-            <strong id="reviewCategory">-</strong>
+            <strong id="reviewCategory">-</strong>
 
-          </div>
+          </div>
 
 
 
-          <div class="review-item full">
+          <div class="review-item full">
 
-            <span>รายละเอียดปัญหา</span>
+            <span>รายละเอียดปัญหา</span>
 
-            <strong id="reviewDetail">-</strong>
+            <strong id="reviewDetail">-</strong>
 
-          </div>
+          </div>
 
 
 
-        </div>
+        </div>
 
 
 
-        <div class="review-actions">
+        <div class="review-actions">
 
 
 
-          <button
+          <button
 
-            class="btn btn-secondary"
+            class="btn btn-secondary"
 
-            onclick="backToForm()"
+            onclick="backToForm()"
 
-          >
+          >
 
-            ← กลับไปแก้ไข
+            ← กลับไปแก้ไข
 
-          </button>
+          </button>
 
 
 
-          <button
+          <button
 
-            class="btn btn-primary"
+            class="btn btn-primary"
 
-            id="submitComplaintButton"
+            id="submitComplaintButton"
 
-            onclick="submitComplaint()"
+            onclick="submitComplaint()"
 
-          >
+          >
 
-            ✓ ยืนยันส่งคำร้อง
+            ✓ ยืนยันส่งคำร้อง
 
-          </button>
+          </button>
 
 
 
-        </div>
+        </div>
 
 
 
-      </div>
+      </div>
 
 
 
-      <!-- SUCCESS -->
+      <!-- SUCCESS -->
 
 
 
-      <div class="success-box" id="successBox">
+      <div class="success-box" id="successBox">
 
 
 
-        <div class="success-icon">
+        <div class="success-icon">
 
-          ✓
+          ✓
 
-        </div>
+        </div>
 
 
 
-        <h2 style="color:var(--green-deep)">
+        <h2 style="color:var(--green-deep)">
 
-          ส่งคำร้องสำเร็จ
+          ส่งคำร้องสำเร็จ
 
-        </h2>
+        </h2>
 
 
 
-        <p style="color:var(--muted)">
+        <p style="color:var(--muted)">
 
-          ระบบได้รับคำร้องของท่านเรียบร้อยแล้ว
+          ระบบได้รับคำร้องของท่านเรียบร้อยแล้ว
 
-        </p>
+        </p>
 
 
 
-        <div class="success-ticket" id="newTicket">
+        <div class="success-ticket" id="newTicket">
 
-          -
+          -
 
-        </div>
+        </div>
 
 
 
-        <p>
+        <p>
 
-          กรุณาบันทึกเลขทะเบียนนี้ไว้
+          กรุณาบันทึกเลขทะเบียนนี้ไว้
 
-          สำหรับตรวจสอบสถานะคำร้อง
+          สำหรับตรวจสอบสถานะคำร้อง
 
-        </p>
+        </p>
 
 
 
-        <div style="
+        <div style="
 
-          display:flex;
+          display:flex;
 
-          gap:10px;
+          gap:10px;
 
-          justify-content:center;
+          justify-content:center;
 
-          flex-wrap:wrap;
+          flex-wrap:wrap;
 
-          margin-top:20px;
+          margin-top:20px;
 
-        ">
+        ">
 
 
 
-          <button
+          <button
 
-            class="btn btn-secondary"
+            class="btn btn-secondary"
 
-            onclick="copyTicket()"
+            onclick="copyTicket()"
 
-          >
+          >
 
-            📋 คัดลอกเลขทะเบียน
+            📋 คัดลอกเลขทะเบียน
 
-          </button>
+          </button>
 
 
 
-          <button
+          <button
 
-            class="btn btn-primary"
+            class="btn btn-primary"
 
-            onclick="goTrackNewTicket()"
+            onclick="goTrackNewTicket()"
 
-          >
+          >
 
-            🔍 ตรวจสอบสถานะ
+            🔍 ตรวจสอบสถานะ
 
-          </button>
+          </button>
 
 
 
-          <button
+          <button
 
-            class="btn btn-secondary"
+            class="btn btn-secondary"
 
-            onclick="resetComplaintForm()"
+            onclick="resetComplaintForm()"
 
-          >
+          >
 
-            ＋ ยื่นคำร้องใหม่
+            ＋ ยื่นคำร้องใหม่
 
-          </button>
+          </button>
 
 
 
-        </div>
+        </div>
 
 
 
-      </div>
+      </div>
 
 
 
-    </div>
+    </div>
 
 
 
-  </div>
+  </div>
 
 
 
@@ -3865,55 +3902,110 @@ footer a{
 
 
 
+
+<!-- ADMIN -->
+<section class="section admin-section" id="admin">
+  <div class="container">
+    <div class="section-heading">
+      <small>สำหรับเจ้าหน้าที่</small>
+      <h2>จัดการคำร้อง</h2>
+      <p>ข้อมูลส่วนบุคคลจะแสดงเฉพาะเมื่อเข้าสู่ระบบเจ้าหน้าที่แล้ว</p>
+    </div>
+
+    <div class="admin-panel">
+      <div class="admin-toolbar">
+        <div>
+          <span class="admin-badge">● ADMIN MODE</span>
+          <h3 style="margin-top:8px;color:var(--green-deep)">รายการคำร้องทั้งหมด</h3>
+        </div>
+        <div class="admin-toolbar-actions">
+          <button class="refresh-btn" onclick="loadAdminList()">↻ อัปเดต</button>
+          <button class="btn btn-secondary" style="min-height:42px" onclick="logoutAdmin()">ออกจากระบบ</button>
+        </div>
+      </div>
+
+      <div class="admin-report">
+        <div class="field" style="margin:0">
+          <label>เดือนรายงาน</label>
+          <select id="reportMonth">
+            <option value="1">มกราคม</option><option value="2">กุมภาพันธ์</option>
+            <option value="3">มีนาคม</option><option value="4">เมษายน</option>
+            <option value="5">พฤษภาคม</option><option value="6">มิถุนายน</option>
+            <option value="7">กรกฎาคม</option><option value="8">สิงหาคม</option>
+            <option value="9">กันยายน</option><option value="10">ตุลาคม</option>
+            <option value="11">พฤศจิกายน</option><option value="12">ธันวาคม</option>
+          </select>
+        </div>
+        <div class="field" style="margin:0">
+          <label>ปี พ.ศ.</label>
+          <input type="number" id="reportYear" value="2569">
+        </div>
+        <button class="btn btn-primary" id="reportButton" onclick="createMonthlyReport()">📄 สร้าง PDF รายเดือน</button>
+      </div>
+      <div class="message-box" id="adminMessage"></div>
+
+      <div class="table-wrap">
+        <table class="admin-table">
+          <thead><tr>
+            <th>เลขทะเบียน</th><th>วันที่</th><th>ชื่อผู้ร้อง</th><th>พื้นที่/ที่อยู่</th>
+            <th>ประเภท</th><th>หน่วยงาน</th><th>สถานะ</th><th>จัดการ</th>
+          </tr></thead>
+          <tbody id="adminListBody"><tr><td colspan="8" class="loading-text">เข้าสู่ระบบเพื่อดูข้อมูล</td></tr></tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- CTA -->
 
 <section class="cta">
 
 
 
-  <div class="container">
+  <div class="container">
 
 
 
-    <div class="cta-card">
+    <div class="cta-card">
 
 
 
-      <div>
+      <div>
 
 
 
-        <h2>ต้องการติดต่อ อบต.ชำผักแพว?</h2>
+        <h2>ต้องการติดต่อ อบต.ชำผักแพว?</h2>
 
 
 
-        <p>
+        <p>
 
-          ติดต่อเราได้ผ่าน Facebook, LINE OA,
+          ติดต่อเราได้ผ่าน Facebook, LINE OA,
 
-          เว็บไซต์ อีเมล หรือโทรศัพท์
+          เว็บไซต์ อีเมล หรือโทรศัพท์
 
-        </p>
-
-
-
-      </div>
+        </p>
 
 
 
-      <button class="btn btn-yellow" onclick="openContact()">
-
-        ☎ ช่องทางติดต่อ
-
-      </button>
+      </div>
 
 
 
-    </div>
+      <button class="btn btn-yellow" onclick="openContact()">
+
+        ☎ ช่องทางติดต่อ
+
+      </button>
 
 
 
-  </div>
+    </div>
+
+
+
+  </div>
 
 
 
@@ -3927,111 +4019,111 @@ footer a{
 
 
 
-  <div class="container">
+  <div class="container">
 
 
 
-    <div class="footer-grid">
+    <div class="footer-grid">
 
 
 
-      <div>
+      <div>
 
 
 
-        <h3>
+        <h3>
 
-          องค์การบริหารส่วนตำบลชำผักแพว
+          องค์การบริหารส่วนตำบลชำผักแพว
 
-        </h3>
+        </h3>
 
 
 
-        <p>
+        <p>
 
-          อำเภอแก่งคอย จังหวัดสระบุรี
+          อำเภอแก่งคอย จังหวัดสระบุรี
 
-        </p>
+        </p>
 
 
 
-        <br>
+        <br>
 
 
 
-        <p>
+        <p>
 
-          ระบบติดตามสถานะคำร้องออนไลน์
+          ระบบติดตามสถานะคำร้องออนไลน์
 
-          เพื่อเพิ่มความสะดวกในการให้บริการประชาชน
+          เพื่อเพิ่มความสะดวกในการให้บริการประชาชน
 
-        </p>
+        </p>
 
 
 
-      </div>
+      </div>
 
 
 
-      <div>
+      <div>
 
 
 
-        <h4>เมนู</h4>
+        <h4>เมนู</h4>
 
 
 
-        <div class="footer-links">
+        <div class="footer-links">
 
-          <a href="#home">หน้าแรก</a>
+          <a href="#home">หน้าแรก</a>
 
-          <a href="#overview">ภาพรวมคำร้อง</a>
+          <a href="#overview">ภาพรวมคำร้อง</a>
 
-          <a href="#tracking">ตรวจสอบสถานะ</a>
+          <a href="#tracking">ตรวจสอบสถานะ</a>
 
-          <a href="#submit">ยื่นคำร้อง</a>
+          <a href="#submit">ยื่นคำร้อง</a>
 
-        </div>
+        </div>
 
 
 
-      </div>
+      </div>
 
 
 
-      <div>
+      <div>
 
 
 
-        <h4>ติดต่อเรา</h4>
+        <h4>ติดต่อเรา</h4>
 
 
 
-        <p>☎ 036-714081</p>
+        <p>☎ 036-714081</p>
 
-        <p>✉ sao.champakpaew@gmail.com</p>
+        <p>✉ sao.champakpaew@gmail.com</p>
 
 
 
-      </div>
+      </div>
 
 
 
-    </div>
+    </div>
 
 
 
-    <div class="copyright">
+    <div class="copyright">
 
-      © 2569 องค์การบริหารส่วนตำบลชำผักแพว
+      © 2569 องค์การบริหารส่วนตำบลชำผักแพว
 
-      | ระบบติดตามสถานะคำร้องออนไลน์
+      | ระบบติดตามสถานะคำร้องออนไลน์
 
-    </div>
+    </div>
 
 
 
-  </div>
+  </div>
 
 
 
@@ -4039,259 +4131,334 @@ footer a{
 
 
 
+
+<!-- ADMIN LOGIN MODAL -->
+<div class="modal" id="adminLoginModal" onclick="genericModalBackgroundClose(event,'adminLoginModal')">
+  <div class="modal-card" style="width:min(480px,100%)">
+    <button class="modal-close" onclick="closeGenericModal('adminLoginModal')">×</button>
+    <div class="login-icon">🔐</div>
+    <div class="modal-head">
+      <h2>เข้าสู่ระบบเจ้าหน้าที่</h2>
+      <p>กรอกรหัสผ่านสำหรับจัดการคำร้อง</p>
+    </div>
+    <div class="field">
+      <label>รหัสผ่าน</label>
+      <input type="password" id="adminPassword" inputmode="numeric" placeholder="กรอกรหัสผ่าน" onkeydown="if(event.key==='Enter')loginAdmin()">
+    </div>
+    <div class="message-box" id="loginMessage"></div>
+    <button class="btn btn-primary full-btn" id="loginButton" onclick="loginAdmin()">เข้าสู่ระบบ</button>
+  </div>
+</div>
+
+<!-- EDIT COMPLAINT MODAL -->
+<div class="modal" id="editComplaintModal" onclick="genericModalBackgroundClose(event,'editComplaintModal')">
+  <div class="modal-card" style="width:min(900px,100%)">
+    <button class="modal-close" onclick="closeGenericModal('editComplaintModal')">×</button>
+    <div class="modal-head">
+      <h2>จัดการคำร้อง <span id="editTicketLabel"></span></h2>
+      <p>แก้ไขข้อมูล สถานะ และอัปโหลดรูปผลการดำเนินงาน</p>
+    </div>
+    <div class="edit-grid">
+      <div class="field"><label>ชื่อ - นามสกุล</label><input id="editName"></div>
+      <div class="field"><label>เบอร์โทรศัพท์</label><input id="editPhone"></div>
+      <div class="field full"><label>ที่อยู่ / หมู่ที่</label><input id="editAddress"></div>
+      <div class="field">
+        <label>ประเภทคำร้อง</label>
+        <select id="editCategory">
+          <option>ถนน / ทางสาธารณะ</option><option>ไฟฟ้าสาธารณะ</option>
+          <option>น้ำประปา / น้ำอุปโภคบริโภค</option><option>ท่อระบายน้ำ / น้ำท่วม</option>
+          <option>ขยะ / สิ่งแวดล้อม</option><option>เหตุเดือดร้อน / สาธารณภัย</option>
+          <option>งานสาธารณสุข</option><option>ตัดกิ่งไม้</option><option>ฉีดล้างน้ำ</option>
+          <option>สวัสดิการสังคม</option><option>อื่น ๆ</option>
+        </select>
+      </div>
+      <div class="field"><label>หน่วยงานรับผิดชอบ</label><input id="editDepartment"></div>
+      <div class="field"><label>ผู้รับผิดชอบ</label><input id="editOfficer"></div>
+      <div class="field">
+        <label>สถานะ</label>
+        <select id="editStatus" onchange="togglePostponeFields()">
+          <option value="รับเรื่องแล้ว">รับเรื่องแล้ว</option>
+          <option value="มอบหมายหน่วยงาน">มอบหมายหน่วยงาน</option>
+          <option value="อยู่ระหว่างดำเนินการ">อยู่ระหว่างดำเนินการ</option>
+          <option value="เลื่อนการดำเนินการ">เลื่อนการดำเนินการ</option>
+          <option value="ดำเนินการแล้วเสร็จ">ดำเนินการแล้วเสร็จ</option>
+          <option value="ส่งต่อหน่วยงานอื่น">ส่งต่อหน่วยงานอื่น</option>
+        </select>
+      </div>
+      <div class="field full"><label>รายละเอียดปัญหา</label><textarea id="editDetail"></textarea></div>
+      <div class="field full"><label>หมายเหตุ / รายละเอียดการแก้ไข</label><textarea id="editRemark"></textarea></div>
+    </div>
+
+    <div class="postpone-fields" id="postponeFields">
+      <div class="edit-grid">
+        <div class="field"><label>เหตุผลที่เลื่อน / ปัญหาอุปสรรค <span class="required">*</span></label><textarea id="editPostponeReason"></textarea></div>
+        <div class="field"><label>กำหนดดำเนินการครั้งถัดไป</label><input type="date" id="editNextActionDate"></div>
+      </div>
+    </div>
+
+    <div class="field">
+      <label>รูปภาพผลการดำเนินงาน</label>
+      <input type="file" id="editResultImages" accept="image/jpeg,image/png,image/webp" multiple>
+      <div class="image-help">รองรับ JPG, PNG, WEBP ขนาดไม่เกิน 8 MB ต่อรูป</div>
+    </div>
+    <div class="message-box" id="editMessage"></div>
+    <button class="btn btn-primary full-btn" id="saveEditButton" onclick="saveComplaintEdit()">💾 บันทึกการแก้ไข</button>
+  </div>
+</div>
+
 <!-- CONTACT MODAL -->
 
 <div
 
-  class="modal"
+  class="modal"
 
-  id="contactModal"
+  id="contactModal"
 
-  onclick="modalBackgroundClose(event)"
+  onclick="modalBackgroundClose(event)"
 
-> 
+> 
 
 
 
-  <div class="modal-card">
+  <div class="modal-card">
 
 
 
-    <button class="modal-close" onclick="closeContact()">
+    <button class="modal-close" onclick="closeContact()">
 
-      ×
+      ×
 
-    </button>
+    </button>
 
 
 
-    <div class="modal-head">
+    <div class="modal-head">
 
 
 
-      <h2>ช่องทางติดต่อเรา</h2>
+      <h2>ช่องทางติดต่อเรา</h2>
 
 
 
-      <p>
+      <p>
 
-        องค์การบริหารส่วนตำบลชำผักแพว
+        องค์การบริหารส่วนตำบลชำผักแพว
 
-      </p>
+      </p>
 
 
 
-    </div>
+    </div>
 
 
 
-    <div class="contact-grid">
+    <div class="contact-grid">
 
 
 
-      <a
+      <a
 
-        class="contact-item"
+        class="contact-item"
 
-        href="https://www.facebook.com/xbt.cha.phak.ph.w/"
+        href="https://www.facebook.com/xbt.cha.phak.ph.w/"
 
-        target="_blank"
+        target="_blank"
 
-        rel="noopener"
+        rel="noopener"
 
-      >
+      >
 
 
 
-        <div
+        <div
 
-          class="contact-icon"
+          class="contact-icon"
 
-          style="background:#edf4ff;color:#1877f2;"
+          style="background:#edf4ff;color:#1877f2;"
 
-        >
+        >
 
-          f
+          f
 
-        </div>
+        </div>
 
 
 
-        <div>
+        <div>
 
-          <strong>Facebook</strong>
+          <strong>Facebook</strong>
 
-          <span>อบต.ชำผักแพว</span>
+          <span>อบต.ชำผักแพว</span>
 
-        </div>
+        </div>
 
 
 
-      </a>
+      </a>
 
 
 
-      <a
+      <a
 
-        class="contact-item"
+        class="contact-item"
 
-        href="https://lin.ee/zXdZrlY"
+        href="https://lin.ee/zXdZrlY"
 
-        target="_blank"
+        target="_blank"
 
-        rel="noopener"
+        rel="noopener"
 
-      >
+      >
 
 
 
-        <div
+        <div
 
-          class="contact-icon"
+          class="contact-icon"
 
-          style="background:#eaffef;color:#06C755;"
+          style="background:#eaffef;color:#06C755;"
 
-        >
+        >
 
-          LINE
+          LINE
 
-        </div>
+        </div>
 
 
 
-        <div>
+        <div>
 
-          <strong>LINE OA</strong>
+          <strong>LINE OA</strong>
 
-          <span>เพิ่มเพื่อน LINE Official Account</span>
+          <span>เพิ่มเพื่อน LINE Official Account</span>
 
-        </div>
+        </div>
 
 
 
-      </a>
+      </a>
 
 
 
-      <a
+      <a
 
-        class="contact-item"
+        class="contact-item"
 
-        href="https://www.chumpakpaew.go.th"
+        href="https://www.chumpakpaew.go.th"
 
-        target="_blank"
+        target="_blank"
 
-        rel="noopener"
+        rel="noopener"
 
-      >
+      >
 
 
 
-        <div
+        <div
 
-          class="contact-icon"
+          class="contact-icon"
 
-          style="background:#fff6dc"
+          style="background:#fff6dc"
 
-        >
+        >
 
-          🌐
+          🌐
 
-        </div>
+        </div>
 
 
 
-        <div>
+        <div>
 
-          <strong>เว็บไซต์</strong>
+          <strong>เว็บไซต์</strong>
 
-          <span>www.chumpakpaew.go.th</span>
+          <span>www.chumpakpaew.go.th</span>
 
-        </div>
+        </div>
 
 
 
-      </a>
+      </a>
 
 
 
-      <a
+      <a
 
-        class="contact-item"
+        class="contact-item"
 
-        href="mailto:sao.champakpaew@gmail.com"
+        href="mailto:sao.champakpaew@gmail.com"
 
-      >
+      >
 
 
 
-        <div
+        <div
 
-          class="contact-icon"
+          class="contact-icon"
 
-          style="background:#fff0ee"
+          style="background:#fff0ee"
 
-        >
+        >
 
-          ✉
+          ✉
 
-        </div>
+        </div>
 
 
 
-        <div>
+        <div>
 
-          <strong>E-mail</strong>
+          <strong>E-mail</strong>
 
-          <span>sao.champakpaew@gmail.com</span>
+          <span>sao.champakpaew@gmail.com</span>
 
-        </div>
+        </div>
 
 
 
-      </a>
+      </a>
 
 
 
-      <a
+      <a
 
-        class="contact-item phone-contact"
+        class="contact-item phone-contact"
 
-        href="tel:036714081"
+        href="tel:036714081"
 
-        style="grid-column:1/-1"
+        style="grid-column:1/-1"
 
-      >
+      >
 
 
 
-        <div class="contact-icon">
+        <div class="contact-icon">
 
-          ☎
+          ☎
 
-        </div>
+        </div>
 
 
 
-        <div>
+        <div>
 
-          <strong>โทรศัพท์</strong>
+          <strong>โทรศัพท์</strong>
 
-          <span>036-714081</span>
+          <span>036-714081</span>
 
-        </div>
+        </div>
 
 
 
-      </a>
+      </a>
 
 
 
-    </div>
+    </div>
 
 
 
-  </div>
+  </div>
 
 
 
@@ -4305,9 +4472,9 @@ footer a{
 
 /* =========================================================
 
-   APPS SCRIPT URL
+   APPS SCRIPT URL
 
-   ใส่ URL จริงให้แล้ว ไม่ต้องแก้เอง
+   ใส่ URL จริงให้แล้ว ไม่ต้องแก้เอง
 
 ========================================================= */
 
@@ -4315,7 +4482,7 @@ footer a{
 
 const API_URL =
 
-  "https://script.google.com/macros/s/AKfycbzGspRCMFSYvp5Eln0K3fzmeZAAOdSZhFOPyQDDNrZXW_P7HXIUITh51AVqnLuU7BLy/exec";
+  "https://script.google.com/macros/s/AKfycbzGspRCMFSYvp5Eln0K3fzmeZAAOdSZhFOPyQDDNrZXW_P7HXIUITh51AVqnLuU7BLy/exec";
 
 
 
@@ -4323,7 +4490,7 @@ const API_URL =
 
 /* =========================================================
 
-   UTILITY
+   UTILITY
 
 ========================================================= */
 
@@ -4333,25 +4500,25 @@ function escapeHTML(value){
 
 
 
-  if(value === null || value === undefined){
+  if(value === null || value === undefined){
 
-    return "";
+    return "";
 
-  }
+  }
 
 
 
-  return String(value)
+  return String(value)
 
-    .replace(/&/g,"&amp;")
+    .replace(/&/g,"&amp;")
 
-    .replace(/</g,"&lt;")
+    .replace(/</g,"&lt;")
 
-    .replace(/>/g,"&gt;")
+    .replace(/>/g,"&gt;")
 
-    .replace(/"/g,"&quot;")
+    .replace(/"/g,"&quot;")
 
-    .replace(/'/g,"&#039;");
+    .replace(/'/g,"&#039;");
 
 }
 
@@ -4363,13 +4530,13 @@ function setMessage(id,text,type="error"){
 
 
 
-  const el = document.getElementById(id);
+  const el = document.getElementById(id);
 
 
 
-  el.className = "message-box " + type;
+  el.className = "message-box " + type;
 
-  el.textContent = text;
+  el.textContent = text;
 
 }
 
@@ -4381,13 +4548,13 @@ function clearMessage(id){
 
 
 
-  const el = document.getElementById(id);
+  const el = document.getElementById(id);
 
 
 
-  el.className = "message-box";
+  el.className = "message-box";
 
-  el.textContent = "";
+  el.textContent = "";
 
 }
 
@@ -4399,41 +4566,41 @@ function getStatusClass(status){
 
 
 
-  const value = String(status || "");
+  const value = String(status || "");
 
 
 
-  if(value.includes("เสร็จ")){
+  if(value.includes("เสร็จ")){
 
-    return "status-completed";
+    return "status-completed";
 
-  }
-
-
-
-  if(
-
-    value.includes("ระหว่าง") ||
-
-    value.includes("กำลัง")
-
-  ){
-
-    return "status-processing";
-
-  }
+  }
 
 
 
-  if(value.includes("ส่งต่อ")){
+  if(
 
-    return "status-forwarded";
+    value.includes("ระหว่าง") ||
 
-  }
+    value.includes("กำลัง")
+
+  ){
+
+    return "status-processing";
+
+  }
 
 
 
-  return "status-received";
+  if(value.includes("ส่งต่อ")){
+
+    return "status-forwarded";
+
+  }
+
+
+
+  return "status-received";
 
 }
 
@@ -4443,7 +4610,7 @@ function getStatusClass(status){
 
 /* =========================================================
 
-   DASHBOARD
+   DASHBOARD
 
 ========================================================= */
 
@@ -4453,85 +4620,85 @@ async function loadDashboard(){
 
 
 
-  try{
+  try{
 
 
 
-    const response =
+    const response =
 
-      await fetch(
+      await fetch(
 
-        API_URL + "?action=dashboard"
+        API_URL + "?action=dashboard"
 
-      );
-
-
-
-    const result =
-
-      await response.json();
+      );
 
 
 
-    if(!result.success){
+    const result =
 
-      return;
-
-    }
+      await response.json();
 
 
 
-    const data = result.data;
+    if(!result.success){
+
+      return;
+
+    }
 
 
 
-    document.getElementById("statTotal").textContent =
-
-      data.total || 0;
+    const data = result.data;
 
 
 
-    document.getElementById("statReceived").textContent =
+    document.getElementById("statTotal").textContent =
 
-      data.received || 0;
-
-
-
-    document.getElementById("statProcessing").textContent =
-
-      data.processing || 0;
+      data.total || 0;
 
 
 
-    document.getElementById("statCompleted").textContent =
+    document.getElementById("statReceived").textContent =
 
-      data.completed || 0;
-
-
-
-    document.getElementById("statForwarded").textContent =
-
-      data.forwarded || 0;
+      data.received || 0;
 
 
 
-  }
+    document.getElementById("statProcessing").textContent =
 
-  catch(error){
-
-
-
-    console.error(
-
-      "Dashboard error:",
-
-      error
-
-    );
+      data.processing || 0;
 
 
 
-  }
+    document.getElementById("statCompleted").textContent =
+
+      data.completed || 0;
+
+
+
+    document.getElementById("statForwarded").textContent =
+
+      data.forwarded || 0;
+
+
+
+  }
+
+  catch(error){
+
+
+
+    console.error(
+
+      "Dashboard error:",
+
+      error
+
+    );
+
+
+
+  }
 
 }
 
@@ -4541,7 +4708,7 @@ async function loadDashboard(){
 
 /* =========================================================
 
-   PUBLIC LIST
+   PUBLIC LIST
 
 ========================================================= */
 
@@ -4551,187 +4718,187 @@ async function loadPublicList(){
 
 
 
-  const tbody =
+  const tbody =
 
-    document.getElementById("publicListBody");
+    document.getElementById("publicListBody");
 
 
 
-  try{
+  try{
 
 
 
-    const response =
+    const response =
 
-      await fetch(
+      await fetch(
 
-        API_URL + "?action=publicList"
+        API_URL + "?action=publicList"
 
-      );
+      );
 
 
 
-    const result =
+    const result =
 
-      await response.json();
+      await response.json();
 
 
 
-    if(
+    if(
 
-      !result.success ||
+      !result.success ||
 
-      !Array.isArray(result.data)
+      !Array.isArray(result.data)
 
-    ){
+    ){
 
-      throw new Error("โหลดข้อมูลไม่สำเร็จ");
+      throw new Error("โหลดข้อมูลไม่สำเร็จ");
 
-    }
+    }
 
 
 
-    if(result.data.length === 0){
+    if(result.data.length === 0){
 
 
 
-      tbody.innerHTML = `
+      tbody.innerHTML = `
 
-        <tr>
+        <tr>
 
-          <td colspan="5" class="loading-text">
+          <td colspan="5" class="loading-text">
 
-            ยังไม่มีข้อมูลคำร้อง
+            ยังไม่มีข้อมูลคำร้อง
 
-          </td>
+          </td>
 
-        </tr>
+        </tr>
 
-      `;
+      `;
 
 
 
-      return;
+      return;
 
-    }
+    }
 
 
 
-    tbody.innerHTML =
+    tbody.innerHTML =
 
-      result.data.map(item => {
+      result.data.map(item => {
 
 
 
-        const status =
+        const status =
 
-          escapeHTML(
+          escapeHTML(
 
-            item.status || "รับเรื่องแล้ว"
+            item.status || "รับเรื่องแล้ว"
 
-          );
+          );
 
 
 
-        return `
+        return `
 
-          <tr>
+          <tr>
 
 
 
-            <td>
+            <td>
 
-              <strong>
+              <strong>
 
-                ${escapeHTML(item.ticketNo)}
+                ${escapeHTML(item.ticketNo)}
 
-              </strong>
+              </strong>
 
-            </td>
+            </td>
 
 
 
-            <td>
+            <td>
 
-              ${escapeHTML(item.date)}
+              ${escapeHTML(item.date)}
 
-            </td>
+            </td>
 
 
 
-            <td>
+            <td>
 
-              ${escapeHTML(item.category)}
+              ${escapeHTML(item.category)}
 
-            </td>
+            </td>
 
 
 
-            <td>
+            <td>
 
-              ${escapeHTML(item.department)}
+              ${escapeHTML(item.department)}
 
-            </td>
+            </td>
 
 
 
-            <td>
+            <td>
 
 
 
-              <span
+              <span
 
-                class="status-badge ${getStatusClass(status)}"
+                class="status-badge ${getStatusClass(status)}"
 
-              >
+              >
 
-                ${status}
+                ${status}
 
-              </span>
+              </span>
 
 
 
-            </td>
+            </td>
 
 
 
-          </tr>
+          </tr>
 
-        `;
+        `;
 
 
 
-      }).join("");
+      }).join("");
 
 
 
-  }
+  }
 
-  catch(error){
+  catch(error){
 
 
 
-    console.error(error);
+    console.error(error);
 
 
 
-    tbody.innerHTML = `
+    tbody.innerHTML = `
 
-      <tr>
+      <tr>
 
-        <td colspan="5" class="loading-text">
+        <td colspan="5" class="loading-text">
 
-          ไม่สามารถโหลดข้อมูลได้
+          ไม่สามารถโหลดข้อมูลได้
 
-        </td>
+        </td>
 
-      </tr>
+      </tr>
 
-    `;
+    `;
 
 
 
-  }
+  }
 
 }
 
@@ -4741,7 +4908,7 @@ async function loadPublicList(){
 
 /* =========================================================
 
-   SEARCH
+   SEARCH
 
 ========================================================= */
 
@@ -4751,211 +4918,211 @@ async function searchTracking(){
 
 
 
-  clearMessage("trackMessage");
+  clearMessage("trackMessage");
 
 
 
-  document
+  document
 
-    .getElementById("trackingResult")
+    .getElementById("trackingResult")
 
-    .classList.remove("show");
+    .classList.remove("show");
 
 
 
 
 
-  const ticket =
+  const ticket =
 
-    document
+    document
 
-      .getElementById("trackTicket")
+      .getElementById("trackTicket")
 
-      .value
+      .value
 
-      .trim();
+      .trim();
 
 
 
 
 
-  const phone =
+  const phone =
 
-    document
+    document
 
-      .getElementById("trackPhone")
+      .getElementById("trackPhone")
 
-      .value
+      .value
 
-      .replace(/\D/g,"")
+      .replace(/\D/g,"")
 
-      .slice(-4);
+      .slice(-4);
 
 
 
 
 
-  if(!ticket){
+  if(!ticket){
 
 
 
-    setMessage(
+    setMessage(
 
-      "trackMessage",
+      "trackMessage",
 
-      "กรุณากรอกเลขทะเบียนคำร้อง"
+      "กรุณากรอกเลขทะเบียนคำร้อง"
 
-    );
+    );
 
 
 
-    return;
+    return;
 
-  }
+  }
 
 
 
 
 
-  if(phone.length !== 4){
+  if(phone.length !== 4){
 
 
 
-    setMessage(
+    setMessage(
 
-      "trackMessage",
+      "trackMessage",
 
-      "กรุณากรอกเบอร์โทรศัพท์ 4 ตัวท้ายให้ครบ"
+      "กรุณากรอกเบอร์โทรศัพท์ 4 ตัวท้ายให้ครบ"
 
-    );
+    );
 
 
 
-    return;
+    return;
 
-  }
+  }
 
 
 
 
 
-  const button =
+  const button =
 
-    document.getElementById("trackButton");
+    document.getElementById("trackButton");
 
 
 
-  const oldText =
+  const oldText =
 
-    button.innerHTML;
+    button.innerHTML;
 
 
 
-  button.disabled = true;
+  button.disabled = true;
 
-  button.innerHTML = "กำลังค้นหา...";
+  button.innerHTML = "กำลังค้นหา...";
 
 
 
 
 
-  try{
+  try{
 
 
 
-    const url =
+    const url =
 
-      API_URL +
+      API_URL +
 
-      "?action=search" +
+      "?action=search" +
 
-      "&ticket=" +
+      "&ticket=" +
 
-      encodeURIComponent(ticket) +
+      encodeURIComponent(ticket) +
 
-      "&phone=" +
+      "&phone=" +
 
-      encodeURIComponent(phone);
+      encodeURIComponent(phone);
 
 
 
 
 
-    const response =
+    const response =
 
-      await fetch(url);
+      await fetch(url);
 
 
 
 
 
-    const result =
+    const result =
 
-      await response.json();
+      await response.json();
 
 
 
 
 
-    if(!result.success){
+    if(!result.success){
 
 
 
-      setMessage(
+      setMessage(
 
-        "trackMessage",
+        "trackMessage",
 
-        result.message || "ไม่พบข้อมูลคำร้อง"
+        result.message || "ไม่พบข้อมูลคำร้อง"
 
-      );
+      );
 
 
 
-      return;
+      return;
 
-    }
+    }
 
 
 
 
 
-    renderTrackingResult(result.data);
+    renderTrackingResult(result.data);
 
 
 
-  }
+  }
 
-  catch(error){
+  catch(error){
 
 
 
-    console.error(error);
+    console.error(error);
 
 
 
-    setMessage(
+    setMessage(
 
-      "trackMessage",
+      "trackMessage",
 
-      "ไม่สามารถเชื่อมต่อระบบได้ กรุณาลองใหม่อีกครั้ง"
+      "ไม่สามารถเชื่อมต่อระบบได้ กรุณาลองใหม่อีกครั้ง"
 
-    );
+    );
 
 
 
-  }
+  }
 
-  finally{
+  finally{
 
 
 
-    button.disabled = false;
+    button.disabled = false;
 
-    button.innerHTML = oldText;
+    button.innerHTML = oldText;
 
 
 
-  }
+  }
 
 }
 
@@ -4965,7 +5132,7 @@ async function searchTracking(){
 
 /* =========================================================
 
-   RESULT
+   RESULT
 
 ========================================================= */
 
@@ -4975,91 +5142,91 @@ function renderTrackingResult(data){
 
 
 
-  document.getElementById("resultTicket").textContent =
+  document.getElementById("resultTicket").textContent =
 
-    data.ticketNo || "-";
-
-
-
-  document.getElementById("resultDate").textContent =
-
-    data.date || "-";
+    data.ticketNo || "-";
 
 
 
-  document.getElementById("resultCategory").textContent =
+  document.getElementById("resultDate").textContent =
 
-    data.category || "-";
-
-
-
-  document.getElementById("resultTopic").textContent =
-
-    data.topic || "-";
+    data.date || "-";
 
 
 
-  document.getElementById("resultDepartment").textContent =
+  document.getElementById("resultCategory").textContent =
 
-    data.department || "-";
-
-
-
-  document.getElementById("resultUpdate").textContent =
-
-    data.lastUpdate || "-";
+    data.category || "-";
 
 
 
-  document.getElementById("resultRemark").textContent =
+  document.getElementById("resultTopic").textContent =
 
-    data.remark || "-";
-
-
+    data.topic || "-";
 
 
 
-  const status =
+  document.getElementById("resultDepartment").textContent =
 
-    data.status || "รับเรื่องแล้ว";
+    data.department || "-";
+
+
+
+  document.getElementById("resultUpdate").textContent =
+
+    data.lastUpdate || "-";
+
+
+
+  document.getElementById("resultRemark").textContent =
+
+    data.remark || "-";
 
 
 
 
 
-  const badge =
+  const status =
 
-    document.getElementById("resultStatus");
-
-
-
-
-
-  badge.textContent = status;
-
-
-
-  badge.className =
-
-    "status-badge " +
-
-    getStatusClass(status);
+    data.status || "รับเรื่องแล้ว";
 
 
 
 
 
-  renderTimeline(status);
+  const badge =
+
+    document.getElementById("resultStatus");
 
 
 
 
 
-  document
+  badge.textContent = status;
 
-    .getElementById("trackingResult")
 
-    .classList.add("show");
+
+  badge.className =
+
+    "status-badge " +
+
+    getStatusClass(status);
+
+
+
+
+
+  renderTimeline(status);
+
+
+
+
+
+  document
+
+    .getElementById("trackingResult")
+
+    .classList.add("show");
 
 
 
@@ -5071,7 +5238,7 @@ function renderTrackingResult(data){
 
 /* =========================================================
 
-   TIMELINE
+   TIMELINE
 
 ========================================================= */
 
@@ -5081,145 +5248,145 @@ function renderTimeline(status){
 
 
 
-  const statuses = [
+  const statuses = [
 
-    "รับเรื่องแล้ว",
+    "รับเรื่องแล้ว",
 
-    "มอบหมายหน่วยงาน",
+    "มอบหมายหน่วยงาน",
 
-    "อยู่ระหว่างดำเนินการ",
+    "อยู่ระหว่างดำเนินการ",
 
-    "ดำเนินการแล้วเสร็จ"
+    "ดำเนินการแล้วเสร็จ"
 
-  ];
+  ];
 
 
 
 
 
-  let currentIndex = 0;
+  let currentIndex = 0;
 
 
 
 
 
-  if(status.includes("เสร็จ")){
+  if(status.includes("เสร็จ")){
 
-    currentIndex = 3;
+    currentIndex = 3;
 
-  }
+  }
 
 
 
-  else if(
+  else if(
 
-    status.includes("ระหว่าง") ||
+    status.includes("ระหว่าง") ||
 
-    status.includes("กำลัง")
+    status.includes("กำลัง")
 
-  ){
+  ){
 
-    currentIndex = 2;
+    currentIndex = 2;
 
-  }
+  }
 
 
 
-  else if(status.includes("มอบหมาย")){
+  else if(status.includes("มอบหมาย")){
 
-    currentIndex = 1;
+    currentIndex = 1;
 
-  }
+  }
 
 
 
 
 
-  const timeline =
+  const timeline =
 
-    document.getElementById("statusTimeline");
+    document.getElementById("statusTimeline");
 
 
 
 
 
-  timeline.innerHTML =
+  timeline.innerHTML =
 
-    statuses.map((item,index) => {
+    statuses.map((item,index) => {
 
 
 
-      let className = "";
+      let className = "";
 
 
 
-      if(index === currentIndex){
+      if(index === currentIndex){
 
-        className = "current";
+        className = "current";
 
-      }
+      }
 
 
 
-      if(index > currentIndex){
+      if(index > currentIndex){
 
-        className = "future";
+        className = "future";
 
-      }
+      }
 
 
 
 
 
-      const descriptions = [
+      const descriptions = [
 
-        "ระบบได้รับคำร้องเรียบร้อยแล้ว",
+        "ระบบได้รับคำร้องเรียบร้อยแล้ว",
 
-        "ส่งเรื่องให้หน่วยงานรับผิดชอบ",
+        "ส่งเรื่องให้หน่วยงานรับผิดชอบ",
 
-        "เจ้าหน้าที่อยู่ระหว่างดำเนินการ",
+        "เจ้าหน้าที่อยู่ระหว่างดำเนินการ",
 
-        "แจ้งผลการดำเนินงาน"
+        "แจ้งผลการดำเนินงาน"
 
-      ];
+      ];
 
 
 
 
 
-      return `
+      return `
 
-        <div class="timeline-item ${className}">
+        <div class="timeline-item ${className}">
 
 
 
-          <span class="timeline-circle"></span>
+          <span class="timeline-circle"></span>
 
 
 
-          <strong>
+          <strong>
 
-            ${item}
+            ${item}
 
-          </strong>
+          </strong>
 
 
 
-          <small>
+          <small>
 
-            ${descriptions[index]}
+            ${descriptions[index]}
 
-          </small>
+          </small>
 
 
 
-        </div>
+        </div>
 
-      `;
+      `;
 
 
 
-    }).join("");
+    }).join("");
 
 
 
@@ -5231,7 +5398,7 @@ function renderTimeline(status){
 
 /* =========================================================
 
-   FORM DATA
+   FORM DATA
 
 ========================================================= */
 
@@ -5241,61 +5408,61 @@ function getComplaintFormData(){
 
 
 
-  return {
+  return {
 
 
 
-    name:
+    name:
 
-      document
+      document
 
-        .getElementById("complaintName")
+        .getElementById("complaintName")
 
-        .value.trim(),
-
-
-
-    phone:
-
-      document
-
-        .getElementById("complaintPhone")
-
-        .value.replace(/\D/g,""),
+        .value.trim(),
 
 
 
-    address:
+    phone:
 
-      document
+      document
 
-        .getElementById("complaintAddress")
+        .getElementById("complaintPhone")
 
-        .value.trim(),
-
-
-
-    category:
-
-      document
-
-        .getElementById("complaintCategory")
-
-        .value,
+        .value.replace(/\D/g,""),
 
 
 
-    detail:
+    address:
 
-      document
+      document
 
-        .getElementById("complaintDetail")
+        .getElementById("complaintAddress")
 
-        .value.trim()
+        .value.trim(),
 
 
 
-  };
+    category:
+
+      document
+
+        .getElementById("complaintCategory")
+
+        .value,
+
+
+
+    detail:
+
+      document
+
+        .getElementById("complaintDetail")
+
+        .value.trim()
+
+
+
+  };
 
 }
 
@@ -5305,7 +5472,7 @@ function getComplaintFormData(){
 
 /* =========================================================
 
-   REVIEW
+   REVIEW
 
 ========================================================= */
 
@@ -5315,217 +5482,217 @@ function reviewComplaint(){
 
 
 
-  clearMessage("submitMessage");
+  clearMessage("submitMessage");
 
 
 
-  const data =
+  const data =
 
-    getComplaintFormData();
+    getComplaintFormData();
 
 
 
 
 
-  if(!data.name){
+  if(!data.name){
 
 
 
-    setMessage(
+    setMessage(
 
-      "submitMessage",
+      "submitMessage",
 
-      "กรุณากรอกชื่อ-นามสกุล"
+      "กรุณากรอกชื่อ-นามสกุล"
 
-    );
+    );
 
 
 
-    return;
+    return;
 
-  }
+  }
 
 
 
 
 
-  if(
+  if(
 
-    data.phone.length < 9 ||
+    data.phone.length < 9 ||
 
-    data.phone.length > 10
+    data.phone.length > 10
 
-  ){
+  ){
 
 
 
-    setMessage(
+    setMessage(
 
-      "submitMessage",
+      "submitMessage",
 
-      "กรุณากรอกหมายเลขโทรศัพท์ให้ถูกต้อง"
+      "กรุณากรอกหมายเลขโทรศัพท์ให้ถูกต้อง"
 
-    );
+    );
 
 
 
-    return;
+    return;
 
-  }
+  }
 
 
 
 
 
-  if(!data.address){
+  if(!data.address){
 
 
 
-    setMessage(
+    setMessage(
 
-      "submitMessage",
+      "submitMessage",
 
-      "กรุณากรอกที่อยู่ / หมู่ที่"
+      "กรุณากรอกที่อยู่ / หมู่ที่"
 
-    );
+    );
 
 
 
-    return;
+    return;
 
-  }
+  }
 
 
 
 
 
-  if(!data.category){
+  if(!data.category){
 
 
 
-    setMessage(
+    setMessage(
 
-      "submitMessage",
+      "submitMessage",
 
-      "กรุณาเลือกประเภทคำร้อง"
+      "กรุณาเลือกประเภทคำร้อง"
 
-    );
+    );
 
 
 
-    return;
+    return;
 
-  }
+  }
 
 
 
 
 
-  if(!data.detail){
+  if(!data.detail){
 
 
 
-    setMessage(
+    setMessage(
 
-      "submitMessage",
+      "submitMessage",
 
-      "กรุณากรอกรายละเอียดปัญหา"
+      "กรุณากรอกรายละเอียดปัญหา"
 
-    );
+    );
 
 
 
-    return;
+    return;
 
-  }
+  }
 
 
 
 
 
-  if(
+  if(
 
-    !document
+    !document
 
-      .getElementById("complaintConsent")
+      .getElementById("complaintConsent")
 
-      .checked
+      .checked
 
-  ){
+  ){
 
 
 
-    setMessage(
+    setMessage(
 
-      "submitMessage",
+      "submitMessage",
 
-      "กรุณายืนยันความถูกต้องของข้อมูลก่อนดำเนินการต่อ"
+      "กรุณายืนยันความถูกต้องของข้อมูลก่อนดำเนินการต่อ"
 
-    );
+    );
 
 
 
-    return;
+    return;
 
-  }
+  }
 
 
 
 
 
-  document.getElementById("reviewName").textContent =
+  document.getElementById("reviewName").textContent =
 
-    data.name;
+    data.name;
 
 
 
-  document.getElementById("reviewPhone").textContent =
+  document.getElementById("reviewPhone").textContent =
 
-    data.phone;
+    data.phone;
 
 
 
-  document.getElementById("reviewAddress").textContent =
+  document.getElementById("reviewAddress").textContent =
 
-    data.address;
+    data.address;
 
 
 
-  document.getElementById("reviewCategory").textContent =
+  document.getElementById("reviewCategory").textContent =
 
-    data.category;
+    data.category;
 
 
 
-  document.getElementById("reviewDetail").textContent =
+  document.getElementById("reviewDetail").textContent =
 
-    data.detail;
+    data.detail;
 
 
 
 
 
-  document
+  document
 
-    .getElementById("complaintFormBox")
+    .getElementById("complaintFormBox")
 
-    .classList.add("hide");
+    .classList.add("hide");
 
 
 
 
 
-  document
+  document
 
-    .getElementById("reviewBox")
+    .getElementById("reviewBox")
 
-    .classList.add("show");
+    .classList.add("show");
 
 
 
 
 
-  updateSteps(2);
+  updateSteps(2);
 
 
 
@@ -5537,7 +5704,7 @@ function reviewComplaint(){
 
 /* =========================================================
 
-   BACK TO FORM
+   BACK TO FORM
 
 ========================================================= */
 
@@ -5547,23 +5714,23 @@ function backToForm(){
 
 
 
-  document
+  document
 
-    .getElementById("reviewBox")
+    .getElementById("reviewBox")
 
-    .classList.remove("show");
-
-
-
-  document
-
-    .getElementById("complaintFormBox")
-
-    .classList.remove("hide");
+    .classList.remove("show");
 
 
 
-  updateSteps(1);
+  document
+
+    .getElementById("complaintFormBox")
+
+    .classList.remove("hide");
+
+
+
+  updateSteps(1);
 
 }
 
@@ -5573,7 +5740,7 @@ function backToForm(){
 
 /* =========================================================
 
-   SUBMIT TO GOOGLE SHEET
+   SUBMIT TO GOOGLE SHEET
 
 ========================================================= */
 
@@ -5583,213 +5750,213 @@ async function submitComplaint(){
 
 
 
-  const data =
+  const data =
 
-    getComplaintFormData();
+    getComplaintFormData();
 
 
 
 
 
-  const button =
+  const button =
 
-    document.getElementById(
+    document.getElementById(
 
-      "submitComplaintButton"
+      "submitComplaintButton"
 
-    );
+    );
 
 
 
 
 
-  const oldText =
+  const oldText =
 
-    button.innerHTML;
+    button.innerHTML;
 
 
 
 
 
-  button.disabled = true;
+  button.disabled = true;
 
-  button.innerHTML = "กำลังส่งคำร้อง...";
+  button.innerHTML = "กำลังส่งคำร้อง...";
 
 
 
 
 
-  try{
+  try{
 
 
 
-    const response =
+    const response =
 
-      await fetch(
+      await fetch(
 
-        API_URL,
+        API_URL,
 
-        {
+        {
 
-          method:"POST",
+          method:"POST",
 
 
 
-          headers:{
+          headers:{
 
-            "Content-Type":
+            "Content-Type":
 
-              "text/plain;charset=utf-8"
+              "text/plain;charset=utf-8"
 
-          },
+          },
 
 
 
-          body:
+          body:
 
-            JSON.stringify({
+            JSON.stringify({
 
 
 
-              action:"submitComplaint",
+              action:"submitComplaint",
 
 
 
-              name:data.name,
+              name:data.name,
 
 
 
-              phone:data.phone,
+              phone:data.phone,
 
 
 
-              address:data.address,
+              address:data.address,
 
 
 
-              category:data.category,
+              category:data.category,
 
 
 
-              detail:data.detail
+              detail:data.detail
 
 
 
-            })
+            })
 
-        }
+        }
 
-      );
+      );
 
 
 
 
 
-    const result =
+    const result =
 
-      await response.json();
+      await response.json();
 
 
 
 
 
-    if(!result.success){
+    if(!result.success){
 
 
 
-      alert(
+      alert(
 
-        result.message ||
+        result.message ||
 
-        "ไม่สามารถส่งคำร้องได้"
+        "ไม่สามารถส่งคำร้องได้"
 
-      );
+      );
 
 
 
-      return;
+      return;
 
-    }
+    }
 
 
 
 
 
-    document
+    document
 
-      .getElementById("reviewBox")
+      .getElementById("reviewBox")
 
-      .classList.remove("show");
+      .classList.remove("show");
 
 
 
 
 
-    document
+    document
 
-      .getElementById("successBox")
+      .getElementById("successBox")
 
-      .classList.add("show");
+      .classList.add("show");
 
 
 
 
 
-    document
+    document
 
-      .getElementById("newTicket")
+      .getElementById("newTicket")
 
-      .textContent =
+      .textContent =
 
-      result.data.ticketNo;
+      result.data.ticketNo;
 
 
 
 
 
-    updateSteps(3);
+    updateSteps(3);
 
 
 
 
 
-    loadDashboard();
+    loadDashboard();
 
-    loadPublicList();
+    loadPublicList();
 
 
 
-  }
+  }
 
-  catch(error){
+  catch(error){
 
 
 
-    console.error(error);
+    console.error(error);
 
 
 
-    alert(
+    alert(
 
-      "ไม่สามารถเชื่อมต่อระบบได้ กรุณาลองใหม่อีกครั้ง"
+      "ไม่สามารถเชื่อมต่อระบบได้ กรุณาลองใหม่อีกครั้ง"
 
-    );
+    );
 
 
 
-  }
+  }
 
-  finally{
+  finally{
 
 
 
-    button.disabled = false;
+    button.disabled = false;
 
-    button.innerHTML = oldText;
+    button.innerHTML = oldText;
 
 
 
-  }
+  }
 
 }
 
@@ -5799,7 +5966,7 @@ async function submitComplaint(){
 
 /* =========================================================
 
-   STEPS
+   STEPS
 
 ========================================================= */
 
@@ -5809,47 +5976,47 @@ function updateSteps(number){
 
 
 
-  for(let i=1;i<=3;i++){
+  for(let i=1;i<=3;i++){
 
 
 
-    const step =
+    const step =
 
-      document.getElementById(
+      document.getElementById(
 
-        "step" + i
+        "step" + i
 
-      );
-
-
-
-    step.classList.remove(
-
-      "active",
-
-      "done"
-
-    );
+      );
 
 
 
-    if(i < number){
+    step.classList.remove(
 
-      step.classList.add("done");
+      "active",
 
-    }
+      "done"
 
-
-
-    if(i === number){
-
-      step.classList.add("active");
-
-    }
+    );
 
 
 
-  }
+    if(i < number){
+
+      step.classList.add("done");
+
+    }
+
+
+
+    if(i === number){
+
+      step.classList.add("active");
+
+    }
+
+
+
+  }
 
 }
 
@@ -5859,7 +6026,7 @@ function updateSteps(number){
 
 /* =========================================================
 
-   COPY TICKET
+   COPY TICKET
 
 ========================================================= */
 
@@ -5869,55 +6036,55 @@ function copyTicket(){
 
 
 
-  const ticket =
+  const ticket =
 
-    document
+    document
 
-      .getElementById("newTicket")
+      .getElementById("newTicket")
 
-      .textContent.trim();
-
-
+      .textContent.trim();
 
 
 
-  navigator.clipboard
-
-    .writeText(ticket)
-
-    .then(() => {
 
 
+  navigator.clipboard
 
-      alert(
+    .writeText(ticket)
 
-        "คัดลอกเลขทะเบียน " +
-
-        ticket +
-
-        " แล้ว"
-
-      );
+    .then(() => {
 
 
 
-    })
+      alert(
 
-    .catch(() => {
+        "คัดลอกเลขทะเบียน " +
 
+        ticket +
 
+        " แล้ว"
 
-      alert(
-
-        "เลขทะเบียนของคุณคือ " +
-
-        ticket
-
-      );
+      );
 
 
 
-    });
+    })
+
+    .catch(() => {
+
+
+
+      alert(
+
+        "เลขทะเบียนของคุณคือ " +
+
+        ticket
+
+      );
+
+
+
+    });
 
 
 
@@ -5929,7 +6096,7 @@ function copyTicket(){
 
 /* =========================================================
 
-   TRACK NEW TICKET
+   TRACK NEW TICKET
 
 ========================================================= */
 
@@ -5939,57 +6106,57 @@ function goTrackNewTicket(){
 
 
 
-  const ticket =
+  const ticket =
 
-    document
+    document
 
-      .getElementById("newTicket")
+      .getElementById("newTicket")
 
-      .textContent.trim();
-
-
-
-
-
-  const phone =
-
-    document
-
-      .getElementById("complaintPhone")
-
-      .value
-
-      .replace(/\D/g,"")
-
-      .slice(-4);
+      .textContent.trim();
 
 
 
 
 
-  document.getElementById("trackTicket").value =
+  const phone =
 
-    ticket;
+    document
+
+      .getElementById("complaintPhone")
+
+      .value
+
+      .replace(/\D/g,"")
+
+      .slice(-4);
 
 
 
-  document.getElementById("trackPhone").value =
-
-    phone;
 
 
+  document.getElementById("trackTicket").value =
+
+    ticket;
 
 
 
-  document
+  document.getElementById("trackPhone").value =
 
-    .getElementById("tracking")
+    phone;
 
-    .scrollIntoView({
 
-      behavior:"smooth"
 
-    });
+
+
+  document
+
+    .getElementById("tracking")
+
+    .scrollIntoView({
+
+      behavior:"smooth"
+
+    });
 
 
 
@@ -6001,7 +6168,7 @@ function goTrackNewTicket(){
 
 /* =========================================================
 
-   RESET FORM
+   RESET FORM
 
 ========================================================= */
 
@@ -6011,61 +6178,61 @@ function resetComplaintForm(){
 
 
 
-  document.getElementById("complaintName").value = "";
+  document.getElementById("complaintName").value = "";
 
-  document.getElementById("complaintPhone").value = "";
+  document.getElementById("complaintPhone").value = "";
 
-  document.getElementById("complaintAddress").value = "";
+  document.getElementById("complaintAddress").value = "";
 
-  document.getElementById("complaintCategory").value = "";
+  document.getElementById("complaintCategory").value = "";
 
-  document.getElementById("complaintDetail").value = "";
-
-
-
-  document.getElementById("complaintConsent").checked =
-
-    false;
+  document.getElementById("complaintDetail").value = "";
 
 
 
+  document.getElementById("complaintConsent").checked =
 
-
-  document
-
-    .getElementById("successBox")
-
-    .classList.remove("show");
+    false;
 
 
 
 
 
-  document
+  document
 
-    .getElementById("reviewBox")
+    .getElementById("successBox")
 
-    .classList.remove("show");
-
-
-
-
-
-  document
-
-    .getElementById("complaintFormBox")
-
-    .classList.remove("hide");
+    .classList.remove("show");
 
 
 
 
 
-  clearMessage("submitMessage");
+  document
+
+    .getElementById("reviewBox")
+
+    .classList.remove("show");
 
 
 
-  updateSteps(1);
+
+
+  document
+
+    .getElementById("complaintFormBox")
+
+    .classList.remove("hide");
+
+
+
+
+
+  clearMessage("submitMessage");
+
+
+
+  updateSteps(1);
 
 
 
@@ -6077,7 +6244,7 @@ function resetComplaintForm(){
 
 /* =========================================================
 
-   CONTACT
+   CONTACT
 
 ========================================================= */
 
@@ -6087,17 +6254,17 @@ function openContact(){
 
 
 
-  document
+  document
 
-    .getElementById("contactModal")
+    .getElementById("contactModal")
 
-    .classList.add("show");
+    .classList.add("show");
 
 
 
-  document.body
+  document.body
 
-    .classList.add("modal-open");
+    .classList.add("modal-open");
 
 }
 
@@ -6109,17 +6276,17 @@ function closeContact(){
 
 
 
-  document
+  document
 
-    .getElementById("contactModal")
+    .getElementById("contactModal")
 
-    .classList.remove("show");
+    .classList.remove("show");
 
 
 
-  document.body
+  document.body
 
-    .classList.remove("modal-open");
+    .classList.remove("modal-open");
 
 }
 
@@ -6131,11 +6298,11 @@ function modalBackgroundClose(event){
 
 
 
-  if(event.target.id === "contactModal"){
+  if(event.target.id === "contactModal"){
 
-    closeContact();
+    closeContact();
 
-  }
+  }
 
 }
 
@@ -6145,21 +6312,21 @@ function modalBackgroundClose(event){
 
 document.addEventListener(
 
-  "keydown",
+  "keydown",
 
-  function(event){
-
-
-
-    if(event.key === "Escape"){
-
-      closeContact();
-
-    }
+  function(event){
 
 
 
-  }
+    if(event.key === "Escape"){
+
+      closeContact();
+
+    }
+
+
+
+  }
 
 );
 
@@ -6169,7 +6336,7 @@ document.addEventListener(
 
 /* =========================================================
 
-   MOBILE MENU
+   MOBILE MENU
 
 ========================================================= */
 
@@ -6179,11 +6346,11 @@ function toggleMobileMenu(){
 
 
 
-  document
+  document
 
-    .getElementById("mobilePanel")
+    .getElementById("mobilePanel")
 
-    .classList.toggle("show");
+    .classList.toggle("show");
 
 }
 
@@ -6195,11 +6362,11 @@ function closeMobileMenu(){
 
 
 
-  document
+  document
 
-    .getElementById("mobilePanel")
+    .getElementById("mobilePanel")
 
-    .classList.remove("show");
+    .classList.remove("show");
 
 }
 
@@ -6209,7 +6376,7 @@ function closeMobileMenu(){
 
 /* =========================================================
 
-   PHONE INPUT
+   PHONE INPUT
 
 ========================================================= */
 
@@ -6217,59 +6384,29 @@ function closeMobileMenu(){
 
 document
 
-  .getElementById("trackPhone")
+  .getElementById("trackPhone")
 
-  .addEventListener(
+  .addEventListener(
 
-    "input",
+    "input",
 
-    function(){
-
-
-
-      this.value =
-
-        this.value
-
-          .replace(/\D/g,"")
-
-          .slice(0,4);
+    function(){
 
 
 
-    }
+      this.value =
 
-  );
+        this.value
 
+          .replace(/\D/g,"")
 
-
-
-
-document
-
-  .getElementById("complaintPhone")
-
-  .addEventListener(
-
-    "input",
-
-    function(){
+          .slice(0,4);
 
 
 
-      this.value =
+    }
 
-        this.value
-
-          .replace(/\D/g,"")
-
-          .slice(0,10);
-
-
-
-    }
-
-  );
+  );
 
 
 
@@ -6277,27 +6414,57 @@ document
 
 document
 
-  .getElementById("trackPhone")
+  .getElementById("complaintPhone")
 
-  .addEventListener(
+  .addEventListener(
 
-    "keydown",
+    "input",
 
-    function(event){
-
-
-
-      if(event.key === "Enter"){
-
-        searchTracking();
-
-      }
+    function(){
 
 
 
-    }
+      this.value =
 
-  );
+        this.value
+
+          .replace(/\D/g,"")
+
+          .slice(0,10);
+
+
+
+    }
+
+  );
+
+
+
+
+
+document
+
+  .getElementById("trackPhone")
+
+  .addEventListener(
+
+    "keydown",
+
+    function(event){
+
+
+
+      if(event.key === "Enter"){
+
+        searchTracking();
+
+      }
+
+
+
+    }
+
+  );
 
 
 
@@ -6305,7 +6472,7 @@ document
 
 /* =========================================================
 
-   START
+   START
 
 ========================================================= */
 
@@ -6313,23 +6480,316 @@ document
 
 document.addEventListener(
 
-  "DOMContentLoaded",
+  "DOMContentLoaded",
 
-  function(){
-
-
-
-    loadDashboard();
-
-    loadPublicList();
+  function(){
 
 
 
-  }
+    loadDashboard();
+
+    loadPublicList();
+
+
+
+  }
 
 );
 
 
+
+
+/* =========================================================
+   ADMIN SYSTEM + BACKEND V2
+========================================================= */
+let adminToken = sessionStorage.getItem("cpp_admin_token") || "";
+let currentEditTicket = "";
+
+async function apiGet(action, params={}){
+  const q = new URLSearchParams({action, ...params});
+  const res = await fetch(API_URL + "?" + q.toString());
+  return await res.json();
+}
+async function apiPost(payload){
+  const res = await fetch(API_URL,{
+    method:"POST",
+    headers:{"Content-Type":"text/plain;charset=utf-8"},
+    body:JSON.stringify(payload)
+  });
+  return await res.json();
+}
+function openGenericModal(id){
+  document.getElementById(id).classList.add("show");
+  document.body.classList.add("modal-open");
+}
+function closeGenericModal(id){
+  document.getElementById(id).classList.remove("show");
+  if(!document.querySelector(".modal.show")) document.body.classList.remove("modal-open");
+}
+function genericModalBackgroundClose(event,id){
+  if(event.target.id===id) closeGenericModal(id);
+}
+function handleAdminButton(){
+  if(adminToken){
+    document.getElementById("admin").scrollIntoView({behavior:"smooth"});
+    loadAdminList();
+  }else{
+    openGenericModal("adminLoginModal");
+    setTimeout(()=>document.getElementById("adminPassword").focus(),100);
+  }
+}
+function setAdminUI(loggedIn){
+  const section=document.getElementById("admin");
+  const nav=document.getElementById("adminNavLink");
+  const mnav=document.getElementById("mobileAdminLink");
+  const btn=document.getElementById("adminLoginButton");
+  const mbtn=document.getElementById("mobileAdminButton");
+  const note=document.getElementById("adminOnlyNote");
+  section.classList.toggle("show",loggedIn);
+  nav.style.display=loggedIn?"":"none";
+  mnav.style.display=loggedIn?"":"none";
+  btn.textContent=loggedIn?"⚙️ จัดการคำร้อง":"🔐 เข้าสู่ระบบ";
+  btn.classList.toggle("active",loggedIn);
+  mbtn.textContent=loggedIn?"⚙️ จัดการคำร้อง":"🔐 เข้าสู่ระบบ";
+  note.classList.toggle("show",loggedIn);
+}
+async function loginAdmin(){
+  const password=document.getElementById("adminPassword").value;
+  const btn=document.getElementById("loginButton");
+  clearMessage("loginMessage");
+  if(!password){setMessage("loginMessage","กรุณากรอกรหัสผ่าน");return;}
+  btn.disabled=true; btn.textContent="กำลังเข้าสู่ระบบ...";
+  try{
+    const r=await apiPost({action:"login",password});
+    if(!r.success) throw new Error(r.message||"เข้าสู่ระบบไม่สำเร็จ");
+    adminToken=r.data.token;
+    sessionStorage.setItem("cpp_admin_token",adminToken);
+    document.getElementById("adminPassword").value="";
+    closeGenericModal("adminLoginModal");
+    setAdminUI(true);
+    await loadAdminList();
+    document.getElementById("admin").scrollIntoView({behavior:"smooth"});
+  }catch(e){setMessage("loginMessage",e.message||"เกิดข้อผิดพลาด");}
+  finally{btn.disabled=false;btn.textContent="เข้าสู่ระบบ";}
+}
+async function logoutAdmin(){
+  try{if(adminToken) await apiPost({action:"logout",token:adminToken});}catch(e){}
+  adminToken=""; sessionStorage.removeItem("cpp_admin_token");
+  setAdminUI(false);
+  document.getElementById("adminListBody").innerHTML='<tr><td colspan="8" class="loading-text">เข้าสู่ระบบเพื่อดูข้อมูล</td></tr>';
+  window.location.hash="home";
+}
+function adminUnauthorized(){
+  adminToken=""; sessionStorage.removeItem("cpp_admin_token"); setAdminUI(false);
+  openGenericModal("adminLoginModal");
+  setMessage("loginMessage","เซสชันหมดอายุ กรุณาเข้าสู่ระบบอีกครั้ง");
+}
+async function restoreAdmin(){
+  if(!adminToken){setAdminUI(false);return;}
+  try{
+    const r=await apiGet("checkAdmin",{token:adminToken});
+    if(!r.success){adminUnauthorized();return;}
+    setAdminUI(true); loadAdminList();
+  }catch(e){setAdminUI(false);}
+}
+
+function getStatusClass(status){
+  const value=String(status||"");
+  if(value.includes("เลื่อน")) return "status-postponed";
+  if(value.includes("เสร็จ")) return "status-completed";
+  if(value.includes("ระหว่าง")||value.includes("กำลัง")) return "status-processing";
+  if(value.includes("ส่งต่อ")) return "status-forwarded";
+  return "status-received";
+}
+
+const _originalLoadDashboard = loadDashboard;
+loadDashboard = async function(){
+  try{
+    const r=await apiGet("dashboard");
+    if(!r.success)return;
+    const d=r.data||{};
+    document.getElementById("statTotal").textContent=d.total||0;
+    document.getElementById("statReceived").textContent=d.received||0;
+    document.getElementById("statProcessing").textContent=d.processing||0;
+    document.getElementById("statPostponed").textContent=d.postponed||0;
+    document.getElementById("statCompleted").textContent=d.completed||0;
+    document.getElementById("statForwarded").textContent=d.forwarded||0;
+  }catch(e){console.error("Dashboard error:",e);}
+};
+
+async function loadAdminList(){
+  if(!adminToken)return;
+  const body=document.getElementById("adminListBody");
+  body.innerHTML='<tr><td colspan="8" class="loading-text">กำลังโหลดข้อมูล...</td></tr>';
+  try{
+    const r=await apiGet("adminList",{token:adminToken});
+    if(r.unauthorized){adminUnauthorized();return;}
+    if(!r.success||!Array.isArray(r.data)) throw new Error(r.message||"โหลดข้อมูลไม่สำเร็จ");
+    if(!r.data.length){body.innerHTML='<tr><td colspan="8" class="loading-text">ยังไม่มีข้อมูลคำร้อง</td></tr>';return;}
+    body.innerHTML=r.data.map(x=>`<tr>
+      <td><strong>${escapeHTML(x.ticketNo)}</strong></td>
+      <td>${escapeHTML(x.date||"-")}</td>
+      <td>${escapeHTML(x.name||"-")}<br><small style="color:var(--muted)">${escapeHTML(x.phone||"")}</small></td>
+      <td>${escapeHTML(x.address||"-")}</td>
+      <td>${escapeHTML(x.category||"-")}</td>
+      <td>${escapeHTML(x.department||"-")}</td>
+      <td><span class="status-badge ${getStatusClass(x.status)}">${escapeHTML(x.status||"-")}</span></td>
+      <td><div class="action-group">
+        <button class="mini-btn edit" onclick="openComplaintEdit('${escapeHTML(x.ticketNo)}')">แก้ไข</button>
+        <button class="mini-btn delete" onclick="deleteComplaintAdmin('${escapeHTML(x.ticketNo)}')">ลบ</button>
+      </div></td>
+    </tr>`).join("");
+  }catch(e){body.innerHTML=`<tr><td colspan="8" class="loading-text">${escapeHTML(e.message||"โหลดข้อมูลไม่สำเร็จ")}</td></tr>`;}
+}
+function thaiDateToInput(v){
+  if(!v)return "";
+  const m=String(v).match(/^(\d{1,2})\/(\d{1,2})\/(\d{4})$/);
+  if(!m)return "";
+  let y=Number(m[3]); if(y>2400)y-=543;
+  return `${y}-${String(m[2]).padStart(2,"0")}-${String(m[1]).padStart(2,"0")}`;
+}
+async function openComplaintEdit(ticket){
+  try{
+    const r=await apiGet("adminDetail",{token:adminToken,ticket});
+    if(r.unauthorized){adminUnauthorized();return;}
+    if(!r.success)throw new Error(r.message||"ไม่พบข้อมูล");
+    const d=r.data; currentEditTicket=d.ticketNo;
+    document.getElementById("editTicketLabel").textContent=d.ticketNo;
+    document.getElementById("editName").value=d.name||"";
+    document.getElementById("editPhone").value=d.phone||"";
+    document.getElementById("editAddress").value=d.address||"";
+    document.getElementById("editCategory").value=d.category||"อื่น ๆ";
+    document.getElementById("editDepartment").value=d.department||"";
+    document.getElementById("editOfficer").value=d.officer||"";
+    document.getElementById("editStatus").value=d.status||"รับเรื่องแล้ว";
+    document.getElementById("editDetail").value=d.detail||"";
+    document.getElementById("editRemark").value=d.remark||"";
+    document.getElementById("editPostponeReason").value=d.postponeReason||"";
+    document.getElementById("editNextActionDate").value=thaiDateToInput(d.nextActionDate);
+    document.getElementById("editResultImages").value="";
+    clearMessage("editMessage"); togglePostponeFields(); openGenericModal("editComplaintModal");
+  }catch(e){alert(e.message||"เปิดข้อมูลไม่สำเร็จ");}
+}
+function togglePostponeFields(){
+  const isPostponed=String(document.getElementById("editStatus").value).includes("เลื่อน");
+  document.getElementById("postponeFields").classList.toggle("show",isPostponed);
+}
+function fileToDataURL(file){
+  return new Promise((resolve,reject)=>{
+    const rd=new FileReader(); rd.onload=()=>resolve(rd.result); rd.onerror=reject; rd.readAsDataURL(file);
+  });
+}
+async function uploadAdminImages(ticket,files,action){
+  for(const file of files){
+    if(!["image/jpeg","image/png","image/webp"].includes(file.type)) throw new Error("รองรับเฉพาะ JPG, PNG และ WEBP");
+    if(file.size>8*1024*1024) throw new Error(`ไฟล์ ${file.name} มีขนาดเกิน 8 MB`);
+    const base64=await fileToDataURL(file);
+    const r=await apiPost({action,token:adminToken,ticketNo:ticket,fileName:file.name,mimeType:file.type,base64});
+    if(r.unauthorized){adminUnauthorized();throw new Error("กรุณาเข้าสู่ระบบใหม่");}
+    if(!r.success)throw new Error(r.message||"อัปโหลดรูปไม่สำเร็จ");
+  }
+}
+async function saveComplaintEdit(){
+  if(!currentEditTicket)return;
+  const status=document.getElementById("editStatus").value;
+  const reason=document.getElementById("editPostponeReason").value.trim();
+  clearMessage("editMessage");
+  if(status.includes("เลื่อน")&&!reason){setMessage("editMessage","กรุณาระบุเหตุผลที่เลื่อนการดำเนินการ");return;}
+  const btn=document.getElementById("saveEditButton"); btn.disabled=true; btn.textContent="กำลังบันทึก...";
+  try{
+    const r=await apiPost({
+      action:"updateComplaint",token:adminToken,ticketNo:currentEditTicket,
+      name:document.getElementById("editName").value.trim(),
+      phone:document.getElementById("editPhone").value.replace(/\D/g,""),
+      address:document.getElementById("editAddress").value.trim(),
+      category:document.getElementById("editCategory").value,
+      department:document.getElementById("editDepartment").value.trim(),
+      officer:document.getElementById("editOfficer").value.trim(),
+      detail:document.getElementById("editDetail").value.trim(),
+      status,remark:document.getElementById("editRemark").value.trim(),
+      postponeReason:reason,nextActionDate:document.getElementById("editNextActionDate").value
+    });
+    if(r.unauthorized){adminUnauthorized();return;}
+    if(!r.success)throw new Error(r.message||"บันทึกไม่สำเร็จ");
+    const files=[...document.getElementById("editResultImages").files];
+    if(files.length)await uploadAdminImages(currentEditTicket,files,"uploadResultImage");
+    setMessage("editMessage","บันทึกข้อมูลเรียบร้อยแล้ว","success");
+    await loadAdminList(); loadDashboard(); loadPublicList();
+    setTimeout(()=>closeGenericModal("editComplaintModal"),500);
+  }catch(e){setMessage("editMessage",e.message||"เกิดข้อผิดพลาด");}
+  finally{btn.disabled=false;btn.textContent="💾 บันทึกการแก้ไข";}
+}
+async function deleteComplaintAdmin(ticket){
+  if(!confirm(`ยืนยันลบคำร้อง ${ticket} ?\n\nระบบจะลบรายการจากชีต แต่ไม่ลบรูปใน Drive`))return;
+  try{
+    const r=await apiPost({action:"deleteComplaint",token:adminToken,ticketNo:ticket,confirmDelete:true});
+    if(r.unauthorized){adminUnauthorized();return;}
+    if(!r.success)throw new Error(r.message||"ลบไม่สำเร็จ");
+    await loadAdminList(); loadDashboard(); loadPublicList(); alert("ลบรายการเรียบร้อยแล้ว");
+  }catch(e){alert(e.message||"ลบไม่สำเร็จ");}
+}
+async function createMonthlyReport(){
+  const month=Number(document.getElementById("reportMonth").value);
+  const year=Number(document.getElementById("reportYear").value);
+  const btn=document.getElementById("reportButton"); clearMessage("adminMessage");
+  btn.disabled=true;btn.textContent="กำลังสร้าง PDF...";
+  try{
+    const r=await apiPost({action:"monthlyReport",token:adminToken,month,year});
+    if(r.unauthorized){adminUnauthorized();return;}
+    if(!r.success)throw new Error(r.message||"สร้างรายงานไม่สำเร็จ");
+    const url=r.data&&r.data.fileUrl;
+    if(!url)throw new Error("ระบบสร้างรายงานแล้ว แต่ไม่พบลิงก์ไฟล์");
+    const box=document.getElementById("adminMessage");
+    box.className="message-box success";
+    box.innerHTML=`สร้าง PDF เรียบร้อยแล้ว — <a href="${escapeHTML(url)}" target="_blank" rel="noopener" style="font-weight:900;text-decoration:underline">เปิดไฟล์รายงาน</a>`;
+  }catch(e){setMessage("adminMessage",e.message||"สร้างรายงานไม่สำเร็จ");}
+  finally{btn.disabled=false;btn.textContent="📄 สร้าง PDF รายเดือน";}
+}
+
+/* ยื่นคำร้องได้เฉพาะ Admin */
+document.querySelectorAll(".submit-nav-link").forEach(a=>{
+  a.addEventListener("click",function(e){
+    if(!adminToken){e.preventDefault();openGenericModal("adminLoginModal");}
+  });
+});
+
+const _originalReviewComplaint = reviewComplaint;
+reviewComplaint = function(){
+  if(!adminToken){openGenericModal("adminLoginModal");return;}
+  return _originalReviewComplaint();
+};
+
+/* ส่งคำร้องแบบ Admin + อัปโหลดรูป */
+submitComplaint = async function(){
+  if(!adminToken){openGenericModal("adminLoginModal");return;}
+  const data=getComplaintFormData();
+  const button=document.getElementById("submitComplaintButton");
+  const oldText=button.innerHTML; button.disabled=true;button.innerHTML="กำลังบันทึก...";
+  try{
+    const r=await apiPost({
+      action:"submitComplaint",token:adminToken,name:data.name,phone:data.phone,
+      address:data.address,category:data.category,detail:data.detail,
+      channel:"เจ้าหน้าที่บันทึกผ่านเว็บไซต์"
+    });
+    if(r.unauthorized){adminUnauthorized();return;}
+    if(!r.success)throw new Error(r.message||"บันทึกไม่สำเร็จ");
+    const ticket=r.data.ticketNo;
+    const files=[...document.getElementById("complaintImages").files];
+    if(files.length)await uploadAdminImages(ticket,files,"uploadComplaintImage");
+    document.getElementById("reviewBox").classList.remove("show");
+    document.getElementById("successBox").classList.add("show");
+    document.getElementById("newTicket").textContent=ticket;
+    updateSteps(3); loadDashboard(); loadPublicList(); loadAdminList();
+  }catch(e){alert(e.message||"เกิดข้อผิดพลาด");}
+  finally{button.disabled=false;button.innerHTML=oldText;}
+};
+
+document.addEventListener("DOMContentLoaded",function(){
+  restoreAdmin();
+  const now=new Date();
+  document.getElementById("reportMonth").value=String(now.getMonth()+1);
+  document.getElementById("reportYear").value=String(now.getFullYear()+543);
+});
 
 </script>
 
