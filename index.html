@@ -1,0 +1,1790 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>ระบบติดตามสถานะคำร้อง | อบต.ชำผักแพว</title>
+
+  <style>
+    /* =========================
+       BASIC
+    ========================== */
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --green: #06c755;
+      --green-dark: #075b36;
+      --green-deep: #034a2d;
+      --green-light: #eaf9ef;
+
+      --yellow: #ffd65a;
+      --yellow-light: #fff8dc;
+
+      --brown: #7a5a2e;
+      --cream: #faf8f1;
+
+      --white: #ffffff;
+      --black: #15231b;
+      --gray: #69756e;
+      --border: #e6ebe7;
+
+      --shadow:
+        0 15px 45px rgba(18, 69, 44, 0.08);
+
+      --radius: 24px;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family:
+        "Noto Sans Thai",
+        "Tahoma",
+        system-ui,
+        -apple-system,
+        BlinkMacSystemFont,
+        sans-serif;
+
+      color: var(--black);
+      background: var(--cream);
+      line-height: 1.6;
+    }
+
+    button,
+    input {
+      font: inherit;
+    }
+
+    button {
+      cursor: pointer;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(1180px, calc(100% - 40px));
+      margin: auto;
+    }
+
+
+    /* =========================
+       NAVBAR
+    ========================== */
+
+    .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+
+      background: rgba(255,255,255,.92);
+      backdrop-filter: blur(18px);
+
+      border-bottom: 1px solid rgba(0,0,0,.05);
+    }
+
+    .nav-inner {
+      min-height: 76px;
+
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 30px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 13px;
+    }
+
+    .logo {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+
+      background:
+        linear-gradient(135deg, var(--green), var(--green-dark));
+
+      color: white;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      font-weight: 800;
+      font-size: 13px;
+    }
+
+    .brand-text strong {
+      display: block;
+      font-size: 16px;
+    }
+
+    .brand-text span {
+      display: block;
+      color: var(--gray);
+      font-size: 12px;
+    }
+
+    .nav-menu {
+      display: flex;
+      align-items: center;
+      gap: 30px;
+    }
+
+    .nav-menu a {
+      font-size: 14px;
+      font-weight: 600;
+      transition: .2s;
+    }
+
+    .nav-menu a:hover {
+      color: var(--green);
+    }
+
+    .contact-btn {
+      border: none;
+      background: var(--yellow);
+      padding: 11px 20px;
+      border-radius: 999px;
+      font-weight: 700;
+      color: #3b321d;
+    }
+
+
+    /* =========================
+       HERO
+    ========================== */
+
+    .hero {
+      position: relative;
+      overflow: hidden;
+
+      min-height: 610px;
+
+      display: flex;
+      align-items: center;
+
+      background:
+        radial-gradient(circle at 85% 20%,
+          rgba(255,214,90,.30),
+          transparent 24%),
+
+        radial-gradient(circle at 15% 80%,
+          rgba(6,199,85,.15),
+          transparent 28%),
+
+        linear-gradient(
+          135deg,
+          #f8fff9 0%,
+          #ffffff 45%,
+          #f5f2df 100%
+        );
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+
+      width: 430px;
+      height: 430px;
+
+      right: -140px;
+      bottom: -210px;
+
+      background: var(--green);
+      opacity: .10;
+
+      border-radius: 50%;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.05fr .95fr;
+      align-items: center;
+      gap: 70px;
+
+      padding: 80px 0;
+    }
+
+    .badge {
+      display: inline-block;
+
+      background: var(--yellow-light);
+      color: var(--brown);
+
+      padding: 7px 14px;
+      border-radius: 999px;
+
+      font-size: 13px;
+      font-weight: 700;
+
+      margin-bottom: 20px;
+    }
+
+    .hero h1 {
+      font-size: clamp(42px, 5vw, 68px);
+      line-height: 1.08;
+      letter-spacing: -2px;
+
+      color: var(--green-deep);
+      margin-bottom: 20px;
+    }
+
+    .hero h1 span {
+      color: var(--green);
+    }
+
+    .hero-description {
+      max-width: 580px;
+
+      color: var(--gray);
+      font-size: 18px;
+
+      margin-bottom: 32px;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .primary-btn,
+    .secondary-btn {
+      min-height: 58px;
+
+      padding: 0 27px;
+      border-radius: 17px;
+
+      font-weight: 700;
+      font-size: 16px;
+
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+
+      transition: .25s;
+    }
+
+    .primary-btn {
+      border: none;
+      color: white;
+
+      background:
+        linear-gradient(135deg, var(--green), var(--green-dark));
+
+      box-shadow:
+        0 14px 30px rgba(6,199,85,.22);
+    }
+
+    .primary-btn:hover {
+      transform: translateY(-3px);
+      box-shadow:
+        0 20px 40px rgba(6,199,85,.28);
+    }
+
+    .secondary-btn {
+      background: white;
+      border: 1px solid var(--border);
+      color: var(--black);
+    }
+
+    .secondary-btn:hover {
+      transform: translateY(-3px);
+      border-color: var(--green);
+    }
+
+
+    /* =========================
+       HERO CARD
+    ========================== */
+
+    .hero-card {
+      position: relative;
+
+      background:
+        linear-gradient(
+          145deg,
+          rgba(255,255,255,.98),
+          rgba(244,255,247,.95)
+        );
+
+      border: 1px solid rgba(255,255,255,.9);
+
+      border-radius: 34px;
+
+      padding: 38px;
+
+      box-shadow:
+        0 30px 80px rgba(20,74,46,.15);
+    }
+
+    .hero-card-icon {
+      width: 70px;
+      height: 70px;
+
+      border-radius: 22px;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      font-size: 32px;
+
+      background: var(--green-light);
+      margin-bottom: 25px;
+    }
+
+    .hero-card h2 {
+      color: var(--green-deep);
+      font-size: 27px;
+      margin-bottom: 8px;
+    }
+
+    .hero-card p {
+      color: var(--gray);
+      margin-bottom: 25px;
+    }
+
+    .mini-status {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+
+      padding: 15px;
+
+      background: white;
+
+      border: 1px solid var(--border);
+      border-radius: 16px;
+
+      margin-bottom: 11px;
+    }
+
+    .status-dot {
+      width: 11px;
+      height: 11px;
+
+      border-radius: 50%;
+      background: var(--green);
+    }
+
+    .status-dot.yellow {
+      background: #f5ba27;
+    }
+
+    .status-dot.gray {
+      background: #c6cec9;
+    }
+
+
+    /* =========================
+       FEATURES
+    ========================== */
+
+    .features {
+      padding: 75px 0;
+      background: white;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 45px;
+    }
+
+    .section-title small {
+      color: var(--green);
+      font-weight: 800;
+    }
+
+    .section-title h2 {
+      font-size: 36px;
+      margin-top: 7px;
+      color: var(--green-deep);
+    }
+
+    .section-title p {
+      color: var(--gray);
+      margin-top: 8px;
+    }
+
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+    }
+
+    .feature-card {
+      background: var(--cream);
+
+      border: 1px solid #f0eee6;
+      border-radius: 23px;
+
+      padding: 28px 24px;
+
+      transition: .25s;
+    }
+
+    .feature-card:hover {
+      transform: translateY(-6px);
+      background: white;
+      box-shadow: var(--shadow);
+    }
+
+    .feature-icon {
+      width: 53px;
+      height: 53px;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      border-radius: 16px;
+
+      background: var(--green-light);
+
+      font-size: 24px;
+
+      margin-bottom: 20px;
+    }
+
+    .feature-card h3 {
+      margin-bottom: 8px;
+    }
+
+    .feature-card p {
+      color: var(--gray);
+      font-size: 14px;
+    }
+
+
+    /* =========================
+       TRACKING
+    ========================== */
+
+    .tracking-section {
+      padding: 90px 0;
+
+      background:
+        linear-gradient(180deg, #f8faf7, #f7f3e8);
+    }
+
+    .tracking-box {
+      max-width: 850px;
+      margin: auto;
+
+      background: white;
+
+      padding: 42px;
+
+      border-radius: 30px;
+
+      box-shadow: var(--shadow);
+    }
+
+    .tracking-header {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .tracking-header h2 {
+      font-size: 34px;
+      color: var(--green-deep);
+    }
+
+    .tracking-header p {
+      color: var(--gray);
+      margin-top: 7px;
+    }
+
+    .search-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 15px;
+    }
+
+    .input-group label {
+      display: block;
+
+      font-size: 14px;
+      font-weight: 700;
+
+      margin-bottom: 8px;
+    }
+
+    .input-group input {
+      width: 100%;
+      height: 55px;
+
+      border: 1px solid var(--border);
+      border-radius: 14px;
+
+      padding: 0 17px;
+
+      outline: none;
+
+      background: #fbfcfb;
+
+      transition: .2s;
+    }
+
+    .input-group input:focus {
+      border-color: var(--green);
+
+      box-shadow:
+        0 0 0 4px rgba(6,199,85,.09);
+
+      background: white;
+    }
+
+    .search-button {
+      width: 100%;
+      height: 57px;
+
+      margin-top: 20px;
+
+      border: none;
+      border-radius: 15px;
+
+      color: white;
+      font-weight: 800;
+
+      background:
+        linear-gradient(
+          135deg,
+          var(--green),
+          var(--green-dark)
+        );
+    }
+
+
+    /* =========================
+       RESULT
+    ========================== */
+
+    .result {
+      display: none;
+
+      margin-top: 28px;
+      padding-top: 28px;
+
+      border-top: 1px solid var(--border);
+    }
+
+    .result.show {
+      display: block;
+    }
+
+    .result-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 15px;
+
+      margin-bottom: 25px;
+    }
+
+    .ticket-number small {
+      color: var(--gray);
+    }
+
+    .ticket-number h3 {
+      font-size: 28px;
+      color: var(--green-deep);
+    }
+
+    .status-pill {
+      background: var(--yellow-light);
+      color: #8b6512;
+
+      padding: 10px 17px;
+      border-radius: 999px;
+
+      font-weight: 800;
+      font-size: 13px;
+    }
+
+    .result-grid {
+      display: grid;
+      grid-template-columns: .9fr 1.1fr;
+      gap: 30px;
+    }
+
+    .info-card {
+      background: var(--cream);
+      padding: 22px;
+      border-radius: 20px;
+    }
+
+    .info-item {
+      margin-bottom: 17px;
+    }
+
+    .info-item:last-child {
+      margin-bottom: 0;
+    }
+
+    .info-item small {
+      color: var(--gray);
+    }
+
+    .info-item strong {
+      display: block;
+      margin-top: 3px;
+    }
+
+
+    /* =========================
+       TIMELINE
+    ========================== */
+
+    .timeline {
+      padding: 10px 0;
+    }
+
+    .timeline-item {
+      position: relative;
+
+      padding-left: 38px;
+      padding-bottom: 28px;
+    }
+
+    .timeline-item:last-child {
+      padding-bottom: 0;
+    }
+
+    .timeline-item::before {
+      content: "";
+
+      position: absolute;
+
+      left: 10px;
+      top: 18px;
+
+      width: 2px;
+      height: 100%;
+
+      background: #dce5df;
+    }
+
+    .timeline-item:last-child::before {
+      display: none;
+    }
+
+    .timeline-dot {
+      position: absolute;
+
+      left: 2px;
+      top: 2px;
+
+      width: 18px;
+      height: 18px;
+
+      border-radius: 50%;
+
+      background: var(--green);
+
+      border: 4px solid #dff7e7;
+    }
+
+    .timeline-item.pending .timeline-dot {
+      background: #f0b82e;
+      border-color: #fff0bd;
+    }
+
+    .timeline-item.future .timeline-dot {
+      background: #c8ceca;
+      border-color: #eef1ef;
+    }
+
+    .timeline-item strong {
+      display: block;
+    }
+
+    .timeline-item small {
+      color: var(--gray);
+    }
+
+
+    /* =========================
+       CTA
+    ========================== */
+
+    .cta-section {
+      padding: 90px 0;
+      background: white;
+    }
+
+    .cta-box {
+      overflow: hidden;
+      position: relative;
+
+      background:
+        linear-gradient(
+          135deg,
+          var(--green-deep),
+          #087a47
+        );
+
+      border-radius: 32px;
+
+      padding: 55px;
+
+      color: white;
+
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 40px;
+    }
+
+    .cta-box::after {
+      content: "";
+
+      position: absolute;
+
+      width: 300px;
+      height: 300px;
+
+      right: -80px;
+      top: -130px;
+
+      border-radius: 50%;
+
+      background: rgba(255,214,90,.18);
+    }
+
+    .cta-text {
+      position: relative;
+      z-index: 2;
+    }
+
+    .cta-text h2 {
+      font-size: 34px;
+      margin-bottom: 8px;
+    }
+
+    .cta-text p {
+      opacity: .8;
+    }
+
+    .cta-btn {
+      position: relative;
+      z-index: 2;
+
+      flex-shrink: 0;
+
+      border: none;
+
+      background: var(--yellow);
+
+      padding: 16px 25px;
+
+      border-radius: 15px;
+
+      font-weight: 800;
+    }
+
+
+    /* =========================
+       FOOTER
+    ========================== */
+
+    footer {
+      background: #063a26;
+      color: white;
+
+      padding: 48px 0 25px;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      gap: 50px;
+    }
+
+    footer p,
+    footer a {
+      color: rgba(255,255,255,.72);
+      font-size: 14px;
+    }
+
+    footer h4 {
+      margin-bottom: 14px;
+    }
+
+    .copyright {
+      margin-top: 35px;
+      padding-top: 22px;
+
+      border-top:
+        1px solid rgba(255,255,255,.12);
+
+      color: rgba(255,255,255,.55);
+      font-size: 12px;
+    }
+
+
+    /* =========================
+       MOBILE
+    ========================== */
+
+    @media (max-width: 900px) {
+
+      .nav-menu {
+        display: none;
+      }
+
+      .hero-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+
+      .hero {
+        min-height: auto;
+      }
+
+      .feature-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .result-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 600px) {
+
+      .container {
+        width: min(100% - 28px, 1180px);
+      }
+
+      .navbar {
+        position: relative;
+      }
+
+      .nav-inner {
+        min-height: 68px;
+      }
+
+      .logo {
+        width: 42px;
+        height: 42px;
+      }
+
+      .brand-text strong {
+        font-size: 14px;
+      }
+
+      .contact-btn {
+        display: none;
+      }
+
+      .hero-grid {
+        padding: 55px 0;
+      }
+
+      .hero h1 {
+        font-size: 40px;
+        letter-spacing: -1px;
+      }
+
+      .hero-description {
+        font-size: 16px;
+      }
+
+      .hero-buttons {
+        display: grid;
+      }
+
+      .primary-btn,
+      .secondary-btn {
+        width: 100%;
+      }
+
+      .hero-card {
+        padding: 25px;
+        border-radius: 25px;
+      }
+
+      .features,
+      .tracking-section,
+      .cta-section {
+        padding: 60px 0;
+      }
+
+      .feature-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .section-title h2,
+      .tracking-header h2 {
+        font-size: 28px;
+      }
+
+      .tracking-box {
+        padding: 24px;
+        border-radius: 23px;
+      }
+
+      .search-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .result-top {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .cta-box {
+        padding: 32px 25px;
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .cta-text h2 {
+        font-size: 27px;
+      }
+
+      .cta-btn {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+
+
+<body>
+
+
+<!-- =========================
+     NAVBAR
+========================== -->
+
+<header class="navbar">
+
+  <div class="container nav-inner">
+
+    <a href="#" class="brand">
+
+      <!-- ภายหลังเปลี่ยนตรงนี้เป็นรูปตรา อบต. จริง -->
+      <div class="logo">
+        อบต.
+      </div>
+
+      <div class="brand-text">
+        <strong>องค์การบริหารส่วนตำบลชำผักแพว</strong>
+        <span>อำเภอแก่งคอย จังหวัดสระบุรี</span>
+      </div>
+
+    </a>
+
+
+    <nav class="nav-menu">
+
+      <a href="#">หน้าแรก</a>
+
+      <a href="#tracking">
+        ตรวจสอบสถานะ
+      </a>
+
+      <a href="#">
+        ยื่นคำร้อง
+      </a>
+
+      <a href="#">
+        คู่มือการใช้งาน
+      </a>
+
+    </nav>
+
+
+    <button class="contact-btn">
+      ☎ ติดต่อเรา
+    </button>
+
+  </div>
+
+</header>
+
+
+
+<!-- =========================
+     HERO
+========================== -->
+
+<section class="hero">
+
+  <div class="container hero-grid">
+
+    <div>
+
+      <div class="badge">
+        ✦ บริการออนไลน์
+      </div>
+
+      <h1>
+        ระบบติดตาม<br>
+        <span>สถานะคำร้องออนไลน์</span>
+      </h1>
+
+      <p class="hero-description">
+        บริการออนไลน์จากองค์การบริหารส่วนตำบลชำผักแพว
+        ให้ประชาชนสามารถยื่นคำร้องและตรวจสอบ
+        ความคืบหน้าได้อย่างสะดวก รวดเร็ว และโปร่งใส
+      </p>
+
+
+      <div class="hero-buttons">
+
+        <a
+          href="#tracking"
+          class="primary-btn"
+        >
+          🔍 ตรวจสอบสถานะคำร้อง
+        </a>
+
+        <a
+          href="#"
+          class="secondary-btn"
+        >
+          📝 ยื่นคำร้องออนไลน์
+        </a>
+
+      </div>
+
+    </div>
+
+
+    <!-- CARD ขวา -->
+
+    <div class="hero-card">
+
+      <div class="hero-card-icon">
+        📋
+      </div>
+
+      <h2>
+        ติดตามได้ทุกขั้นตอน
+      </h2>
+
+      <p>
+        ตรวจสอบความคืบหน้าของคำร้อง
+        ตั้งแต่รับเรื่องจนดำเนินการแล้วเสร็จ
+      </p>
+
+
+      <div class="mini-status">
+
+        <span class="status-dot"></span>
+
+        <div>
+          <strong>รับเรื่องแล้ว</strong><br>
+          <small>ระบบบันทึกคำร้องเรียบร้อย</small>
+        </div>
+
+      </div>
+
+
+      <div class="mini-status">
+
+        <span class="status-dot yellow"></span>
+
+        <div>
+          <strong>อยู่ระหว่างดำเนินการ</strong><br>
+          <small>เจ้าหน้าที่กำลังดำเนินการ</small>
+        </div>
+
+      </div>
+
+
+      <div class="mini-status">
+
+        <span class="status-dot gray"></span>
+
+        <div>
+          <strong>ดำเนินการแล้วเสร็จ</strong><br>
+          <small>แจ้งผลการดำเนินงาน</small>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+
+<!-- =========================
+     FEATURES
+========================== -->
+
+<section class="features">
+
+  <div class="container">
+
+    <div class="section-title">
+
+      <small>
+        บริการประชาชน
+      </small>
+
+      <h2>
+        สะดวก รวดเร็ว ตรวจสอบได้
+      </h2>
+
+      <p>
+        เพิ่มความสะดวกในการติดต่อและติดตามคำร้อง
+        กับองค์การบริหารส่วนตำบลชำผักแพว
+      </p>
+
+    </div>
+
+
+    <div class="feature-grid">
+
+
+      <div class="feature-card">
+
+        <div class="feature-icon">
+          📄
+        </div>
+
+        <h3>
+          ติดตามได้ทุกขั้นตอน
+        </h3>
+
+        <p>
+          ตรวจสอบสถานะและความคืบหน้า
+          ของคำร้องได้ตลอด 24 ชั่วโมง
+        </p>
+
+      </div>
+
+
+      <div class="feature-card">
+
+        <div class="feature-icon">
+          ⚡
+        </div>
+
+        <h3>
+          สะดวกและรวดเร็ว
+        </h3>
+
+        <p>
+          ยื่นคำร้องและตรวจสอบข้อมูล
+          ผ่านโทรศัพท์หรือคอมพิวเตอร์
+        </p>
+
+      </div>
+
+
+      <div class="feature-card">
+
+        <div class="feature-icon">
+          🛡️
+        </div>
+
+        <h3>
+          โปร่งใส ตรวจสอบได้
+        </h3>
+
+        <p>
+          มีเลขทะเบียนคำร้อง
+          สำหรับใช้ติดตามความคืบหน้า
+        </p>
+
+      </div>
+
+
+      <div class="feature-card">
+
+        <div class="feature-icon">
+          🤝
+        </div>
+
+        <h3>
+          เพื่อประชาชน
+        </h3>
+
+        <p>
+          เพิ่มช่องทางการให้บริการ
+          และลดขั้นตอนในการติดต่อราชการ
+        </p>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+
+<!-- =========================
+     TRACKING
+========================== -->
+
+<section
+  class="tracking-section"
+  id="tracking"
+>
+
+  <div class="container">
+
+    <div class="tracking-box">
+
+      <div class="tracking-header">
+
+        <h2>
+          🔍 ตรวจสอบสถานะคำร้อง
+        </h2>
+
+        <p>
+          กรอกเลขทะเบียนคำร้อง
+          และหมายเลขโทรศัพท์ 4 ตัวท้าย
+        </p>
+
+      </div>
+
+
+      <div class="search-grid">
+
+        <div class="input-group">
+
+          <label>
+            เลขทะเบียนคำร้อง
+          </label>
+
+          <input
+            type="text"
+            id="ticket"
+            placeholder="เช่น 2569-0001"
+          >
+
+        </div>
+
+
+        <div class="input-group">
+
+          <label>
+            เบอร์โทรศัพท์ 4 ตัวท้าย
+          </label>
+
+          <input
+            type="tel"
+            id="phone"
+            maxlength="4"
+            inputmode="numeric"
+            placeholder="เช่น 5678"
+          >
+
+        </div>
+
+      </div>
+
+
+      <button
+        class="search-button"
+        onclick="searchTracking()"
+      >
+        🔍 ตรวจสอบสถานะ
+      </button>
+
+
+
+      <!-- ผลการค้นหา -->
+
+      <div
+        class="result"
+        id="result"
+      >
+
+        <div class="result-top">
+
+          <div class="ticket-number">
+
+            <small>
+              เลขทะเบียนคำร้อง
+            </small>
+
+            <h3 id="resultTicket">
+              2569-0024
+            </h3>
+
+          </div>
+
+
+          <div class="status-pill">
+            อยู่ระหว่างดำเนินการ
+          </div>
+
+        </div>
+
+
+        <div class="result-grid">
+
+
+          <!-- ข้อมูล -->
+
+          <div class="info-card">
+
+            <div class="info-item">
+
+              <small>
+                วันที่รับเรื่อง
+              </small>
+
+              <strong id="resultDate">
+                28 กันยายน 2569
+              </strong>
+
+            </div>
+
+
+            <div class="info-item">
+
+              <small>
+                เรื่องร้องเรียน
+              </small>
+
+              <strong id="resultTopic">
+                แจ้งไฟฟ้าสาธารณะชำรุด
+              </strong>
+
+            </div>
+
+
+            <div class="info-item">
+
+              <small>
+                หน่วยงานรับผิดชอบ
+              </small>
+
+              <strong id="resultDepartment">
+                กองช่าง
+              </strong>
+
+            </div>
+
+
+            <div class="info-item">
+
+              <small>
+                ความคืบหน้าล่าสุด
+              </small>
+
+              <strong id="resultRemark">
+                เจ้าหน้าที่ลงพื้นที่ตรวจสอบแล้ว
+                อยู่ระหว่างดำเนินการซ่อมแซม
+              </strong>
+
+            </div>
+
+          </div>
+
+
+
+          <!-- Timeline -->
+
+          <div class="timeline">
+
+
+            <div class="timeline-item">
+
+              <span class="timeline-dot"></span>
+
+              <strong>
+                รับเรื่องแล้ว
+              </strong>
+
+              <small>
+                ระบบได้รับคำร้องเรียบร้อยแล้ว
+              </small>
+
+            </div>
+
+
+            <div class="timeline-item">
+
+              <span class="timeline-dot"></span>
+
+              <strong>
+                มอบหมายหน่วยงาน
+              </strong>
+
+              <small>
+                ส่งเรื่องให้หน่วยงานรับผิดชอบ
+              </small>
+
+            </div>
+
+
+            <div class="timeline-item pending">
+
+              <span class="timeline-dot"></span>
+
+              <strong>
+                อยู่ระหว่างดำเนินการ
+              </strong>
+
+              <small>
+                เจ้าหน้าที่กำลังดำเนินการแก้ไข
+              </small>
+
+            </div>
+
+
+            <div class="timeline-item future">
+
+              <span class="timeline-dot"></span>
+
+              <strong>
+                ดำเนินการแล้วเสร็จ
+              </strong>
+
+              <small>
+                รอผลการดำเนินงาน
+              </small>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+
+<!-- =========================
+     CTA
+========================== -->
+
+<section class="cta-section">
+
+  <div class="container">
+
+    <div class="cta-box">
+
+      <div class="cta-text">
+
+        <h2>
+          พบปัญหาในพื้นที่?
+        </h2>
+
+        <p>
+          แจ้งเรื่องร้องเรียนหรือร้องทุกข์
+          ผ่านระบบออนไลน์ได้ง่าย ๆ
+          โดยไม่ต้องเดินทางมายังสำนักงาน
+        </p>
+
+      </div>
+
+
+      <button class="cta-btn">
+        📝 ยื่นคำร้องออนไลน์
+      </button>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+
+<!-- =========================
+     FOOTER
+========================== -->
+
+<footer>
+
+  <div class="container">
+
+    <div class="footer-grid">
+
+      <div>
+
+        <h3>
+          องค์การบริหารส่วนตำบลชำผักแพว
+        </h3>
+
+        <p>
+          อำเภอแก่งคอย จังหวัดสระบุรี
+        </p>
+
+        <br>
+
+        <p>
+          ระบบติดตามสถานะคำร้องออนไลน์
+          เพื่อเพิ่มความสะดวกในการให้บริการประชาชน
+        </p>
+
+      </div>
+
+
+      <div>
+
+        <h4>
+          เมนู
+        </h4>
+
+        <p>
+          <a href="#">
+            หน้าแรก
+          </a>
+        </p>
+
+        <p>
+          <a href="#tracking">
+            ตรวจสอบสถานะ
+          </a>
+        </p>
+
+        <p>
+          <a href="#">
+            ยื่นคำร้อง
+          </a>
+        </p>
+
+      </div>
+
+
+      <div>
+
+        <h4>
+          ติดต่อเรา
+        </h4>
+
+        <p>
+          ☎ 036-714081
+        </p>
+
+        <p>
+          อบต.ชำผักแพว
+        </p>
+
+      </div>
+
+    </div>
+
+
+    <div class="copyright">
+
+      © 2569 องค์การบริหารส่วนตำบลชำผักแพว
+      | ระบบติดตามสถานะคำร้องออนไลน์
+
+    </div>
+
+  </div>
+
+</footer>
+
+
+
+<script>
+
+  /*
+  ==========================================
+  GOOGLE APPS SCRIPT API
+
+  ภายหลังเอา URL /exec มาใส่ตรงนี้
+
+  ตัวอย่าง:
+  const API_URL =
+  "https://script.google.com/macros/s/XXXX/exec";
+  ==========================================
+  */
+
+  const API_URL = "";
+
+
+  async function searchTracking() {
+
+    const ticket =
+      document
+        .getElementById("ticket")
+        .value
+        .trim();
+
+    const phone =
+      document
+        .getElementById("phone")
+        .value
+        .trim();
+
+
+    if (!ticket) {
+
+      alert("กรุณากรอกเลขทะเบียนคำร้อง");
+
+      return;
+    }
+
+
+    if (phone.length !== 4) {
+
+      alert(
+        "กรุณากรอกเบอร์โทรศัพท์ 4 ตัวท้าย"
+      );
+
+      return;
+    }
+
+
+    /*
+    ตอนนี้ยังเป็น DEMO
+    เพื่อให้เห็นหน้าตาผลการค้นหา
+
+    พอ API พร้อมแล้ว
+    เราจะเปลี่ยนส่วนนี้ให้ค้นจาก Google Sheet จริง
+    */
+
+
+    if (!API_URL) {
+
+      document
+        .getElementById("result")
+        .classList
+        .add("show");
+
+      document
+        .getElementById("resultTicket")
+        .textContent = ticket;
+
+      document
+        .getElementById("result")
+        .scrollIntoView({
+          behavior: "smooth",
+          block: "center"
+        });
+
+      return;
+    }
+
+
+    /*
+    ==========================================
+    ส่วนสำหรับ API จริง
+    ==========================================
+    */
+
+    try {
+
+      const url =
+        API_URL +
+        "?keyword=" +
+        encodeURIComponent(ticket);
+
+
+      const response =
+        await fetch(url);
+
+
+      const result =
+        await response.json();
+
+
+      if (!result.success) {
+
+        alert(
+          result.message ||
+          "ไม่พบข้อมูลคำร้อง"
+        );
+
+        return;
+      }
+
+
+      const data = result.data;
+
+
+      document
+        .getElementById("resultTicket")
+        .textContent =
+        data.ticketNo || "-";
+
+
+      document
+        .getElementById("resultDate")
+        .textContent =
+        data.date || "-";
+
+
+      document
+        .getElementById("resultTopic")
+        .textContent =
+        data.topic || "-";
+
+
+      document
+        .getElementById("resultDepartment")
+        .textContent =
+        data.department || "-";
+
+
+      document
+        .getElementById("resultRemark")
+        .textContent =
+        data.remark || "-";
+
+
+      document
+        .getElementById("result")
+        .classList
+        .add("show");
+
+
+      document
+        .getElementById("result")
+        .scrollIntoView({
+          behavior: "smooth",
+          block: "center"
+        });
+
+
+    } catch (error) {
+
+      console.error(error);
+
+      alert(
+        "ไม่สามารถเชื่อมต่อระบบได้ กรุณาลองใหม่อีกครั้ง"
+      );
+
+    }
+
+  }
+
+</script>
+
+
+</body>
+</html>
