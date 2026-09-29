@@ -3554,6 +3554,12 @@ footer a{
 
 
 
+            <option value="งานสาธารณสุข">งานสาธารณสุข</option>
+
+            <option value="ตัดกิ่งไม้">ตัดกิ่งไม้</option>
+
+            <option value="ฉีดล้างน้ำ">ฉีดล้างน้ำ</option>
+
             <option value="สวัสดิการสังคม">
 
               สวัสดิการสังคม
@@ -6292,9 +6298,7 @@ document.addEventListener(
 
 
 
-    loadDashboard();
-
-    loadPublicList();
+    loadBootstrap();
 
 
 
@@ -6382,7 +6386,12 @@ async function loginAdmin(){
     setAdminUI(true);
     await loadAdminList();
     document.getElementById("admin").scrollIntoView({behavior:"smooth"});
-  }catch(e){setMessage("loginMessage",e.message||"เกิดข้อผิดพลาด");}
+  }catch(e){
+    const msg=(e&&e.name==="AbortError")
+      ?"การเชื่อมต่อใช้เวลานานเกิน 15 วินาที กรุณาลองใหม่อีกครั้ง"
+      :(e.message||"เกิดข้อผิดพลาด");
+    setMessage("loginMessage",msg);
+  }
   finally{btn.disabled=false;btn.textContent="เข้าสู่ระบบ";}
 }
 async function logoutAdmin(){
