@@ -1132,6 +1132,29 @@ html,body{width:100%;max-width:100%;overflow-x:hidden}
   #adminLoginButton{padding:9px 10px!important;font-size:11px!important}
   .nav-inner{padding-left:10px!important;padding-right:10px!important}
 }
+/* ===== Recent requests: responsive cards ===== */
+#overview .table-wrap{overflow:visible!important}
+#overview table{width:100%;table-layout:fixed}
+#overview th:nth-child(1){width:15%}
+#overview th:nth-child(2){width:31%}
+#overview th:nth-child(3){width:19%}
+#overview th:nth-child(4){width:18%}
+#overview th:nth-child(5){width:17%}
+.request-meta{line-height:1.65}
+@media(max-width:760px){
+  #overview table,#overview thead,#overview tbody,#overview tr,#overview td{display:block!important;width:100%!important}
+  #overview thead{display:none!important}
+  #overview tbody{display:grid!important;gap:14px!important}
+  #overview tr{padding:18px!important;border:1px solid var(--border)!important;border-radius:18px!important;background:#fff!important;box-shadow:0 8px 26px rgba(16,72,49,.06)!important}
+  #overview td{display:grid!important;grid-template-columns:112px minmax(0,1fr)!important;gap:10px!important;padding:8px 0!important;border:0!important;white-space:normal!important;overflow-wrap:anywhere!important}
+  #overview td::before{content:attr(data-label);font-size:12px;font-weight:800;color:var(--muted)}
+  #overview td:first-child{padding-top:0!important}
+  #overview td:last-child{padding-bottom:0!important}
+  #overview .status-badge{justify-self:start!important}
+}
+@media(max-width:390px){
+  #overview td{grid-template-columns:96px minmax(0,1fr)!important}
+}
 </style>
 </head>
 <body>
@@ -1342,9 +1365,9 @@ html,body{width:100%;max-width:100%;overflow-x:hidden}
           <thead>
             <tr>
               <th>เลขทะเบียน</th>
-              <th>วันที่</th>
+              <th>วันที่ร้อง / ชื่อผู้ร้อง / สถานที่</th>
               <th>ประเภทคำร้อง</th>
-              <th>หน่วยงาน</th>
+              <th>ผู้รับผิดชอบ</th>
               <th>สถานะ</th>
             </tr>
           </thead>
@@ -2493,10 +2516,13 @@ function setAdminUI(loggedIn){
   if(admin) admin.classList.toggle("show",loggedIn);
   if(submit) submit.style.display=loggedIn?"":"none";
   if(loginBtn){
-    loginBtn.textContent=loggedIn?"จัดการคำร้อง":"เข้าสู่ระบบ";
-    loginBtn.classList.toggle("active",loggedIn);
+    loginBtn.textContent="เข้าสู่ระบบ";
+    loginBtn.style.display=loggedIn?"none":"inline-flex";
   }
-  if(mobileLoginBtn) mobileLoginBtn.textContent=loggedIn?"จัดการคำร้อง":"เข้าสู่ระบบ";
+  if(mobileLoginBtn){
+    mobileLoginBtn.textContent="เข้าสู่ระบบ";
+    mobileLoginBtn.style.display=loggedIn?"none":"block";
+  }
   if(logoutBtn) logoutBtn.style.display=loggedIn?"inline-flex":"none";
   if(mobileLogoutBtn) mobileLogoutBtn.style.display=loggedIn?"block":"none";
   if(note) note.classList.toggle("show",loggedIn);
@@ -2744,16 +2770,26 @@ submitComplaint = async function(){
 };
 function renderPublicRows(list){
   const tbody=document.getElementById("publicListBody");
+  if(!tbody) return;
   if(!Array.isArray(list)||!list.length){
     tbody.innerHTML='<tr><td colspan="5" class="loading-text">ยังไม่มีข้อมูลคำร้อง</td></tr>';
     return;
   }
-  tbody.innerHTML=list.map(item=>{
+  const sorted=[...list].sort((a,b)=>String(a.ticketNo||"").localeCompare(String(b.ticketNo||""),"th",{numeric:true}));
+  tbody.innerHTML=sorted.map(item=>{
     const status=escapeHTML(item.status||"รับเรื่องแล้ว");
-    return `<tr><td><strong>${escapeHTML(item.ticketNo||"")}</strong></td>
-      <td>${escapeHTML(item.date||"")}</td><td>${escapeHTML(item.category||"")}</td>
-      <td>${escapeHTML(item.department||"")}</td>
-      <td><span class="status-badge ${getStatusClass(status)}">${status}</span></td></tr>`;
+    const meta=[
+      `<strong>${escapeHTML(item.date||"-")}</strong>`,
+      escapeHTML(item.name||"-"),
+      escapeHTML(item.address||"-")
+    ].join("<br>");
+    return `<tr>
+      <td data-label="เลขทะเบียน"><strong>${escapeHTML(item.ticketNo||"")}</strong></td>
+      <td data-label="วันที่ร้อง / ชื่อผู้ร้อง / สถานที่" class="request-meta">${meta}</td>
+      <td data-label="ประเภทคำร้อง">${escapeHTML(item.category||"-")}</td>
+      <td data-label="ผู้รับผิดชอบ">${escapeHTML(item.officer||item.department||"-")}</td>
+      <td data-label="สถานะ"><span class="status-badge ${getStatusClass(status)}">${status}</span></td>
+    </tr>`;
   }).join("");
 }
 async function loadBootstrap(){
