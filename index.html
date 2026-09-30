@@ -1218,6 +1218,31 @@ html,body{width:100%;max-width:100%;overflow-x:hidden}
 @media(max-width:390px){
   #overview .request-card-row td{grid-template-columns:88px minmax(0,1fr)!important;padding:9px 11px!important}
 }
+/* ===== Header / real municipal logo / mobile polish ===== */
+.brand-logo-image{overflow:hidden!important;background:#fff!important;border:1px solid #e2ebe5!important;padding:3px!important}
+.brand-logo-image img{display:block;width:100%;height:100%;object-fit:contain;border-radius:50%}
+.brand-name{min-width:0!important}
+.brand-name strong{display:block;line-height:1.22}
+@media(max-width:760px){
+  .navbar .container{padding-left:14px!important;padding-right:14px!important}
+  .nav-inner{gap:9px!important}
+  .brand{min-width:0!important;flex:1 1 auto!important;gap:10px!important}
+  .brand-logo{width:50px!important;height:50px!important;min-width:50px!important}
+  .brand-name{max-width:none!important;flex:1 1 auto!important}
+  .brand-name strong{font-size:15px!important;line-height:1.18!important;white-space:normal!important;word-break:keep-all!important}
+  .brand-name span{font-size:11px!important;line-height:1.2!important}
+  .admin-login-button{padding:10px 12px!important;font-size:13px!important;white-space:nowrap!important}
+  .mobile-menu{width:46px!important;height:46px!important;min-width:46px!important}
+  .contact-button{display:none!important}
+}
+@media(max-width:390px){
+  .brand-logo{width:44px!important;height:44px!important;min-width:44px!important}
+  .brand-name strong{font-size:13px!important}
+  .brand-name span{font-size:10px!important}
+  .admin-login-button{padding:9px 10px!important;font-size:12px!important}
+}
+#overview .progress-card-below{margin:22px 0 0!important;width:100%!important;max-width:none!important}
+@media(max-width:760px){#overview .progress-card-below{margin-top:16px!important;padding:22px 18px!important}}
 </style>
 </head>
 <body>
@@ -1225,8 +1250,9 @@ html,body{width:100%;max-width:100%;overflow-x:hidden}
 <header class="navbar">
   <div class="container nav-inner">
     <a href="#home" class="brand">
-      <div class="brand-logo">
-        อบต.
+      <div class="brand-logo brand-logo-image">
+        <img id="municipalLogo" src="new%20logo.png" alt="โลโก้ อบต.ชำผักแพว"
+             onerror="logoFallback(this)">
       </div>
       <div class="brand-name">
         <strong>องค์การบริหารส่วนตำบลชำผักแพว</strong>
@@ -2500,9 +2526,24 @@ function closeMobileMenu(){
 /* =========================================================
    START
 ========================================================= */
+function logoFallback(img){
+  const tries=["new%20logo.jpg","new%20logo.jpeg","new%20logo.webp","new-logo.png","new_logo.png"];
+  const i=Number(img.dataset.try||0);
+  if(i<tries.length){img.dataset.try=String(i+1);img.src=tries[i];}
+  else{img.onerror=null;img.style.display="none";}
+}
+function moveProgressCardBelowRecent(){
+  const card=document.querySelector(".hero-status-card");
+  const recent=document.querySelector("#overview .public-list");
+  if(card&&recent){
+    card.classList.add("progress-card-below");
+    recent.insertAdjacentElement("afterend",card);
+  }
+}
 document.addEventListener(
   "DOMContentLoaded",
   function(){
+    moveProgressCardBelowRecent();
     loadBootstrap();
   }
 );
@@ -2623,12 +2664,15 @@ async function loginAdmin(){
     if(btn){btn.disabled=false;btn.textContent="เข้าสู่ระบบ";}
   }
 }
-async function logoutAdmin(){
-  try{if(adminToken) await apiPost({action:"logout",token:adminToken});}catch(e){}
-  adminToken=""; sessionStorage.removeItem("cpp_admin_token");
+function logoutAdmin(){
+  const token=adminToken;
+  adminToken="";
+  sessionStorage.removeItem("cpp_admin_token");
   setAdminUI(false);
-  document.getElementById("adminListBody").innerHTML='<tr><td colspan="8" class="loading-text">เข้าสู่ระบบเพื่อดูข้อมูล</td></tr>';
+  const body=document.getElementById("adminListBody");
+  if(body) body.innerHTML='<tr><td colspan="8" class="loading-text">เข้าสู่ระบบเพื่อดูข้อมูล</td></tr>';
   window.location.hash="home";
+  if(token) apiPost({action:"logout",token}).catch(()=>{});
 }
 function adminUnauthorized(){
   adminToken=""; sessionStorage.removeItem("cpp_admin_token"); setAdminUI(false);
@@ -2723,7 +2767,7 @@ async function openComplaintEdit(ticket){
     document.getElementById("editPostponeReason").value=d.postponeReason||"";
     document.getElementById("editNextActionDate").value=thaiDateToInput(d.nextActionDate);
     document.getElementById("editResultImages").value="";
-    clearMessage("editMessage"); renderResultImageLink(data.resultImages||[],data.resultImageFolderUrl||'');
+    clearMessage("editMessage"); renderResultImageLink(d.resultImages||[],d.resultImageFolderUrl||"");
     togglePostponeFields(); openGenericModal("editComplaintModal");
   }catch(e){alert(e.message||"เปิดข้อมูลไม่สำเร็จ");}
 }
@@ -2735,14 +2779,16 @@ function togglePostponeFields(){
   if(resultBox) resultBox.style.display=status.includes("ดำเนินการแล้วเสร็จ")?"block":"none";
 }
 async function uploadAdminImages(ticket,files,action){
-  for(const file of files){
+  const jobs=[...files].map(async file=>{
     if(!["image/jpeg","image/png","image/webp"].includes(file.type)) throw new Error("รองรับเฉพาะ JPG, PNG และ WEBP");
     if(file.size>8*1024*1024) throw new Error(`ไฟล์ ${file.name} มีขนาดเกิน 8 MB`);
     const base64=await fileToDataURL(file);
     const r=await apiPost({action,token:adminToken,ticketNo:ticket,fileName:file.name,mimeType:file.type,base64});
-    if(r.unauthorized){adminUnauthorized();throw new Error("กรุณาเข้าสู่ระบบใหม่");}
-    if(!r.success)throw new Error(r.message||"อัปโหลดรูปไม่สำเร็จ");
-  }
+    if(r.unauthorized) throw new Error("กรุณาเข้าสู่ระบบใหม่");
+    if(!r.success) throw new Error(r.message||"อัปโหลดรูปไม่สำเร็จ");
+    return r;
+  });
+  return Promise.all(jobs);
 }
 async function saveComplaintEdit(){
   if(!currentEditTicket)return;
@@ -2769,8 +2815,8 @@ async function saveComplaintEdit(){
     const files=[...document.getElementById("editResultImages").files];
     if(files.length)await uploadAdminImages(currentEditTicket,files,"uploadResultImage");
     setMessage("editMessage","บันทึกข้อมูลเรียบร้อยแล้ว","success");
-    await loadAdminList(); loadDashboard(); loadPublicList();
-    setTimeout(()=>closeGenericModal("editComplaintModal"),500);
+    closeGenericModal("editComplaintModal");
+    Promise.allSettled([loadAdminList(),loadDashboard(),loadPublicList()]);
   }catch(e){setMessage("editMessage",e.message||"เกิดข้อผิดพลาด");}
   finally{btn.disabled=false;btn.textContent="💾 บันทึกการแก้ไข";}
 }
@@ -2787,7 +2833,7 @@ async function createMonthlyReport(){
   const month=Number(document.getElementById("reportMonth").value);
   const year=Number(document.getElementById("reportYear").value);
   const btn=document.getElementById("reportButton"); clearMessage("adminMessage");
-  btn.disabled=true;btn.textContent="กำลังสร้าง PDF...";
+  btn.disabled=true;btn.textContent="กำลังสร้าง PDF… กรุณารอสักครู่";
   try{
     const r=await apiPost({action:"monthlyReport",token:adminToken,month,year});
     if(r.unauthorized){adminUnauthorized();return;}
