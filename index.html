@@ -1092,6 +1092,46 @@ footer a{
   #overview tbody td:nth-child(2),#overview tbody td:nth-child(3),#overview tbody td:nth-child(4){font-size:13px;color:#69776f}
   #overview tbody td:last-child{padding-bottom:11px}
 }
+/* ===== Mobile + admin interaction fix ===== */
+html,body{width:100%;max-width:100%;overflow-x:hidden}
+*{box-sizing:border-box}
+.modal{position:fixed!important;inset:0!important;width:100vw!important;height:100dvh!important;z-index:99999!important;background:rgba(20,35,27,.48)!important;padding:20px!important;align-items:center!important;justify-content:center!important;overflow-y:auto!important}
+.modal.show{display:flex!important}
+.modal-card{position:relative!important;margin:auto!important;max-height:calc(100dvh - 40px)!important;overflow-y:auto!important}
+#adminLoginModal .modal-card{width:min(430px,100%)!important;padding:26px!important;border-radius:24px!important;background:#fff!important;box-shadow:0 24px 80px rgba(0,0,0,.2)!important}
+@media(max-width:760px){
+  .container{width:100%!important;max-width:none!important;padding-left:18px!important;padding-right:18px!important}
+  .navbar{width:100%!important}
+  .nav-inner{min-height:76px!important;padding-top:8px!important;padding-bottom:8px!important;gap:8px!important}
+  .brand{min-width:0!important;flex:1!important}
+  .brand-logo{width:42px!important;height:42px!important;min-width:42px!important;font-size:12px!important}
+  .brand-name{min-width:0!important}
+  .brand-name strong{font-size:13px!important;line-height:1.25!important}
+  .brand-name span{font-size:10px!important;line-height:1.25!important}
+  #adminLoginButton{padding:10px 12px!important;min-height:42px!important;font-size:12px!important;white-space:nowrap!important}
+  #adminLogoutButton{display:none!important}
+  .mobile-menu{width:42px!important;height:42px!important;min-width:42px!important}
+  .contact-button{display:none!important}
+  .hero{padding:54px 0 38px!important}
+  .hero-grid{display:block!important}
+  .hero h1{font-size:clamp(38px,11vw,54px)!important;line-height:1.05!important;letter-spacing:-1.5px!important}
+  .hero-desc{font-size:16px!important;line-height:1.75!important}
+  .hero-actions{display:grid!important;grid-template-columns:1fr!important;gap:12px!important;width:100%!important}
+  .hero-actions .btn{width:100%!important;min-height:54px!important;margin:0!important}
+  .hero-status-card{margin-top:28px!important;padding:24px!important}
+  .section{padding:52px 0!important}
+  .tracking-card,.public-list,.complaint-shell{padding:22px 18px!important;border-radius:22px!important}
+  .tracking-title h2,.section-heading h2{font-size:28px!important;line-height:1.2!important}
+  .full-btn{width:100%!important}
+  .mobile-panel{width:100%!important}
+  #adminLoginModal{padding:14px!important}
+  #adminLoginModal .modal-card{padding:22px 18px!important;border-radius:20px!important}
+}
+@media(max-width:390px){
+  .brand-name span{display:none!important}
+  #adminLoginButton{padding:9px 10px!important;font-size:11px!important}
+  .nav-inner{padding-left:10px!important;padding-right:10px!important}
+}
 </style>
 </head>
 <body>
@@ -1111,9 +1151,9 @@ footer a{
       <a href="#home">หน้าแรก</a>
       <a href="#overview">รายการคำร้องล่าสุด</a>
       <a href="#tracking">ตรวจสอบสถานะ</a>
-      <a href="#submit" onclick="return openComplaintForm(event)">อัพเดทใบคำร้อง</a>
+      <a href="#submit" class="update-complaint-link">อัพเดทใบคำร้อง</a>
     </nav>
-    <button class="admin-login-button" id="adminLoginButton" onclick="handleAdminButton()">เข้าสู่ระบบ</button>
+    <button class="admin-login-button" id="adminLoginButton">เข้าสู่ระบบ</button>
 <button class="btn btn-logout" id="adminLogoutButton" style="display:none" onclick="logoutAdmin()">↪ ออกจากระบบ</button>
     <button class="contact-button" onclick="openContact()">
       ☎ ติดต่อเรา
@@ -1130,10 +1170,10 @@ footer a{
     <a href="#tracking" onclick="closeMobileMenu()">
       ตรวจสอบสถานะ
     </a>
-    <a href="#submit" onclick="closeMobileMenu()" onclick="return openComplaintForm(event)">
+    <a href="#submit" onclick="closeMobileMenu()" class="update-complaint-link">
       ยื่นคำร้อง
     </a>
-    <button id="mobileAdminButton" onclick="handleAdminButton();closeMobileMenu();">เข้าสู่ระบบ</button>
+    <button id="mobileAdminButton">เข้าสู่ระบบ</button>
     <button class="btn-logout" id="mobileLogoutButton" style="display:none" onclick="logoutAdmin();closeMobileMenu();">
       ↪ ออกจากระบบ
     </button>
@@ -1162,7 +1202,7 @@ footer a{
         <a href="#tracking" class="btn btn-primary">
           🔍 ตรวจสอบสถานะคำร้อง
         </a>
-        <a href="#submit" class="btn btn-secondary submit-nav-link" onclick="return openComplaintForm(event)">
+        <a href="#submit" class="update-complaint-link btn btn-secondary submit-nav-link">
           อัพเดทใบคำร้อง
         </a>
       </div>
@@ -1636,18 +1676,17 @@ footer a{
           <a href="#home">หน้าแรก</a>
           <a href="#overview">รายการคำร้องล่าสุด</a>
           <a href="#tracking">ตรวจสอบสถานะ</a>
-          <a href="#submit" onclick="return openComplaintForm(event)">อัพเดทใบคำร้อง</a>
+          <a href="#submit" class="update-complaint-link">อัพเดทใบคำร้อง</a>
         </div>
       </div>
       <div>
         <h4>ติดต่อเรา</h4>
         <p>☎ 036-714081</p>
-        <p>✉ sao.champakpaew@gmail.com</p>
+        <p>✉ champhakphaeo.sao@gmail.com</p>
       </div>
     </div>
     <div class="copyright">
-      © 2569 องค์การบริหารส่วนตำบลชำผักแพว
-      | ระบบติดตามสถานะคำร้องออนไลน์
+      © 2569 จัดทำโดยนางสาวคุณัญญา ก้านพลู
     </div>
   </div>
 </footer>
@@ -1790,7 +1829,7 @@ footer a{
       </a>
       <a
         class="contact-item"
-        href="mailto:sao.champakpaew@gmail.com"
+        href="mailto:champhakphaeo.sao@gmail.com"
       >
         <div
           class="contact-icon"
@@ -1800,7 +1839,7 @@ footer a{
         </div>
         <div>
           <strong>E-mail</strong>
-          <span>sao.champakpaew@gmail.com</span>
+          <span>champhakphaeo.sao@gmail.com</span>
         </div>
       </a>
       <a
@@ -2775,6 +2814,28 @@ document.addEventListener("DOMContentLoaded",function(){
   const q=document.getElementById("trackQuery");
   if(q) q.addEventListener("keydown",e=>{ if(e.key==="Enter") searchTracking(); });
 });
+function bindPrimaryActions(){
+  const loginBtn=document.getElementById("adminLoginButton");
+  if(loginBtn && !loginBtn.dataset.bound){
+    loginBtn.dataset.bound="1";
+    loginBtn.addEventListener("click",function(e){e.preventDefault();handleAdminButton();});
+  }
+  const mobileLoginBtn=document.getElementById("mobileAdminButton");
+  if(mobileLoginBtn && !mobileLoginBtn.dataset.bound){
+    mobileLoginBtn.dataset.bound="1";
+    mobileLoginBtn.addEventListener("click",function(e){e.preventDefault();handleAdminButton();closeMobileMenu();});
+  }
+  document.querySelectorAll('a[href="#submit"]').forEach(function(link){
+    if(link.dataset.bound) return;
+    link.dataset.bound="1";
+    link.addEventListener("click",function(e){
+      e.preventDefault();
+      openComplaintForm(e);
+      closeMobileMenu();
+    });
+  });
+}
+document.addEventListener("DOMContentLoaded",bindPrimaryActions);
 </script>
 </body>
 </html>
