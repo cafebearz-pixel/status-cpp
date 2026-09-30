@@ -1109,9 +1109,9 @@ footer a{
     </a>
     <nav class="nav-links">
       <a href="#home">หน้าแรก</a>
-      <a href="#overview">ภาพรวมคำร้อง</a>
+      <a href="#overview">รายการคำร้องล่าสุด</a>
       <a href="#tracking">ตรวจสอบสถานะ</a>
-      <a href="#submit">ยื่นคำร้อง</a>
+      <a href="#submit" onclick="return openComplaintForm(event)">อัพเดทใบคำร้อง</a>
     </nav>
     <button class="admin-login-button" id="adminLoginButton" onclick="handleAdminButton()">เข้าสู่ระบบ</button>
 <button class="btn btn-logout" id="adminLogoutButton" style="display:none" onclick="logoutAdmin()">↪ ออกจากระบบ</button>
@@ -1130,7 +1130,7 @@ footer a{
     <a href="#tracking" onclick="closeMobileMenu()">
       ตรวจสอบสถานะ
     </a>
-    <a href="#submit" onclick="closeMobileMenu()">
+    <a href="#submit" onclick="closeMobileMenu()" onclick="return openComplaintForm(event)">
       ยื่นคำร้อง
     </a>
     <button id="mobileAdminButton" onclick="handleAdminButton();closeMobileMenu();">เข้าสู่ระบบ</button>
@@ -1162,8 +1162,8 @@ footer a{
         <a href="#tracking" class="btn btn-primary">
           🔍 ตรวจสอบสถานะคำร้อง
         </a>
-        <a href="#submit" class="btn btn-secondary submit-nav-link">
-          📝 ยื่นคำร้องออนไลน์
+        <a href="#submit" class="btn btn-secondary submit-nav-link" onclick="return openComplaintForm(event)">
+          อัพเดทใบคำร้อง
         </a>
       </div>
     </div>
@@ -1325,7 +1325,7 @@ footer a{
   <div class="container complaint-shell">
     <div class="section-heading">
       <small>บริการประชาชน</small>
-      <h2>ยื่นคำร้องออนไลน์</h2>
+      <h2>อัพเดทใบคำร้อง</h2>
       <div class="admin-only-note" id="adminOnlyNote">ส่วนนี้สำหรับเจ้าหน้าที่ที่เข้าสู่ระบบแล้วเท่านั้น</div>
       <p>
         กรุณากรอกข้อมูลให้ครบถ้วน
@@ -1634,9 +1634,9 @@ footer a{
         <h4>เมนู</h4>
         <div class="footer-links">
           <a href="#home">หน้าแรก</a>
-          <a href="#overview">ภาพรวมคำร้อง</a>
+          <a href="#overview">รายการคำร้องล่าสุด</a>
           <a href="#tracking">ตรวจสอบสถานะ</a>
-          <a href="#submit">ยื่นคำร้อง</a>
+          <a href="#submit" onclick="return openComplaintForm(event)">อัพเดทใบคำร้อง</a>
         </div>
       </div>
       <div>
@@ -2462,6 +2462,19 @@ function handleAdminButton(){
     },50);
   }
 }
+function openComplaintForm(event){
+  if(event) event.preventDefault();
+  if(!adminToken){
+    handleAdminButton();
+    return false;
+  }
+  const submit=document.getElementById("submit");
+  if(submit){
+    submit.style.display="";
+    submit.scrollIntoView({behavior:"smooth",block:"start"});
+  }
+  return false;
+}
 function setAdminUI(loggedIn){
   const admin=document.getElementById("admin");
   const submit=document.getElementById("submit");
@@ -2738,22 +2751,14 @@ function renderPublicRows(list){
 }
 async function loadBootstrap(){
   const tbody=document.getElementById("publicListBody");
-  if(tbody) tbody.innerHTML='<tr><td colspan="5" class="loading-text">กำลังโหลดรายการคำร้อง...</td></tr>';
+  if(tbody) tbody.innerHTML='<tr><td colspan="5" class="loading-text">กำลังโหลดข้อมูล...</td></tr>';
   try{
-    let listData=null;
-    try{
-      const r=await apiGet("bootstrap");
-      if(r&&r.success&&r.data) listData=r.data.publicList||[];
-    }catch(_){}
-    if(listData===null){
-      const r=await apiGet("publicList");
-      if(!r||!r.success) throw new Error((r&&r.message)||"โหลดข้อมูลไม่สำเร็จ");
-      listData=r.data||[];
-    }
-    renderPublicRows(listData);
+    const r=await apiGet("publicList",{_t:Date.now()});
+    if(!r||!r.success||!Array.isArray(r.data)) throw new Error((r&&r.message)||"โหลดข้อมูลไม่สำเร็จ");
+    renderPublicRows(r.data);
   }catch(e){
-    console.error(e);
-    if(tbody) tbody.innerHTML='<tr><td colspan="5" class="loading-text">ไม่สามารถโหลดข้อมูลได้ <button class="btn btn-secondary" onclick="loadBootstrap()" style="margin-left:8px">ลองใหม่</button></td></tr>';
+    console.error("publicList:",e);
+    if(tbody) tbody.innerHTML='<tr><td colspan="5" class="loading-text">ไม่สามารถโหลดข้อมูลได้ <button class="btn btn-secondary" onclick="loadBootstrap()">ลองใหม่</button></td></tr>';
   }
 }
 document.addEventListener("DOMContentLoaded",function(){
