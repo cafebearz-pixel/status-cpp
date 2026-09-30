@@ -1151,9 +1151,9 @@ html,body{width:100%;max-width:100%;overflow-x:hidden}
       <a href="#home">หน้าแรก</a>
       <a href="#overview">รายการคำร้องล่าสุด</a>
       <a href="#tracking">ตรวจสอบสถานะ</a>
-      <a href="#submit" class="update-complaint-link">อัพเดทใบคำร้อง</a>
+      <a href="#submit" class="update-complaint-link" onclick="return openComplaintForm(event)">อัพเดทใบคำร้อง</a>
     </nav>
-    <button class="admin-login-button" id="adminLoginButton">เข้าสู่ระบบ</button>
+    <button class="admin-login-button" id="adminLoginButton" onclick="handleAdminButton()">เข้าสู่ระบบ</button>
 <button class="btn btn-logout" id="adminLogoutButton" style="display:none" onclick="logoutAdmin()">↪ ออกจากระบบ</button>
     <button class="contact-button" onclick="openContact()">
       ☎ ติดต่อเรา
@@ -1202,7 +1202,7 @@ html,body{width:100%;max-width:100%;overflow-x:hidden}
         <a href="#tracking" class="btn btn-primary">
           🔍 ตรวจสอบสถานะคำร้อง
         </a>
-        <a href="#submit" class="update-complaint-link btn btn-secondary submit-nav-link">
+        <a href="#submit" class="update-complaint-link btn btn-secondary submit-nav-link" onclick="return openComplaintForm(event)">
           อัพเดทใบคำร้อง
         </a>
       </div>
@@ -1676,7 +1676,7 @@ html,body{width:100%;max-width:100%;overflow-x:hidden}
           <a href="#home">หน้าแรก</a>
           <a href="#overview">รายการคำร้องล่าสุด</a>
           <a href="#tracking">ตรวจสอบสถานะ</a>
-          <a href="#submit" class="update-complaint-link">อัพเดทใบคำร้อง</a>
+          <a href="#submit" class="update-complaint-link" onclick="return openComplaintForm(event)">อัพเดทใบคำร้อง</a>
         </div>
       </div>
       <div>
@@ -2330,9 +2330,9 @@ function goTrackNewTicket(){
       .value
       .replace(/\D/g,"")
       .slice(-4);
-  document.getElementById("trackTicket").value =
+  if(document.getElementById("trackQuery")) document.getElementById("trackQuery").value =
     ticket;
-  document.getElementById("trackName").value =
+  if(document.getElementById("trackQuery")) document.getElementById("trackQuery").value =
     phone;
   document
     .getElementById("tracking")
@@ -2409,38 +2409,6 @@ function closeMobileMenu(){
 /* =========================================================
    PHONE INPUT
 ========================================================= */
-document
-  .getElementById("trackName")
-  .addEventListener(
-    "input",
-    function(){
-      this.value =
-        this.value
-          .replace(/\D/g,"")
-          .slice(0,4);
-    }
-  );
-document
-  .getElementById("complaintPhone")
-  .addEventListener(
-    "input",
-    function(){
-      this.value =
-        this.value
-          .replace(/\D/g,"")
-          .slice(0,10);
-    }
-  );
-document
-  .getElementById("trackName")
-  .addEventListener(
-    "keydown",
-    function(event){
-      if(event.key === "Enter"){
-        searchTracking();
-      }
-    }
-  );
 /* =========================================================
    START
 ========================================================= */
@@ -2815,25 +2783,11 @@ document.addEventListener("DOMContentLoaded",function(){
   if(q) q.addEventListener("keydown",e=>{ if(e.key==="Enter") searchTracking(); });
 });
 function bindPrimaryActions(){
-  const loginBtn=document.getElementById("adminLoginButton");
-  if(loginBtn && !loginBtn.dataset.bound){
-    loginBtn.dataset.bound="1";
-    loginBtn.addEventListener("click",function(e){e.preventDefault();handleAdminButton();});
+  const q=document.getElementById("trackQuery");
+  if(q && !q.dataset.bound){
+    q.dataset.bound="1";
+    q.addEventListener("keydown",function(e){if(e.key==="Enter") searchTracking();});
   }
-  const mobileLoginBtn=document.getElementById("mobileAdminButton");
-  if(mobileLoginBtn && !mobileLoginBtn.dataset.bound){
-    mobileLoginBtn.dataset.bound="1";
-    mobileLoginBtn.addEventListener("click",function(e){e.preventDefault();handleAdminButton();closeMobileMenu();});
-  }
-  document.querySelectorAll('a[href="#submit"]').forEach(function(link){
-    if(link.dataset.bound) return;
-    link.dataset.bound="1";
-    link.addEventListener("click",function(e){
-      e.preventDefault();
-      openComplaintForm(e);
-      closeMobileMenu();
-    });
-  });
 }
 document.addEventListener("DOMContentLoaded",bindPrimaryActions);
 </script>
