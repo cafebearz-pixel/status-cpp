@@ -1155,6 +1155,23 @@ html,body{width:100%;max-width:100%;overflow-x:hidden}
 @media(max-width:390px){
   #overview td{grid-template-columns:96px minmax(0,1fr)!important}
 }
+/* ===== Public request list: 7 columns desktop / cards mobile ===== */
+#overview .table-wrap{width:100%;max-width:100%;overflow:visible!important}
+#overview table{width:100%!important;table-layout:auto!important}
+#overview th,#overview td{white-space:normal!important;overflow-wrap:anywhere!important;vertical-align:middle}
+@media(max-width:760px){
+  #overview .public-list{width:100%!important;max-width:100%!important;padding:18px 14px!important;overflow:hidden!important}
+  #overview .public-list-head{display:flex!important;align-items:flex-start!important;gap:10px!important;flex-wrap:wrap!important}
+  #overview .table-wrap{width:100%!important;max-width:100%!important;overflow:visible!important}
+  #overview table,#overview tbody,#overview tr,#overview td{display:block!important;width:100%!important;max-width:100%!important}
+  #overview thead{display:none!important}
+  #overview tbody{display:grid!important;grid-template-columns:1fr!important;gap:14px!important}
+  #overview tr{margin:0!important;padding:16px!important;border:1px solid #e2ebe5!important;border-radius:18px!important;background:#fff!important;box-shadow:0 7px 22px rgba(18,72,49,.06)!important;overflow:hidden!important}
+  #overview td{display:grid!important;grid-template-columns:92px minmax(0,1fr)!important;gap:10px!important;padding:7px 0!important;border:0!important;min-width:0!important}
+  #overview td::before{content:attr(data-label);font-size:12px;font-weight:800;color:#68766f}
+  #overview td>*{min-width:0!important;max-width:100%!important}
+  #overview .status-badge{justify-self:start!important;white-space:normal!important;text-align:left!important}
+}
 </style>
 </head>
 <body>
@@ -1363,17 +1380,19 @@ html,body{width:100%;max-width:100%;overflow-x:hidden}
       <div class="table-wrap">
         <table>
           <thead>
-            <tr>
-              <th>เลขทะเบียน</th>
-              <th>วันที่ร้อง / ชื่อผู้ร้อง / สถานที่</th>
-              <th>ประเภทคำร้อง</th>
-              <th>ผู้รับผิดชอบ</th>
-              <th>สถานะ</th>
-            </tr>
-          </thead>
+<tr>
+<th>เลขทะเบียน</th>
+<th>วันที่ร้อง</th>
+<th>ชื่อผู้ร้อง</th>
+<th>สถานที่</th>
+<th>ประเภทคำร้อง</th>
+<th>ผู้รับผิดชอบ</th>
+<th>สถานะ</th>
+</tr>
+</thead>
           <tbody id="publicListBody">
             <tr>
-              <td colspan="5" class="loading-text">
+              <td colspan="7" class="loading-text">
                 กำลังโหลดข้อมูล...
               </td>
             </tr>
@@ -1951,7 +1970,7 @@ async function loadPublicList(){
     if(result.data.length === 0){
       tbody.innerHTML = `
         <tr>
-          <td colspan="5" class="loading-text">
+          <td colspan="7" class="loading-text">
             ยังไม่มีข้อมูลคำร้อง
           </td>
         </tr>
@@ -1995,7 +2014,7 @@ async function loadPublicList(){
     console.error(error);
     tbody.innerHTML = `
       <tr>
-        <td colspan="5" class="loading-text">
+        <td colspan="7" class="loading-text">
           ไม่สามารถโหลดข้อมูลได้
         </td>
       </tr>
@@ -2631,6 +2650,14 @@ function thaiDateToInput(v){
   let y=Number(m[3]); if(y>2400)y-=543;
   return `${y}-${String(m[2]).padStart(2,"0")}-${String(m[1]).padStart(2,"0")}`;
 }
+function renderResultImageLink(urls,folderUrl){
+  const box=document.getElementById("resultImageLinkBox");
+  if(!box) return;
+  const list=Array.isArray(urls)?urls.filter(Boolean):[];
+  const target=folderUrl||(list.length?list[0]:"");
+  if(!target){box.innerHTML="";return;}
+  box.innerHTML=`<a class="btn btn-secondary" href="${escapeHTML(target)}" target="_blank" rel="noopener">รูปภาพผลการดำเนินงาน</a>`;
+}
 async function openComplaintEdit(ticket){
   try{
     const r=await apiGet("adminDetail",{token:adminToken,ticket});
@@ -2650,17 +2677,16 @@ async function openComplaintEdit(ticket){
     document.getElementById("editPostponeReason").value=d.postponeReason||"";
     document.getElementById("editNextActionDate").value=thaiDateToInput(d.nextActionDate);
     document.getElementById("editResultImages").value="";
-    clearMessage("editMessage"); togglePostponeFields(); openGenericModal("editComplaintModal");
+    clearMessage("editMessage"); renderResultImageLink(data.resultImages||[],data.resultImageFolderUrl||'');
+    togglePostponeFields(); openGenericModal("editComplaintModal");
   }catch(e){alert(e.message||"เปิดข้อมูลไม่สำเร็จ");}
 }
 function togglePostponeFields(){
-  const isPostponed=String(document.getElementById("editStatus").value).includes("เลื่อน");
-  document.getElementById("postponeFields").classList.toggle("show",isPostponed);
-}
-function fileToDataURL(file){
-  return new Promise((resolve,reject)=>{
-    const rd=new FileReader(); rd.onload=()=>resolve(rd.result); rd.onerror=reject; rd.readAsDataURL(file);
-  });
+  const status=document.getElementById("editStatus")?.value||"";
+  const postpone=document.getElementById("postponeFields");
+  if(postpone) postpone.style.display=status.includes("เลื่อน")?"grid":"none";
+  const resultBox=document.getElementById("resultImageCompleteBox");
+  if(resultBox) resultBox.style.display=status.includes("ดำเนินการแล้วเสร็จ")?"block":"none";
 }
 async function uploadAdminImages(ticket,files,action){
   for(const file of files){
@@ -2772,20 +2798,17 @@ function renderPublicRows(list){
   const tbody=document.getElementById("publicListBody");
   if(!tbody) return;
   if(!Array.isArray(list)||!list.length){
-    tbody.innerHTML='<tr><td colspan="5" class="loading-text">ยังไม่มีข้อมูลคำร้อง</td></tr>';
+    tbody.innerHTML='<tr><td colspan="7" class="loading-text">ยังไม่มีข้อมูลคำร้อง</td></tr>';
     return;
   }
   const sorted=[...list].sort((a,b)=>String(a.ticketNo||"").localeCompare(String(b.ticketNo||""),"th",{numeric:true}));
   tbody.innerHTML=sorted.map(item=>{
     const status=escapeHTML(item.status||"รับเรื่องแล้ว");
-    const meta=[
-      `<strong>${escapeHTML(item.date||"-")}</strong>`,
-      escapeHTML(item.name||"-"),
-      escapeHTML(item.address||"-")
-    ].join("<br>");
     return `<tr>
-      <td data-label="เลขทะเบียน"><strong>${escapeHTML(item.ticketNo||"")}</strong></td>
-      <td data-label="วันที่ร้อง / ชื่อผู้ร้อง / สถานที่" class="request-meta">${meta}</td>
+      <td data-label="เลขทะเบียน"><strong>${escapeHTML(item.ticketNo||"-")}</strong></td>
+      <td data-label="วันที่ร้อง">${escapeHTML(item.date||"-")}</td>
+      <td data-label="ชื่อผู้ร้อง">${escapeHTML(item.name||"-")}</td>
+      <td data-label="สถานที่">${escapeHTML(item.address||"-")}</td>
       <td data-label="ประเภทคำร้อง">${escapeHTML(item.category||"-")}</td>
       <td data-label="ผู้รับผิดชอบ">${escapeHTML(item.officer||item.department||"-")}</td>
       <td data-label="สถานะ"><span class="status-badge ${getStatusClass(status)}">${status}</span></td>
@@ -2794,14 +2817,14 @@ function renderPublicRows(list){
 }
 async function loadBootstrap(){
   const tbody=document.getElementById("publicListBody");
-  if(tbody) tbody.innerHTML='<tr><td colspan="5" class="loading-text">กำลังโหลดข้อมูล...</td></tr>';
+  if(tbody) tbody.innerHTML='<tr><td colspan="7" class="loading-text">กำลังโหลดข้อมูล...</td></tr>';
   try{
     const r=await apiGet("publicList",{_t:Date.now()});
     if(!r||!r.success||!Array.isArray(r.data)) throw new Error((r&&r.message)||"โหลดข้อมูลไม่สำเร็จ");
     renderPublicRows(r.data);
   }catch(e){
     console.error("publicList:",e);
-    if(tbody) tbody.innerHTML='<tr><td colspan="5" class="loading-text">ไม่สามารถโหลดข้อมูลได้ <button class="btn btn-secondary" onclick="loadBootstrap()">ลองใหม่</button></td></tr>';
+    if(tbody) tbody.innerHTML='<tr><td colspan="7" class="loading-text">ไม่สามารถโหลดข้อมูลได้ <button class="btn btn-secondary" onclick="loadBootstrap()">ลองใหม่</button></td></tr>';
   }
 }
 document.addEventListener("DOMContentLoaded",function(){
