@@ -1074,24 +1074,6 @@ footer a{
 .tracking-hint{font-size:13px;color:#738078;margin:8px 4px 0}
 .btn-logout{align-items:center;justify-content:center;border:1px solid rgba(172,55,55,.16);background:#fff7f7;color:#a33838;margin-left:8px}
 .btn-logout:hover{background:#fff0f0}
-#overview .table-wrap{border:0;background:transparent;box-shadow:none;overflow:visible}
-#overview table{border-collapse:separate;border-spacing:0 10px}
-#overview thead th{border:0;background:transparent;color:#718078;font-size:12px;text-transform:none;padding:0 16px 4px}
-#overview tbody tr{background:#fff;box-shadow:0 8px 26px rgba(28,63,45,.07)}
-#overview tbody td{border:0;padding:16px}
-#overview tbody td:first-child{border-radius:16px 0 0 16px}
-#overview tbody td:last-child{border-radius:0 16px 16px 0}
-#overview tbody tr:hover{transform:translateY(-1px);box-shadow:0 12px 32px rgba(28,63,45,.10)}
-#overview .loading-text{border-radius:16px!important;text-align:center;color:#728078}
-@media(max-width:760px){
-  #overview thead{display:none}
-  #overview table,#overview tbody,#overview tr,#overview td{display:block;width:100%}
-  #overview tbody tr{margin-bottom:12px;border-radius:18px;padding:8px 14px}
-  #overview tbody td{padding:7px 4px;box-shadow:none!important;border-radius:0!important}
-  #overview tbody td:nth-child(1){font-size:16px;padding-top:11px}
-  #overview tbody td:nth-child(2),#overview tbody td:nth-child(3),#overview tbody td:nth-child(4){font-size:13px;color:#69776f}
-  #overview tbody td:last-child{padding-bottom:11px}
-}
 /* ===== Mobile + admin interaction fix ===== */
 html,body{width:100%;max-width:100%;overflow-x:hidden}
 *{box-sizing:border-box}
@@ -1350,14 +1332,14 @@ html,body{width:100%;max-width:100%;overflow-x:hidden}
     <div class="section-heading">
       <small>ข้อมูลคำร้อง</small>
       <h2>รายการคำร้องล่าสุด</h2>
-      <p>ติดตามรายการคำร้องล่าสุดโดยไม่แสดงข้อมูลส่วนบุคคลของผู้ยื่นคำร้อง</p>
+      <p>ติดตามรายการคำร้องล่าสุดที่บันทึกในระบบ</p>
     </div>
 <div class="public-list">
       <div class="list-header">
         <div>
           <h3>คำร้องล่าสุด</h3>
           <small style="color:var(--muted)">
-            แสดงเฉพาะข้อมูลที่ไม่ระบุตัวบุคคล
+            แสดงข้อมูลคำร้องล่าสุดจากระบบ
           </small>
         </div>
         <button
@@ -2482,10 +2464,11 @@ function setAdminUI(loggedIn){
   if(admin) admin.classList.toggle("show",loggedIn);
   if(submit) submit.style.display=loggedIn?"":"none";
   if(loginBtn){
-    loginBtn.textContent=loggedIn?"จัดการคำร้อง":"เข้าสู่ระบบ";
+    loginBtn.textContent="เข้าสู่ระบบ";
+    loginBtn.style.display=loggedIn?"none":"inline-flex";
     loginBtn.classList.toggle("active",loggedIn);
   }
-  if(mobileLoginBtn) mobileLoginBtn.textContent=loggedIn?"จัดการคำร้อง":"เข้าสู่ระบบ";
+  if(mobileLoginBtn){ mobileLoginBtn.textContent="เข้าสู่ระบบ"; mobileLoginBtn.style.display=loggedIn?"none":"block"; }
   if(logoutBtn) logoutBtn.style.display=loggedIn?"inline-flex":"none";
   if(mobileLogoutBtn) mobileLogoutBtn.style.display=loggedIn?"block":"none";
   if(note) note.classList.toggle("show",loggedIn);
@@ -2521,12 +2504,14 @@ async function loginAdmin(){
     if(btn){btn.disabled=false;btn.textContent="เข้าสู่ระบบ";}
   }
 }
-async function logoutAdmin(){
-  try{if(adminToken) await apiPost({action:"logout",token:adminToken});}catch(e){}
+function logoutAdmin(){
+  const token=adminToken;
   adminToken=""; sessionStorage.removeItem("cpp_admin_token");
   setAdminUI(false);
-  document.getElementById("adminListBody").innerHTML='<tr><td colspan="8" class="loading-text">เข้าสู่ระบบเพื่อดูข้อมูล</td></tr>';
+  const body=document.getElementById("adminListBody");
+  if(body) body.innerHTML='<tr><td colspan="8" class="loading-text">เข้าสู่ระบบเพื่อดูข้อมูล</td></tr>';
   window.location.hash="home";
+  if(token) apiPost({action:"logout",token}).catch(()=>{});
 }
 function adminUnauthorized(){
   adminToken=""; sessionStorage.removeItem("cpp_admin_token"); setAdminUI(false);
@@ -2731,31 +2716,8 @@ submitComplaint = async function(){
   }catch(e){alert(e.message||"เกิดข้อผิดพลาด");}
   finally{button.disabled=false;button.innerHTML=oldText;}
 };
-function renderPublicRows(list){
-  const tbody=document.getElementById("publicListBody");
-  if(!Array.isArray(list)||!list.length){
-    tbody.innerHTML='<tr><td colspan="5" class="loading-text">ยังไม่มีข้อมูลคำร้อง</td></tr>';
-    return;
-  }
-  tbody.innerHTML=list.map(item=>{
-    const status=escapeHTML(item.status||"รับเรื่องแล้ว");
-    return `<tr><td><strong>${escapeHTML(item.ticketNo||"")}</strong></td>
-      <td>${escapeHTML(item.date||"")}</td><td>${escapeHTML(item.category||"")}</td>
-      <td>${escapeHTML(item.department||"")}</td>
-      <td><span class="status-badge ${getStatusClass(status)}">${status}</span></td></tr>`;
-  }).join("");
-}
 async function loadBootstrap(){
-  const tbody=document.getElementById("publicListBody");
-  if(tbody) tbody.innerHTML='<tr><td colspan="5" class="loading-text">กำลังโหลดข้อมูล...</td></tr>';
-  try{
-    const r=await apiGet("publicList",{_t:Date.now()});
-    if(!r||!r.success||!Array.isArray(r.data)) throw new Error((r&&r.message)||"โหลดข้อมูลไม่สำเร็จ");
-    renderPublicRows(r.data);
-  }catch(e){
-    console.error("publicList:",e);
-    if(tbody) tbody.innerHTML='<tr><td colspan="5" class="loading-text">ไม่สามารถโหลดข้อมูลได้ <button class="btn btn-secondary" onclick="loadBootstrap()">ลองใหม่</button></td></tr>';
-  }
+  await loadPublicList();
 }
 document.addEventListener("DOMContentLoaded",function(){
   restoreAdmin();
