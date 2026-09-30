@@ -1243,6 +1243,54 @@ html,body{width:100%;max-width:100%;overflow-x:hidden}
 }
 #overview .progress-card-below{margin:22px 0 0!important;width:100%!important;max-width:none!important}
 @media(max-width:760px){#overview .progress-card-below{margin-top:16px!important;padding:22px 18px!important}}
+/* ===== Complaint cards v2 ===== */
+#overview .table-wrap{overflow:visible!important}
+#overview table,#overview tbody{display:block!important;width:100%!important}
+#overview thead{display:none!important}
+#overview tbody{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:20px!important}
+#overview .request-card-row{display:block!important;width:100%!important;border:0!important;background:transparent!important;box-shadow:none!important}
+#overview .request-card-row>td{display:block!important;width:100%!important;padding:0!important;border:0!important;background:transparent!important}
+.complaint-card{
+  overflow:hidden;border-radius:28px;background:linear-gradient(135deg,#10a95d 0%,#72c958 58%,#d9ef3e 100%);
+  padding:4px;box-shadow:0 14px 32px rgba(21,105,67,.12);height:100%;
+}
+.complaint-card-head{
+  min-height:76px;display:grid;grid-template-columns:auto 1fr;align-items:center;gap:18px;
+  padding:13px 22px;color:#fff;
+}
+.complaint-card-head .ticket-label{
+  background:#079a4e;color:#fff;border-radius:999px;padding:7px 18px;font-weight:850;font-size:14px;white-space:nowrap;
+}
+.complaint-card-head strong{font-size:28px;line-height:1;text-align:center;letter-spacing:.2px}
+.complaint-card-body{overflow:hidden;border-radius:24px;background:#fff}
+.complaint-line{
+  display:grid;grid-template-columns:150px minmax(0,1fr);align-items:center;gap:16px;
+  min-height:55px;padding:11px 22px;border-bottom:1px solid #d9e8a2;
+}
+.complaint-line:nth-child(even){background:#fffdf5}
+.complaint-line:last-child{border-bottom:0}
+.complaint-line>span{font-weight:850;color:#4c3a20}
+.complaint-line>b{font-weight:750;color:#087840;min-width:0;overflow-wrap:anywhere}
+.complaint-line .status-badge{font-size:13px}
+@media(max-width:980px){
+  #overview tbody{grid-template-columns:1fr!important}
+}
+@media(max-width:760px){
+  #overview .public-list{padding:16px 12px!important}
+  #overview tbody{gap:18px!important}
+  .complaint-card{border-radius:24px!important}
+  .complaint-card-head{min-height:68px;padding:11px 16px;gap:10px}
+  .complaint-card-head .ticket-label{font-size:12px;padding:6px 13px}
+  .complaint-card-head strong{font-size:24px}
+  .complaint-card-body{border-radius:20px}
+  .complaint-line{grid-template-columns:105px minmax(0,1fr);gap:12px;min-height:50px;padding:10px 14px}
+  .complaint-line>span{font-size:13px}
+  .complaint-line>b{font-size:14px}
+}
+@media(max-width:380px){
+  .complaint-card-head strong{font-size:21px}
+  .complaint-line{grid-template-columns:88px minmax(0,1fr);padding:9px 11px}
+}
 </style>
 </head>
 <body>
@@ -2896,18 +2944,27 @@ function renderPublicRows(list){
   const sorted=[...list].sort((a,b)=>String(a.ticketNo||"").localeCompare(String(b.ticketNo||""),"th",{numeric:true}));
   tbody.innerHTML=sorted.map(item=>{
     const status=escapeHTML(item.status||"รับเรื่องแล้ว");
-    return `<tr class="request-card-row">
-      <td data-label="เลขทะเบียน"><span class="request-value ticket-value">${escapeHTML(item.ticketNo||"-")}</span></td>
-      <td data-label="วันที่ร้อง"><span class="request-value">${escapeHTML(item.date||"-")}</span></td>
-      <td data-label="ชื่อผู้ร้อง"><span class="request-value">${escapeHTML(item.name||"-")}</span></td>
-      <td data-label="สถานที่"><span class="request-value">${escapeHTML(item.address||"-")}</span></td>
-      <td data-label="ประเภทคำร้อง"><span class="request-value">${escapeHTML(item.category||"-")}</span></td>
-      <td data-label="ผู้รับผิดชอบ"><span class="request-value">${escapeHTML(item.officer||item.department||"-")}</span></td>
-      <td data-label="สถานะ"><span class="status-badge ${getStatusClass(status)}">${status}</span></td>
-    </tr>`;
+    const name=escapeHTML(item.name||item.complainantName||"-");
+    const address=escapeHTML(item.address||item.location||"-");
+    const responsible=escapeHTML(item.officer||item.department||"-");
+    return `<tr class="request-card-row"><td colspan="7">
+      <article class="complaint-card">
+        <div class="complaint-card-head">
+          <span class="ticket-label">เลขคำร้อง</span>
+          <strong>${escapeHTML(item.ticketNo||"-")}</strong>
+        </div>
+        <div class="complaint-card-body">
+          <div class="complaint-line"><span>วันที่ร้อง</span><b>${escapeHTML(item.date||"-")}</b></div>
+          <div class="complaint-line"><span>ชื่อผู้ร้อง</span><b>${name}</b></div>
+          <div class="complaint-line"><span>สถานที่</span><b>${address}</b></div>
+          <div class="complaint-line"><span>ประเภทคำร้อง</span><b>${escapeHTML(item.category||"-")}</b></div>
+          <div class="complaint-line"><span>ผู้รับผิดชอบ</span><b>${responsible}</b></div>
+          <div class="complaint-line status-line"><span>สถานะ</span><b><span class="status-badge ${getStatusClass(status)}">${status}</span></b></div>
+        </div>
+      </article>
+    </td></tr>`;
   }).join("");
-}
-async function loadBootstrap(){
+}async function loadBootstrap(){
   const tbody=document.getElementById("publicListBody");
   if(tbody) tbody.innerHTML='<tr><td colspan="7" class="loading-text">กำลังโหลดข้อมูล...</td></tr>';
   try{
