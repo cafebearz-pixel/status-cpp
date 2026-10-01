@@ -1115,34 +1115,42 @@ html,body{width:100%;max-width:100%;overflow-x:hidden}
   .nav-inner{padding-left:10px!important;padding-right:10px!important}
 }
 
-/* ===== Stable complaint cards ===== */
+/* ===== Recent requests: clean readable cards ===== */
 #overview .table-wrap{overflow:visible!important}
 #overview table,#overview tbody{display:block!important;width:100%!important}
 #overview thead{display:none!important}
 #overview tbody{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:20px!important}
 #overview .request-card-row,#overview .request-card-row>td{display:block!important;width:100%!important;padding:0!important;border:0!important;background:transparent!important}
-.complaint-card{padding:4px;border-radius:28px;background:linear-gradient(135deg,#12a95d,#75cc58 58%,#ddef42);box-shadow:0 12px 30px rgba(22,96,62,.12);overflow:hidden}
-.complaint-card-head{min-height:72px;padding:12px 20px;display:grid;grid-template-columns:auto 1fr;gap:14px;align-items:center;color:#fff}
-.complaint-card-head span{background:#07994e;border-radius:999px;padding:7px 17px;font-weight:800;white-space:nowrap}
-.complaint-card-head strong{font-size:27px;text-align:center}
-.complaint-card-body{background:#fff;border-radius:24px;overflow:hidden}
-.complaint-card-body>div{display:grid;grid-template-columns:140px minmax(0,1fr);gap:16px;align-items:center;min-height:53px;padding:10px 20px;border-bottom:1px solid #dce9aa}
-.complaint-card-body>div:nth-child(even){background:#fffdf5}
-.complaint-card-body>div:last-child{border-bottom:0}
-.complaint-card-body span{font-weight:800;color:#604820}
-.complaint-card-body b{font-weight:750;color:#087a41;overflow-wrap:anywhere}
+.public-request-card{background:#fff;border:1px solid #dfe8e2;border-radius:24px;box-shadow:0 10px 30px rgba(18,69,44,.08);overflow:hidden}
+.public-request-card-head{min-height:78px;padding:15px 22px;display:flex;align-items:center;justify-content:space-between;gap:16px;background:#f5fbf7;border-bottom:1px solid #e2ece5}
+.public-request-card-head span{font-size:14px;font-weight:800;color:#52645a}
+.public-request-card-head strong{font-size:28px;line-height:1.15;color:var(--green-dark)}
+.public-request-card-body{background:#fff}
+.public-request-card-body>div{display:grid;grid-template-columns:145px minmax(0,1fr);gap:18px;align-items:center;min-height:62px;padding:13px 22px;border-bottom:1px solid #edf1ee}
+.public-request-card-body>div:last-child{border-bottom:0}
+.public-request-card-body span{font-size:15px;font-weight:800;color:#4e5e55}
+.public-request-card-body b{font-size:16px;line-height:1.55;font-weight:700;color:#143d29;overflow-wrap:anywhere}
+.public-request-card .status-badge{font-size:13px;padding:7px 12px}
 @media(max-width:900px){#overview tbody{grid-template-columns:1fr!important}}
 @media(max-width:760px){
-  #overview .public-list{padding:16px 12px!important;overflow:hidden!important}
-  .complaint-card{border-radius:23px}
-  .complaint-card-head{min-height:64px;padding:10px 14px;gap:9px}
-  .complaint-card-head span{font-size:12px;padding:6px 12px}
-  .complaint-card-head strong{font-size:23px}
-  .complaint-card-body{border-radius:19px}
-  .complaint-card-body>div{grid-template-columns:100px minmax(0,1fr);gap:10px;padding:10px 13px;min-height:49px}
-  .complaint-card-body>div>span{font-size:13px}
-  .complaint-card-body>div>b{font-size:14px}
+  #overview .public-list{padding:18px 14px!important;overflow:hidden!important}
+  .public-request-card{border-radius:20px}
+  .public-request-card-head{min-height:68px;padding:13px 16px}
+  .public-request-card-head span{font-size:13px}
+  .public-request-card-head strong{font-size:23px}
+  .public-request-card-body>div{grid-template-columns:105px minmax(0,1fr);gap:12px;min-height:56px;padding:12px 16px}
+  .public-request-card-body span{font-size:13px}
+  .public-request-card-body b{font-size:15px}
 }
+
+/* ===== Complaint form: simple white / black ===== */
+#submit .complaint-card{padding:35px;background:#fff;border:1px solid #e2e7e4;border-radius:24px;box-shadow:0 10px 34px rgba(18,69,44,.08);overflow:visible}
+#submit .complaint-card h3{color:#18231d}
+#submit .field label{color:#202822;font-size:14px}
+#submit .field input,#submit .field select,#submit .field textarea{background:#fff;border:1px solid #cfd7d2;color:#172019;box-shadow:none}
+#submit .field input:focus,#submit .field select:focus,#submit .field textarea:focus{background:#fff;border-color:#222;box-shadow:0 0 0 3px rgba(0,0,0,.06)}
+#submit .image-help{color:#69736d}
+@media(max-width:760px){#submit .complaint-card{padding:23px 18px}}
 
 </style>
 </head>
@@ -1485,14 +1493,6 @@ html,body{width:100%;max-width:100%;overflow-x:hidden}
           <input type="file" id="complaintImages" accept="image/jpeg,image/png,image/webp" multiple>
           <div class="image-help">รองรับ JPG, PNG, WEBP ขนาดไม่เกิน 8 MB ต่อรูป</div>
         </div>
-        <label class="consent">
-          <input type="checkbox" id="complaintConsent">
-          <span>
-            ข้าพเจ้ายืนยันว่าข้อมูลข้างต้นเป็นความจริง
-            และยินยอมให้องค์การบริหารส่วนตำบลชำผักแพว
-            ใช้ข้อมูลดังกล่าวเพื่อดำเนินการเกี่ยวกับคำร้องนี้
-          </span>
-        </label>
         <div class="message-box" id="submitMessage"></div>
         <button
           class="btn btn-primary full-btn"
@@ -1923,9 +1923,9 @@ function renderPublicRows(list){
   tbody.innerHTML=sorted.map(item=>{
     const status=escapeHTML(item.status||"รับเรื่องแล้ว");
     return `<tr class="request-card-row"><td colspan="7">
-      <article class="complaint-card">
-        <div class="complaint-card-head"><span>เลขคำร้อง</span><strong>${escapeHTML(item.ticketNo||"-")}</strong></div>
-        <div class="complaint-card-body">
+      <article class="public-request-card">
+        <div class="public-request-card-head"><span>เลขคำร้อง</span><strong>${escapeHTML(item.ticketNo||"-")}</strong></div>
+        <div class="public-request-card-body">
           <div><span>วันที่ร้อง</span><b>${escapeHTML(item.date||"-")}</b></div>
           <div><span>ชื่อผู้ร้อง</span><b>${escapeHTML(item.name||"-")}</b></div>
           <div><span>สถานที่</span><b>${escapeHTML(item.address||"-")}</b></div>
@@ -2133,17 +2133,6 @@ function reviewComplaint(){
     );
     return;
   }
-  if(
-    !document
-      .getElementById("complaintConsent")
-      .checked
-  ){
-    setMessage(
-      "submitMessage",
-      "กรุณายืนยันความถูกต้องของข้อมูลก่อนดำเนินการต่อ"
-    );
-    return;
-  }
   document.getElementById("reviewName").textContent =
     data.name;
   document.getElementById("reviewPhone").textContent =
@@ -2320,8 +2309,6 @@ function resetComplaintForm(){
   document.getElementById("complaintAddress").value = "";
   document.getElementById("complaintCategory").value = "";
   document.getElementById("complaintDetail").value = "";
-  document.getElementById("complaintConsent").checked =
-    false;
   document
     .getElementById("successBox")
     .classList.remove("show");
